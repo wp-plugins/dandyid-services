@@ -2,7 +2,7 @@
 Contributors: Neil Simon, Sara Czyzewicz, Arron Kallenberg
 Tags: Blogger, Brightkite, claimID, community, DandyID, Delicious, Digg, Disqus, Dopplr, Facebook, Finetune, Flickr, FriendFeed, Goodreads, Graph, Hulu, identity, Jaiku, Lijit, LinkedIn, manage, MyBlogLog, Myspace, OAuth, OpenID, Pandora, Plaxo, Plurk, profile, Reddit, Seesmic, services, sidebar, social, StumbleUpon, Technorati, Tumblr, Twitter, YouTube, Upcoming, widget
 Requires at least: 2.0
-Tested up to: 2.6.2
+Tested up to: 2.7
 Stable tag: trunk
 
 DandyID provides one place to manage you and your relationships online.
