@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: DandyID Services
-Plugin URI: http://www.dandyid.org/dandyid-services-wordpress-plugin/
+Plugin URI: http://solidcode.com/
 Description: Retrieves <a href="http://dandyid.org">DandyID</a> services for the configured user and displays them in the sidebar. After activating this plugin, please visit the <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> page to configure the DandyID required settings.
 Version: 1.0.1
 Author: Neil Simon
