@@ -36,21 +36,19 @@ It's easy, too:
 
 To learn more and try it out, please visit [DandyID](http://www.dandyid.org/).
 
-Follow [@DandyID](http://twitter.com/dandyid) on Twitter. 
+For the latest news, follow [@DandyID](http://twitter.com/dandyid) on Twitter. 
 
 = What is the DandyID Services Plugin ? =
 
 The plugin accesses your DandyID online identities and displays them in a sidebar widget, providing clickable links to all of your blog readers!
 
-When you update your services on DandyID, they are updated in your sidebar widget automatically!
+When you update your services on DandyID, they are updated in your sidebar widget automatically.
 
-*Note: The plugin uses a caching mechanism, reducing page-load times by only retrieving your DandyID online identity list ONCE per day (at most). This occurs the first time your blog is accessed on any given day.*
+*Note: The plugin uses a caching mechanism, reducing page-load times by only retrieving your DandyID online identity list once per day.*
 
 == Installation ==
 
-*If you are upgrading from a previous version:
-   - Deactivate the DandyID Services plugin.
-   - Delete the DandyID Services plugin folder from your server.*
+*Note: If you are upgrading from a previous version, Deactivate the old DandyID Services plugin first.*
 
 1. Upload the DandyID Services plugin folder to /wp-content/plugins/ 
 
