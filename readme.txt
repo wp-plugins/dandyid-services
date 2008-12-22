@@ -1,4 +1,4 @@
-== DandyID Services ==
+=== DandyID Services ===
 Contributors: Neil Simon, Sara Czyzewicz, Arron Kallenberg
 Tags: dandyid, oath, openid, social, community, identity, widget, sidebar, graph, manage, profile, services, twitter, facebook, flickr, linkedin, delicious, brightkite, youtube, friendfeed, digg, myspace, ebay, hulu, stumbleupon, technorati, tumblr, mybloglog, dopplr, plurk, pandora, goodreads, finetune, jaiku, lijit, seesmic, claimid, disqus, plaxo, reddit, blogger, upcoming 
 Requires at least: 2.0
