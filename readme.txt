@@ -11,9 +11,9 @@ Access all of your online identities (Twitter, Facebook, Flickr, more) and displ
 
 = What is DandyID ? =
 
-[DandyID](http://www.dandyid.org/) is a free service that enables you to connect ALL of your online identities and make them globally accessible using your e-mail address.
+[DandyID](http://www.dandyid.org/) is a free service that enables you to connect all of your online identities and make them globally accessible using your e-mail address.
 
-With DandyID, your e-mail address serves as a SINGLE ACCESS POINT to all of your online identities:
+With DandyID, your e-mail address serves as a **single access point**  to all of your online identities:
 
 * Twitter
 * Facebook
@@ -26,7 +26,7 @@ With DandyID, your e-mail address serves as a SINGLE ACCESS POINT to all of your
 * Digg
 * last.fm
 * MySpace
-* and MANY more
+* and many more
 
 It's easy, too:
 
@@ -38,13 +38,13 @@ To learn more, please visit [DandyID](http://www.dandyid.org/).
 
 For the latest news, follow [@DandyID](http://twitter.com/dandyid) on Twitter. 
 
-= What is the DandyID Services Plugin ? =
+= Why use the DandyID Services Plugin ? =
 
-The plugin accesses your DandyID online identities and displays them in your sidebar, providing clickable links to all of your blog readers!
+The plugin retrieves your DandyID online identities and displays them in your sidebar, providing **clickable links** to all of your blog readers!
 
-When you update your services on DandyID, they are updated in your sidebar automatically.
+When you update your services on DandyID, they are updated in your sidebar **automatically**.
 
-*Note: The plugin uses a caching mechanism, reducing page-load times by only retrieving your DandyID online identity list once per day.*
+*Note: The plugin uses a caching mechanism, reducing page-load times by retrieving your DandyID online identity list only once per day.*
 
 == Installation ==
 
