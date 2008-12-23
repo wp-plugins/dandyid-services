@@ -44,34 +44,34 @@ The plugin retrieves your DandyID online identities and displays them in your si
 
 When you update your services on DandyID, they are updated in your sidebar **automatically**.
 
-*Note: The plugin uses a caching mechanism, reducing page-load times by retrieving your DandyID online identity list only once per day.*
+*Note: The plugin uses a caching mechanism, reducing page-load times by retrieving your list of DandyID online identities only once per day.*
 
 == Installation ==
 
 *Note: If you are upgrading from a previous version, Deactivate the previous DandyID Services plugin first.*
 
-1. Upload the DandyID Services plugin folder to /wp-content/plugins/ 
+1. Upload the DandyID Services plugin folder to **/wp-content/plugins/**
 
 2. Login to your WP admin web page.
 
 3. Activate the DandyID Services plugin:
-   - Click on the "Plugins" tab.
+   - Click on the **Plugins** tab.
    - Find DandyID Services in the list of Inactive Plugins (or Recently Active Plugins).
-   - Click on "Activate" to activate the DandyID Services plugin.
+   - Click on **Activate** to activate the DandyID Services plugin.
 
 4. Configure the DandyID Services plugin:
-   - Click on the "Settings" tab.
-   - Click on the "DandyID Services" subtab.
+   - Click on the **Settings** tab.
+   - Click on the **DandyID Services** subtab.
    - Enter your DandyID Service Options -- all fields are required.
-   - Press the "Save" button to save your DandyID Service Options.
+   - Press the **Save** button to save your DandyID Service Options.
 
 5. Setup the DandyID Services plugin to appear on your sidebar:
-   - Click on the "Design" tab.
-   - Click on the "Widgets" subtab.
-   - On the left side, next to DandyID Services, click on "Add" to make it appear in the list of "Current Widgets".
-   - Click on "Save Changes".
+   - Click on the **Design** tab.
+   - Click on the **Widgets** subtab.
+   - On the left side, next to DandyID Services, click on **Add** to make it appear in the list of **Current Widgets**.
+   - Click on **Save Changes**.
 
-6. The plugin is now ready, and your DandyID Services should appear in your sidebar.
+6. Your DandyID online identities should appear as a list of clickable links your sidebar.
 
 == Screenshots ==
 
