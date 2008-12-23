@@ -75,6 +75,6 @@ When you update your services on DandyID, they are updated in your sidebar **aut
 
 == Screenshots ==
 
-1. An example of the sidebar widget.
+1. Online identities shown in the sidebar. Twitter, for example, links to [http://twitter.com/neilsimon](http://twitter.com/neilsimon).
 
-2. The Wordpress admin settings page.
+2. The DandyID Services settings page.
