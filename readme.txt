@@ -5,7 +5,7 @@ Requires at least: 2.0
 Tested up to: 2.7
 Stable tag: trunk
 
-Access all of your online identities (Twitter, Facebook, Flickr, more) and display them as clickable links in your sidebar.
+Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, Delicious, YouTube, more) as clickable links in your sidebar.
 
 == Description ==
 
