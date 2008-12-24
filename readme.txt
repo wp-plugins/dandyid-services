@@ -5,7 +5,7 @@ Requires at least: 2.0
 Tested up to: 2.7
 Stable tag: trunk
 
-Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, Delicious, YouTube, Brightkite, more) as clickable links in your sidebar.
+Displays ALL of your online identities (Twitter, Facebook, Flickr, LinkedIn, Delicious, YouTube, Brightkite, more) as clickable links in your sidebar.
 
 == Description ==
 
@@ -15,18 +15,147 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, Del
 
 With DandyID, your e-mail address serves as a **single access point**  to all of your online identities:
 
-* Twitter
-* Facebook
-* Flickr
-* LinkedIn
-* Delicious
-* YouTube
+* 30 Boxes
+* 43 People
+* 43 Places
+* 43 Things
+* ActiveRain
+* AIM
+* All Consuming
+* Amazon
+* Ask500People
+* Bebo
+* Blinklist
+* Blip.tv
+* Blippr
+* Blogger
+* Blue Dot
+* Break
 * Brightkite
-* FriendFeed
+* Bring Light
+* Bungie.net
+* Change.org
+* Chickipedia
+* claimID
+* Clipmarks
+* Cluztr
+* coComment
+* Corkd
+* Crackle
+* Crusher
+* Curse
+* Dailymotion
+* Delicious
+* deviantART
+* digFoot
 * Digg
+* Diigo
+* Disqus
+* Dodgeball
+* Dopplr
+* Dotspotter
+* Ebay
+* esnips
+* Facebook
+* Finetune
+* Flickr
+* Flixster
+* Fotolog
+* FriendFeed
+* Friendster
+* Funny or Die
+* Furl
+* Fuzz
+* GameSpot
+* Get Satisfaction
+* Glogster
+* Goodreads
+* Google Reader
+* Groovr
+* Guitar Hero
+* Gyminee
+* hi5
+* HelloTxt
+* Howcast
+* Hulu
+* Hype Machine
+* identi.ca
+* identoo
+* iJigg
+* iminta
+* Instructables
+* Intense Debate
+* iReport
+* Jaiku
+* Jumpcut
+* Kiva
 * last.fm
+* lifestream.fm
+* Lijit
+* LinkedIn
+* LiveJournal
+* Ma.gnolia
+* Multiply
+* MyBlogLog
+* My Mashable
 * MySpace
-* and many more
+* Netflix
+* Newsvine
+* Ning
+* Pandora
+* Photobucket
+* Plaxo
+* Plurk
+* Propeller
+* QIK
+* Reddit
+* RI Nexus
+* RockBand
+* Shelfari
+* Seesmic
+* Skitch
+* SlideShare
+* Socialthing
+* soup.io
+* Squidoo
+* Streem
+* Stumbleupon
+* Swurl
+* Technorati
+* The DJ List
+* Thesixtyone
+* ThisNext
+* Threadless
+* TripAdvisor
+* Tripit
+* Trulia
+* Tumblr
+* Twine
+* Twitpic
+* Twitter
+* Twitxr
+* TypeKey
+* Upcoming
+* Veoh
+* Viddler
+* Vimeo
+* Virb
+* Vi.sualize.us
+* Vox
+* Wakoopa
+* We Heart It
+* Webshots
+* Wink
+* Xbox LIVE
+* Yahoo! 360
+* Yahoo! Answers
+* Yahoo! Live
+* Yelp
+* YouTube
+* YowTrip
+* Zillow
+* Zorpia
+* more being added daily
 
 It's easy, too:
 
