@@ -9,7 +9,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 == Description ==
 
-[DandyID](http://dandyid.org/) is a free service that enables you to easily connect all of your online identities.
+**[DandyID](http://dandyid.org/) is a free service that enables you to easily connect all of your online identities.**
 
 **The DandyID Services plugin:**
 
