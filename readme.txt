@@ -5,17 +5,21 @@ Requires at least: 2.0
 Tested up to: 2.7
 Stable tag: trunk
 
-Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, Delicious, YouTube, Brightkite, more) as clickable links in your sidebar.
+Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, YouTube, more) as clickable links in your sidebar.
 
 == Description ==
 
-[DandyID](http://www.dandyid.org/) is a free service that enables you to connect all of your online identities and make them globally accessible using your e-mail address.
+[DandyID](http://dandyid.org/) is a free service that enables you to easily connect all of your online identities.
 
-This plugin retrieves all of your online identities from DandyID and displays them in your sidebar, providing **clickable links** to your blog visitors.
+The DandyID Services plugin:
 
-**When you update your services on DandyID, they are updated automatically in your sidebar.**
+ * Retrieves your online identities from [DandyID](http://dandyid.org/).
+ * Displays them in your sidebar as convenient **clickable links**.
+ * *Please see the **Screenshots** for an example.*
 
-DandyID currently supports these services:
+**When you update your online identities on [DandyID](http://dandyid.org/), they will be AUTOMATICALLY updated in your sidebar.**
+
+[DandyID](http://dandyid.org/) currently supports:
 
 * 30 Boxes
 * 43 People
@@ -157,7 +161,7 @@ DandyID currently supports these services:
 * YowTrip
 * Zillow
 * Zorpia
-* more being added daily
+* more being added
 
 To learn more, please visit [DandyID](http://www.dandyid.org/).
 
