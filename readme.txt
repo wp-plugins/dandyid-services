@@ -15,9 +15,17 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, Del
 
 With DandyID, your e-mail address serves as a **single access point**  to all of your online identities:
 
-<table border=0>
-  <tr><td>item 1</td><td>item 2</td><td>item 3</td></tr>
-  <tr><td>item 4</td><td>item 5</td><td>item 6</td></tr>
+<table border=0 cellpadding=4>
+  <tr>
+    <td>&bull; item 1</td>
+    <td>&bull; item 2</td>
+    <td>&bull; item 3</td>
+  </tr>
+  <tr>
+    <td>&bull; item 4</td>
+    <td>&bull; item 5</td>
+    <td>&bull; item 6</td>
+  </tr>
 </table>
 
 * 30 Boxes
