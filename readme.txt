@@ -5,7 +5,7 @@ Requires at least: 2.0
 Tested up to: 2.7
 Stable tag: trunk
 
-Displays ALL of your online identities (Twitter, Facebook, Flickr, LinkedIn, Delicious, YouTube, Brightkite, more) as clickable links in your sidebar.
+Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, Delicious, YouTube, Brightkite, more) as clickable links in your sidebar.
 
 == Description ==
 
@@ -14,6 +14,11 @@ Displays ALL of your online identities (Twitter, Facebook, Flickr, LinkedIn, Del
 [DandyID](http://www.dandyid.org/) is a free service that enables you to connect all of your online identities and make them globally accessible using your e-mail address.
 
 With DandyID, your e-mail address serves as a **single access point**  to all of your online identities:
+
+<table border=0>
+  <tr><td>item 1</td><td>item 2</td><td>item 3</td></tr>
+  <tr><td>item 4</td><td>item 5</td><td>item 6</td></tr>
+</table>
 
 * 30 Boxes
 * 43 People
