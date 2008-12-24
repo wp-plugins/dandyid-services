@@ -9,24 +9,11 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, Del
 
 == Description ==
 
-= What is DandyID ? =
+= What is DandyID ? =  
 
 [DandyID](http://www.dandyid.org/) is a free service that enables you to connect all of your online identities and make them globally accessible using your e-mail address.
 
 With DandyID, your e-mail address serves as a **single access point**  to all of your online identities:
-
-<table border=0 cellpadding=4>
-  <tr>
-    <td>&bull; item 1</td>
-    <td>&bull; item 2</td>
-    <td>&bull; item 3</td>
-  </tr>
-  <tr>
-    <td>&bull; item 4</td>
-    <td>&bull; item 5</td>
-    <td>&bull; item 6</td>
-  </tr>
-</table>
 
 * 30 Boxes
 * 43 People
@@ -180,13 +167,17 @@ To learn more, please visit [DandyID](http://www.dandyid.org/).
 
 For the latest news, follow [@DandyID](http://twitter.com/dandyid) on Twitter. 
 
-= Why use the DandyID Services Plugin ? =
+***
+
+= Why use the DandyID Services Plugin ? =  
 
 The plugin retrieves your DandyID online identities and displays them in your sidebar, providing **clickable links** to all of your blog readers!
 
 When you update your services on DandyID, they are updated in your sidebar **automatically**.
 
 *Note: The plugin uses a caching mechanism, reducing page-load times by retrieving your list of DandyID online identities only once per day.*
+
+***
 
 == Installation ==
 
