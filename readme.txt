@@ -194,7 +194,7 @@ For the latest news, follow [@DandyID](http://twitter.com/dandyid) on Twitter.
 
 = How often does the plugin retrieve my list of DandyID services ? =
 
-The plugin retrieves your DandyID services only once per day. This helps pages load much faster.
+Only once per day. This is for performance and helps blog pages load **much** faster.
 
 = If I update my services on DandyID, does the plugin wait until the next day to retrieve them ? =
 
@@ -202,6 +202,7 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 == Screenshots ==
 
-1. Online identities shown in the sidebar. Twitter, for example, links to [http://twitter.com/neilsimon](http://twitter.com/neilsimon).
+1. Online identities shown in the sidebar.
+   Twitter, for example, links to [http://twitter.com/neilsimon](http://twitter.com/neilsimon).
 
 2. The DandyID Services settings page.
