@@ -11,7 +11,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 [DandyID](http://dandyid.org/) is a free service that enables you to easily connect all of your online identities.
 
-The DandyID Services plugin:
+**The DandyID Services plugin:**
 
  * Retrieves your online identities from [DandyID](http://dandyid.org/).
  * Displays them in your sidebar as convenient **clickable links**.
@@ -19,7 +19,7 @@ The DandyID Services plugin:
 
 **When you update your online identities on [DandyID](http://dandyid.org/), they will be AUTOMATICALLY updated in your sidebar.**
 
-[DandyID](http://dandyid.org/) currently supports:
+**[DandyID](http://dandyid.org/) currently supports:**
 
 * 30 Boxes
 * 43 People
