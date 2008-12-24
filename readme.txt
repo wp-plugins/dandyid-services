@@ -17,7 +17,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
  * Displays them in your sidebar as convenient **clickable links**.
  * *Please see the **Screenshots** for an example.*
 
-**When you update your online identities on [DandyID](http://dandyid.org/), they will be AUTOMATICALLY updated in your sidebar.**
+**When you update your online identities on [DandyID](http://dandyid.org/), they will be updated automatically in your sidebar.**
 
 **[DandyID](http://dandyid.org/) currently supports:**
 
