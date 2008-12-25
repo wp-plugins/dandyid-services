@@ -209,3 +209,8 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 1. Online identities shown in the sidebar. Twitter, for example, links to [http://twitter.com/neilsimon](http://twitter.com/neilsimon).
 
 2. The DandyID Services settings page.
+
+== ChangeLog ==
+
+* **1.0.1**
+  - Initial revision.
