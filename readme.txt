@@ -212,5 +212,5 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 == Change History ==
 
-**Rev 1.0.1  2008-Dec-25**
-  - Initial revision.
+**Rev 1.0.1   2008-Dec-25**
+* Initial revision.
