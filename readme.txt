@@ -210,7 +210,7 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 2. The DandyID Services settings page.
 
-== ChangeLog ==
+== ChangeHistory ==
 
-* **1.0.1**
+* **Rev 1.0.1  2008-Dec-25**
   - Initial revision.
