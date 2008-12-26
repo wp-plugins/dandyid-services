@@ -15,9 +15,9 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
  * Retrieves your online identities from [DandyID](http://dandyid.org/).
  * Displays them in your sidebar as convenient **clickable links**.
- * *Please see the **Screenshots** for an example.*
+ * *Please see the [Screenshots](http://wordpress.org/extend/plugins/dandyid-services/screenshots/) for an example.*
 
-**When you update your online identities on [DandyID](http://dandyid.org/), they will be updated automatically in your sidebar.**
+**When you update your online identities on [DandyID](http://dandyid.org/), they are automatically updated in your sidebar.**
 
 **[DandyID](http://dandyid.org/) currently supports:**
 
@@ -169,7 +169,7 @@ For the latest news, follow [@DandyID](http://twitter.com/dandyid) on Twitter.
 
 == Installation ==
 
-*If you are upgrading from a previous version, Deactivate the previous DandyID Services plugin first.*
+*If you are upgrading, please **Deactivate** the previous DandyID Services plugin first.*
 
 1. Upload the DandyID Services plugin folder to **/wp-content/plugins/**
 
