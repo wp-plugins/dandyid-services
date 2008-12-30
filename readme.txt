@@ -206,11 +206,18 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 == Screenshots ==
 
-1. Online identities shown in the sidebar. Twitter, for example, links to [http://twitter.com/neilsimon](http://twitter.com/neilsimon).
+1. Favicons with text links shown in the sidebar.
 
-2. The DandyID Services settings page.
+2. Favicons-only shown in the sidebar.
+
+3. The DandyID Services settings page.
 
 == Change History ==
+
+**Rev 1.0.3**  2008-Dec-29
+
+* Added ability for plugin to gracefully handle DandyID host server down.
+* Added ability for plugin to gracefully handle DandyID API url unavailable.
 
 **Rev 1.0.2**  2008-Dec-28
 
