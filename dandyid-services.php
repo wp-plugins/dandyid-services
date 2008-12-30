@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://solidcode.com/
 Description: Retrieves <a href="http://dandyid.org">DandyID</a> services for the configured user and displays them in the sidebar. After activating this plugin, please visit the <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> page to configure the DandyID required settings.
-Version: 1.0.2
+Version: 1.0.3
 Author: Neil Simon
 Author URI: http://solidcode.com/
 */
@@ -41,8 +41,8 @@ define ('DANDYID_PROFILE_URL',              'http://www.dandyid.org/beta/users/u
 define ('DANDYID_MINI',                     'http://www.dandyid.org/code/images/miscellaneous/favicons/dandyidmini.png');
 define ('DANDYID_API_KEY',                  '17ps6defe5fnem02czzsv95771wu4qe5w5x3');
 define ('DANDYID_API_TOKEN',                'hbhvfwjuitwvsvoo5suatq6xgj2cnye6av1p');
-define ('DANDYID_API_URL',                  'http://www.dandyid.org/api/');
 define ('DANDYID_WP_OPTIONS',               'dandyID_options');
+define ('DANDYID_API_URL',                  'http://www.dandyid.org/api/');
 
 
 function dandyIDServices_getTable ()
@@ -50,31 +50,48 @@ function dandyIDServices_getTable ()
     // Initialize output buffer (returned by this function)
     $buf = '';
 
-    // Get the currentDate and the cacheFileDate
-    $currentDate   = date ('Y-m-d');
-    $cacheFileDate = date ('Y-m-d', @filemtime (DANDYID_CACHE_FILE));
-
-    // If the dates do not match...
-    if ($cacheFileDate != $currentDate)
+    // If the cache file does not exist
+    if (file_exists (DANDYID_CACHE_FILE) == FALSE)
         {
-        // Refresh the cache file
+        // Force the cache file to be created
         dandyIDServices_refreshCacheFile ();
+        }
+
+    else
+        {
+        // Get the currentDate and the cacheFileDate
+        $currentDate   = date ('Y-m-d');
+        $cacheFileDate = date ('Y-m-d', @filemtime (DANDYID_CACHE_FILE));
+
+        // If the dates do not match...
+        if ($cacheFileDate != $currentDate)
+            {
+            // Overwrite the existing cache file
+            dandyIDServices_refreshCacheFile ();
+            }
         }
 
     // Load existing options from wp database/
     $dandyID_options = get_option (DANDYID_WP_OPTIONS);
 
-    // Always populate the DandyID sidebar fields from the cache file -- NEVER from the API directly
-    if (($hCacheFile = fopen (DANDYID_CACHE_FILE, 'r')) == FALSE)
+    // Display the DandyID-Mini chicklet, with link to the users profile
+    $buf .= '<a href="' . DANDYID_PROFILE_URL . $dandyID_options ['user_id'] .
+            '"><img src="' . DANDYID_MINI . '" /></a>&nbsp;';
+
+    // If the cache file does not exist...
+    if (file_exists (DANDYID_CACHE_FILE) == FALSE)
         {
-        $buf .= 'Warning: Unable to load DandyID Services. Please contact nsimon[at]solidcode dotcom for help.<br />';
+        // skip it. no need to fail. no services will be shown -- that's ok.
         }
+
+    // If unable to successfully open the cache file...
+    else if (($hCacheFile = fopen (DANDYID_CACHE_FILE, 'r')) == FALSE)
+        {
+        // skip it. no need to fail. no services will be shown -- that's ok.
+        }
+
     else
         {
-        // Display the DandyID-Mini chicklet, with link to the users profile
-        $buf .= '<a href="' . DANDYID_PROFILE_URL . $dandyID_options ['user_id'] .
-                '"><img src="' . DANDYID_MINI . '" /></a>&nbsp; &nbsp;';
-
         // Only use the <table> tag if (show_text_links == TRUE)
         if ($dandyID_options ['show_text_links'] == TRUE)
             {
@@ -89,30 +106,33 @@ function dandyIDServices_getTable ()
             $cacheSvcName    = $cacheCSVLine [1];
             $cacheSvcFavicon = $cacheCSVLine [2];
 
+            // Either show favicon AND text link...
             if ($dandyID_options ['show_text_links'] == TRUE)
                 {
+                // Each table row will have 2 columns: svcFavicon, svcName (each links to user service url)
 
-                // Add table row with 2 columns: svcFavicon, svcName (each links to user service url)
-                //   Column 1: Service Favicon
+                // Column 1: Service Favicon
                 $buf .= '<tr>';
                 $buf .= '  <td><a href="' . $cacheUrl        . '" rel="me">' . 
                               '<img id="' . $cacheSvcName    . '" ' .
                               '    src="' . $cacheSvcFavicon . '" ' . 
                               '    alt="' . $cacheSvcName    . '" /></a></td>';
 
-                //   Column 2: Service Name
+                // Column 2: Service Name
                 $buf .= '  <td>&nbsp;<a href="' . $cacheUrl     . '" rel="me">' .
                                                   $cacheSvcName . '</a></td>';
 
                 $buf .= '</tr>';
                 }
+
+            // ... or only show the favicon
             else
                 {
-                // Only show the favicon - let them wrap lines
+                // let them wrap lines
                 $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
                         '<img id="' . $cacheSvcName    . '" ' .
                         '    src="' . $cacheSvcFavicon . '" ' . 
-                        '    alt="' . $cacheSvcName    . '" /></a>&nbsp; &nbsp;';
+                        '    alt="' . $cacheSvcName    . '" /></a>&nbsp;';
                 }
             }
 
@@ -125,11 +145,11 @@ function dandyIDServices_getTable ()
             $buf .= '&nbsp;Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
             }
 
-        // Force a newline after the last line
-        $buf .= '<br />';
-
         fclose ($hCacheFile);
         }
+
+    // Force a newline after the last line
+    $buf .= '<br />';
 
     // $buf will be displayed in the sidebar
     return ($buf);
@@ -165,37 +185,50 @@ function dandyIDServices_refreshCacheFile ()
     $cDandyID->sync_user ();
 
     // Get the dandy services for the user -- returned as XML
-    $return_services_response = $cDandyID->return_services ();
-
-    // Prepare to parse the XML
-    $return_services_xml = new SimpleXMLElement ($return_services_response);
-
-    // Create (or overwrite existing) cache file
-    if (($hCacheFile = fopen (DANDYID_CACHE_FILE, 'w+')) != FALSE)
+    if (($return_services_response = $cDandyID->return_services ()) == FALSE)
         {
-        // Parse values -- service by service
-        foreach ($return_services_xml->service as $service)
+        // This can happen when the site is found, but the API is down
+        // Leave the existing cacheFile intact -- just exit
+        }
+
+    elseif (strpos ($return_services_response, "Not Found"))
+        {
+        // This can happen when the site is NOT found
+        // Leave the existing cacheFile intact -- just exit
+        }
+
+    else
+        {
+        // Prepare to parse the XML
+        $return_services_xml = new SimpleXMLElement ($return_services_response);
+
+        // Create (or overwrite existing) cache file
+        if (($hCacheFile = fopen (DANDYID_CACHE_FILE, 'w+')) != FALSE)
             {
-            // Get the dandy service detail for the service
-            $service_details_response = $cDandyID->service_details ($service->svcId);
+            // Parse values -- service by service
+            foreach ($return_services_xml->service as $service)
+                {
+                // Get the dandy service detail for the service
+                $service_details_response = $cDandyID->service_details ($service->svcId);
 
-            // Prepare XML return_services_response for parsing
-            $service_details_xml = new SimpleXMLElement ($service_details_response);
+                // Prepare XML return_services_response for parsing
+                $service_details_xml = new SimpleXMLElement ($service_details_response);
 
-            // Write each line as CSV - for easy parsing via fgetcsv()
-            fprintf ($hCacheFile, "%s, %s, %s\n",
-                     $service->url,                               // ex, http://twitter.com/neilsimon
-                     $service->svcName,                           // ex. Twitter
-                     $service_details_xml->service->svcFavicon);  // ex. http://www.dandyid.org/.../twitter.png
-            }
+                // Write each line as CSV - for easy parsing via fgetcsv()
+                fprintf ($hCacheFile, "%s, %s, %s\n",
+                         $service->url,                               // ex, http://twitter.com/neilsimon
+                         $service->svcName,                           // ex. Twitter
+                         $service_details_xml->service->svcFavicon);  // ex. http://www.dandyid.org/.../twitter.png
+                }
 
-        fclose ($hCacheFile);
+            fclose ($hCacheFile);
 
-        // WP creates a cached-copy of our cache file -- wtf?
-        // So... we need to deleting it (upon our refresh), and WP will cache the new file
-        if (file_exists (DANDYID_WP_AUTOCOPIED_CACHE_FILE))
-            {
-            unlink (DANDYID_WP_AUTOCOPIED_CACHE_FILE);
+            // WP creates a cached-copy of our cache file -- wtf?
+            // So... we need to deleting it (upon our refresh), and WP will cache the new file
+            if (file_exists (DANDYID_WP_AUTOCOPIED_CACHE_FILE))
+                {
+                unlink (DANDYID_WP_AUTOCOPIED_CACHE_FILE);
+                }
             }
         }
     }
@@ -252,11 +285,23 @@ function dandyIDServices_updateOptionsPage ()
         // Store changed options back to wp database
         update_option (DANDYID_WP_OPTIONS, $dandyID_options);
 
-        // Create the initial cache file
+        // Force the cache file to be created (or overwritten)
         dandyIDServices_refreshCacheFile ();
 
         // Display update message to user
         echo '<div id="message" class="updated fade"><p>' . "DandyID Service options saved successfully." . '</p></div>';
+        }
+
+    // Set variable for form to use to show sticky-value for radio button
+    if ($dandyID_options ['show_text_links'] == TRUE)
+        {
+        $showFavsAndText = "checked";
+        $showFavsOnly    = "";
+        }
+    else
+        {
+        $showFavsAndText = "";
+        $showFavsOnly    = "checked";
         }
 
     // Display the DandyID Service Options form to the user
@@ -298,10 +343,10 @@ function dandyIDServices_updateOptionsPage ()
 
       &nbsp; &nbsp;
 
-      <input type="radio" name="show_text_links" value="TRUE"  checked />
-      Show Favicons AND Text Links &nbsp; &nbsp; &nbsp;
+      <input type="radio" name="show_text_links" value="TRUE"  ' . $showFavsAndText . ' />
+      Show Favicons and Text Links &nbsp; &nbsp; &nbsp;
 
-      <input type="radio" name="show_text_links" value="FALSE" />
+      <input type="radio" name="show_text_links" value="FALSE" ' . $showFavsOnly    . ' />
       Show Favicons only
 
       <p>&nbsp;&nbsp;<input type="submit" value="Save" /></p>
@@ -320,7 +365,7 @@ function dandyIDServices_addOptions ()
     $dandyID_initial_options = array ('email_address'   => '',
                                       'password'        => '',
                                       'user_id'         => '',
-                                      'show_text_links' => '',
+                                      'show_text_links' => 'TRUE',
                                       'sidebarTitle'    => '');
 
     // Store the initial array to the wp database
