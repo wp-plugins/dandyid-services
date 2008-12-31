@@ -1,6 +1,6 @@
 === DandyID Services ===
 Contributors: Neil Simon, Sara Czyzewicz, Arron Kallenberg
-Tags: admin, bookmark, bookmarking, bookmarks, community, Dandy, DandyID, Delicious, email, e-mail, Facebook, Flickr, identity, Google, LinkedIn, manage, myspace, OAuth, OpenID, profile, services, sidebar, social, social bookmarking, social bookmarks, Twitter, widget, Yahoo, YouTube
+Tags: admin, bookmark, bookmarking, bookmarks, community, Dandy, DandyID, Delicious, email, e-mail, favicon, favicons, Facebook, Flickr, identity, Google, LinkedIn, manage, myspace, OAuth, OpenID, profile, services, sidebar, social, social bookmarking, social bookmarks, Twitter, widget, Yahoo, YouTube
 Requires at least: 2.0
 Tested up to: 2.7
 Stable tag: trunk
@@ -13,13 +13,13 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 **The DandyID Services plugin:**
 
- * Retrieves your online identities from [DandyID](http://dandyid.org/).
+ * Retrieves your online identities from DandyID.
  * Displays them in your sidebar as convenient **clickable links**.
- * *Please see the [Screenshots](http://wordpress.org/extend/plugins/dandyid-services/screenshots/) for an example.*
+ * *Please see the [Screenshots](http://wordpress.org/extend/plugins/dandyid-services/screenshots/) for examples.*
 
-**When you update your online identities on [DandyID](http://dandyid.org/), they are automatically updated in your sidebar.**
+**When you update your online identities on DandyID, they are automatically updated in your sidebar.**
 
-**[DandyID](http://dandyid.org/) currently supports:**
+**DandyID currently supports:**
 
 * 30 Boxes
 * 43 People
@@ -214,7 +214,11 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 == Change History ==
 
-**Rev 1.0.3**  2008-Dec-29
+**Rev 1.0.4**  2008-Dec-31
+
+* Updated class.dandyid.php to increase PHP cross-platform compatibility.
+
+**Rev 1.0.3**  2008-Dec-30
 
 * Added ability for plugin to gracefully handle DandyID host server down.
 * Added ability for plugin to gracefully handle DandyID API url unavailable.

@@ -3,8 +3,8 @@
 /*
 Plugin Name: DandyID Services
 Plugin URI: http://solidcode.com/
-Description: Retrieves <a href="http://dandyid.org">DandyID</a> services for the configured user and displays them in the sidebar. After activating this plugin, please visit the <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> page to configure the DandyID required settings.
-Version: 1.0.3
+Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this plugin, (1) Go to <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> to configure the required settings, and (2) Go to <a href="widgets.php">Design -&gt; Widgets</a> to add DandyID Services to your sidebar.
+Version: 1.0.4
 Author: Neil Simon
 Author URI: http://solidcode.com/
 */
@@ -71,7 +71,7 @@ function dandyIDServices_getTable ()
             }
         }
 
-    // Load existing options from wp database/
+    // Load existing options from wp database
     $dandyID_options = get_option (DANDYID_WP_OPTIONS);
 
     // Display the DandyID-Mini chicklet, with link to the users profile
@@ -224,7 +224,7 @@ function dandyIDServices_refreshCacheFile ()
             fclose ($hCacheFile);
 
             // WP creates a cached-copy of our cache file -- wtf?
-            // So... we need to deleting it (upon our refresh), and WP will cache the new file
+            // So... we need to delete it (upon our refresh), and WP will cache the new file
             if (file_exists (DANDYID_WP_AUTOCOPIED_CACHE_FILE))
                 {
                 unlink (DANDYID_WP_AUTOCOPIED_CACHE_FILE);
@@ -237,30 +237,28 @@ function dandyIDServices_refreshCacheFile ()
 function dandyIDServices_initWidget ()
     {
     // MUST be able to register the widget... else exit
-    if (!function_exists ('register_sidebar_widget'))
+    if (function_exists ('register_sidebar_widget'))
         {
-        return;
+        // Declare function -- called from Wordpress -- during page-loads
+        function dandyIDServices_widget ($args)
+            {
+            // Load existing options from wp database
+            $dandyID_options = get_option (DANDYID_WP_OPTIONS);
+
+            // Accept parameter array passed-in from Wordpress (e.g. $before_widget, $before_title, etc.)
+            // Also, inherits theme CSS styles
+            extract ($args);
+
+            // Display sidebar title above the about-to-be-rendered dandy services table
+            echo $before_widget . $before_title . $dandyID_options ['sidebarTitle'] . $after_title;
+
+            // Dynamically build the table and display it
+            dandyIDServices_buildTable ();
+            }
+
+        // Register the widget function to be called from Wordpress on each page-load
+        register_sidebar_widget ('DandyID Services', 'dandyIDServices_widget');
         }
-
-    // Declare function -- called from Wordpress -- during page-loads
-    function dandyIDServices_widget ($args)
-        {
-        // Load existing options from wp database
-        $dandyID_options = get_option (DANDYID_WP_OPTIONS);
-
-        // Accept parameter array passed-in from Wordpress (e.g. $before_widget, $before_title, etc.)
-        // Also, inherits theme CSS styles
-        extract ($args);
-
-        // Display sidebar title above the about-to-be-rendered dandy services table
-        echo $before_widget . $before_title . $dandyID_options ['sidebarTitle'] . $after_title;
-
-        // Dynamically build the table and display it
-        dandyIDServices_buildTable ();
-        }
-
-    // Register the widget function to be called from Wordpress on each page-load
-    register_sidebar_widget ('DandyID Services', 'dandyIDServices_widget');
     }
 
 
@@ -275,7 +273,7 @@ function dandyIDServices_updateOptionsPage ()
         isset ($_POST ['user_id'])       &&
         isset ($_POST ['sidebarTitle']))
         {
-        //... copy it to the options array
+        //... copy the fields to the persistent wp options array
         $dandyID_options ['email_address']   = $_POST ['email_address'];
         $dandyID_options ['password']        = $_POST ['password'];
         $dandyID_options ['user_id']         = $_POST ['user_id'];
@@ -362,6 +360,7 @@ function dandyIDServices_addOptions ()
     // This is only called once, when the plugin is activated
 
     // Create the initial array of keys/values
+    // First time user sees form, default to "Show Favicons and Text Links"
     $dandyID_initial_options = array ('email_address'   => '',
                                       'password'        => '',
                                       'user_id'         => '',
