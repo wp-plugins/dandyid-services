@@ -3,22 +3,22 @@
 class dandyid
     {
     // Declare class data vars
-    private $api_key         = "";
-    private $api_token       = "";
-    private $site            = "";
-    private $postFields      = "";
-    private $urlAppend       = "";
-    private $user_identifier = "";
-    private $email_address   = "";
-    private $password        = "";
+    var $api_key         = "";
+    var $api_token       = "";
+    var $site            = "";
+    var $postFields      = "";
+    var $urlAppend       = "";
+    var $user_identifier = "";
+    var $email_address   = "";
+    var $password        = "";
 
 
-    public function __construct ()
+    function __construct ()
         {
         }
 
 
-    public function setAPIFields ($api_key, $api_token, $site)
+    function setAPIFields ($api_key, $api_token, $site)
         {
         $this->api_key   = $api_key;
         $this->api_token = $api_token;
@@ -26,7 +26,7 @@ class dandyid
         }
 
 
-    public function setUserFields ($user_identifier, $email_address, $password)
+    function setUserFields ($user_identifier, $email_address, $password)
         {
         $this->user_identifier = $user_identifier;
         $this->email_address   = $email_address;
@@ -34,7 +34,7 @@ class dandyid
         }
 
 
-    public function return_services ()
+    function return_services ()
         {
         // The URL being requested
         // http://www.dandyId.org/api/return_services/{api_key}/{user_identifier}
@@ -49,7 +49,7 @@ class dandyid
         }
 
 
-    public function service_details ($svcId)
+    function service_details ($svcId)
         {
         // The URL being requested
         // http://www.dandyId.org/api/service_details/{api_key}/{svcId}
@@ -64,7 +64,7 @@ class dandyid
         }
 
 
-    public function sync_user ()
+    function sync_user ()
         {
         // The URL being requested
         // http://www.dandyId.org/api/sync_user/{api_key}/{user_identifier}
@@ -81,7 +81,7 @@ class dandyid
         }
 
 
-    public function process ()
+    function process ()
         {
         // Create a new cURL resource
         $ch = curl_init ();
