@@ -3,8 +3,8 @@
 /*
 Plugin Name: DandyID Services
 Plugin URI: http://solidcode.com/
-Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this plugin, (1) Go to <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> to configure the required settings, and (2) Go to <a href="widgets.php">Design -&gt; Widgets</a> to add DandyID Services to your sidebar.
-Version: 1.0.5
+Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> to configure the required settings, and (2) Go to <a href="widgets.php">Design -&gt; Widgets</a> to add the DandyID Services sidebar widget to your sidebar.
+Version: 1.0.6
 Author: Neil Simon
 Author URI: http://solidcode.com/
 */
@@ -74,6 +74,9 @@ function dandyIDServices_getTable ()
     // Load existing options from wp database
     $dandyID_options = get_option (DANDYID_WP_OPTIONS);
 
+    // Begin div tag: "dandyIDSidebarIdentities" -- to enable css stying
+    $buf .= '<div class="dandyIDSidebarIdentities">';
+
     // Display the DandyID-Mini chicklet, with link to the users profile
     $buf .= '<a href="' . DANDYID_PROFILE_URL . $dandyID_options ['user_id'] .
             '"><img src="' . DANDYID_MINI . '" /></a>&nbsp;';
@@ -141,8 +144,14 @@ function dandyIDServices_getTable ()
             {
             $buf .= '</table>';
 
+            // Begin div tag: "dandyIDSidebarPoweredBy" -- to enable css stying
+            $buf .= '<div class="dandyIDSidebarPoweredBy">';
+
             // Display the bottom line "Powered by DandyID"
             $buf .= '&nbsp;Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
+
+            // End div tag: "dandyIDSidebarPoweredBy"
+            $buf .= '</div>';
             }
 
         fclose ($hCacheFile);
@@ -150,6 +159,9 @@ function dandyIDServices_getTable ()
 
     // Force a newline after the last line
     $buf .= '<br />';
+
+    // Close div tag: "dandyIDSidebarIdentities"
+    $buf .= '</div>';
 
     // $buf will be displayed in the sidebar
     return ($buf);
