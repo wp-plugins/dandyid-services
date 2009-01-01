@@ -216,7 +216,7 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 **Rev 1.0.6**  2009-Jan-01
 
-* Added <div class="dandyIDSidebarIdentities"> and <div class="dandyIDSidebarPoweredBy"> to enable external css styling. Thanks [@dtownsend](http://twitter.com/dtownsend). 
+* Added "dandyIDSidebarIdentities" and "dandyIDSidebarPoweredBy" to enable external css styling. Thanks [@dtownsend](http://twitter.com/dtownsend). 
 
 **Rev 1.0.5**  2009-Jan-01
 
