@@ -214,6 +214,10 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 == Change History ==
 
+**Rev 1.0.5**  2009-Jan-01
+
+* Suppress PHP error "failed to open stream: Permission denied" when creation of cache file fails.
+
 **Rev 1.0.4**  2008-Dec-31
 
 * Updated class.dandyid.php to increase PHP cross-platform compatibility.

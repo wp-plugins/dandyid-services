@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://solidcode.com/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this plugin, (1) Go to <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> to configure the required settings, and (2) Go to <a href="widgets.php">Design -&gt; Widgets</a> to add DandyID Services to your sidebar.
-Version: 1.0.4
+Version: 1.0.5
 Author: Neil Simon
 Author URI: http://solidcode.com/
 */
@@ -203,7 +203,14 @@ function dandyIDServices_refreshCacheFile ()
         $return_services_xml = new SimpleXMLElement ($return_services_response);
 
         // Create (or overwrite existing) cache file
-        if (($hCacheFile = fopen (DANDYID_CACHE_FILE, 'w+')) != FALSE)
+        // If (file cannot be opened/created)
+        //     {
+        //     could be a permission problem on the server
+        //     this may require "chmod +777" on the folder wp-admin -- needs further testing
+        //
+        //     for now, prepending an "@" to the fopen, to suppress a PHP error message from appearing
+        //     }
+        if (($hCacheFile = @fopen (DANDYID_CACHE_FILE, 'w+')) != FALSE)
             {
             // Parse values -- service by service
             foreach ($return_services_xml->service as $service)
