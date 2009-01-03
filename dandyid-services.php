@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://solidcode.com/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> to configure the required settings, and (2) Go to <a href="widgets.php">Design -&gt; Widgets</a> to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.0.6
+Version: 1.0.7
 Author: Neil Simon
 Author URI: http://solidcode.com/
 */
@@ -34,127 +34,100 @@ require_once 'class.dandyid.php';
 
 
 // Constants
-define ('DANDYID_CACHE_FILE',               './dandyid_cache.csv');
-define ('DANDYID_WP_AUTOCOPIED_CACHE_FILE', '../dandyid_cache.csv');
-define ('DANDYID_URL',                      'http://www.dandyid.org/');
-define ('DANDYID_PROFILE_URL',              'http://www.dandyid.org/beta/users/user_id/');
-define ('DANDYID_MINI',                     'http://www.dandyid.org/code/images/miscellaneous/favicons/dandyidmini.png');
-define ('DANDYID_API_KEY',                  '17ps6defe5fnem02czzsv95771wu4qe5w5x3');
-define ('DANDYID_API_TOKEN',                'hbhvfwjuitwvsvoo5suatq6xgj2cnye6av1p');
-define ('DANDYID_WP_OPTIONS',               'dandyID_options');
-define ('DANDYID_API_URL',                  'http://www.dandyid.org/api/');
+define ('DANDYID_URL',               'http://www.dandyid.org/');
+define ('DANDYID_PROFILE_URL',       'http://www.dandyid.org/beta/users/user_id/');
+define ('DANDYID_MINI',              'http://www.dandyid.org/code/images/miscellaneous/favicons/dandyidmini.png');
+define ('DANDYID_API_KEY',           '17ps6defe5fnem02czzsv95771wu4qe5w5x3');
+define ('DANDYID_API_TOKEN',         'hbhvfwjuitwvsvoo5suatq6xgj2cnye6av1p');
+define ('DANDYID_SETTINGS_OPTIONS',  'dandyID_settingsOptions');
+define ('DANDYID_CACHE_OPTIONS',     'dandyID_cacheOptions');
+define ('DANDYID_CACHE_DATE_OPTION', 'dandyID_cacheDateOption');
+define ('DANDYID_API_URL',           'http://www.dandyid.org/api/');
 
 
 function dandyIDServices_getTable ()
     {
-    // Initialize output buffer (returned by this function)
-    $buf = '';
-
-    // If the cache file does not exist
-    if (file_exists (DANDYID_CACHE_FILE) == FALSE)
+    // If the cacheDate doesn't match the current date...
+    if (get_option (DANDYID_CACHE_DATE_OPTION) != date ('Y-m-d'))
         {
-        // Force the cache file to be created
+        // Overwrite the existing cache, reset the cacheDate to current date)
         dandyIDServices_refreshCacheFile ();
         }
 
-    else
-        {
-        // Get the currentDate and the cacheFileDate
-        $currentDate   = date ('Y-m-d');
-        $cacheFileDate = date ('Y-m-d', @filemtime (DANDYID_CACHE_FILE));
+    // Load existing settings options from wp database
+    $dandyID_settingsOptions = get_option (DANDYID_SETTINGS_OPTIONS);
 
-        // If the dates do not match...
-        if ($cacheFileDate != $currentDate)
-            {
-            // Overwrite the existing cache file
-            dandyIDServices_refreshCacheFile ();
-            }
-        }
-
-    // Load existing options from wp database
-    $dandyID_options = get_option (DANDYID_WP_OPTIONS);
+    // Initialize output buffer (returned by this function)
+    $buf = '';
 
     // Begin div tag: "dandyIDSidebarIdentities" -- to enable css stying
     $buf .= '<div class="dandyIDSidebarIdentities">';
 
     // Display the DandyID-Mini chicklet, with link to the users profile
-    $buf .= '<a href="' . DANDYID_PROFILE_URL . $dandyID_options ['user_id'] .
+    $buf .= '<a href="' . DANDYID_PROFILE_URL . $dandyID_settingsOptions ['user_id'] .
             '"><img src="' . DANDYID_MINI . '" /></a>&nbsp;';
 
-    // If the cache file does not exist...
-    if (file_exists (DANDYID_CACHE_FILE) == FALSE)
+    // Get the cache from the wp database
+    $cacheOptions = get_option (DANDYID_CACHE_OPTIONS);
+
+    // Only use the <table> tag if (show_text_links == TRUE)
+    if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
         {
-        // skip it. no need to fail. no services will be shown -- that's ok.
+        // BEGIN table: one line for EACH service, containing chicklet and text link to service
+        $buf .= '<table border="0" cellspacing="4">';
         }
 
-    // If unable to successfully open the cache file...
-    else if (($hCacheFile = fopen (DANDYID_CACHE_FILE, 'r')) == FALSE)
+    // Add services
+    for ($i = 0; $cacheOptions [$i] ['url'] != ''; $i++)
         {
-        // skip it. no need to fail. no services will be shown -- that's ok.
+        // Get next cache row
+        $cacheUrl        = $cacheOptions [$i] ['url'];
+        $cacheSvcName    = $cacheOptions [$i] ['svcName'];
+        $cacheSvcFavicon = $cacheOptions [$i] ['svcFavicon'];
+
+        // Either show favicon AND text link...
+        if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
+            {
+            // Each table row will have 2 columns: svcFavicon, svcName (each links to user service url)
+
+            // Column 1: Service Favicon
+            $buf .= '<tr>';
+            $buf .= '  <td><a href="' . $cacheUrl        . '" rel="me">' . 
+                          '<img id="' . $cacheSvcName    . '" ' .
+                          '    src="' . $cacheSvcFavicon . '" ' . 
+                          '    alt="' . $cacheSvcName    . '" /></a></td>';
+
+            // Column 2: Service Name
+            $buf .= '  <td>&nbsp;<a href="' . $cacheUrl     . '" rel="me">' .
+                                              $cacheSvcName . '</a></td>';
+
+            $buf .= '</tr>';
+            }
+
+        // ... or only show the favicon
+        else
+            {
+            // let them wrap lines
+            $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
+                    '<img id="' . $cacheSvcName    . '" ' .
+                    '    src="' . $cacheSvcFavicon . '" ' . 
+                    '    alt="' . $cacheSvcName    . '" /></a>&nbsp;';
+            }
         }
 
-    else
+    // Only use the </table> tag if (show_text_links == TRUE)
+    if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
         {
-        // Only use the <table> tag if (show_text_links == TRUE)
-        if ($dandyID_options ['show_text_links'] == TRUE)
-            {
-            // BEGIN table: one line for EACH service, containing chicklet and text link to service
-            $buf .= '<table border="0" cellspacing="4">';
-            }
+        $buf .= '</table>';
 
-        // Add services
-        while (($cacheCSVLine = fgetcsv ($hCacheFile)) != FALSE)
-            {
-            $cacheUrl        = $cacheCSVLine [0];
-            $cacheSvcName    = $cacheCSVLine [1];
-            $cacheSvcFavicon = $cacheCSVLine [2];
+        // Begin div tag: "dandyIDSidebarPoweredBy" -- to enable css stying
+        $buf .= '<div class="dandyIDSidebarPoweredBy">';
 
-            // Either show favicon AND text link...
-            if ($dandyID_options ['show_text_links'] == TRUE)
-                {
-                // Each table row will have 2 columns: svcFavicon, svcName (each links to user service url)
+        // Display the bottom line "Powered by DandyID"
+        $buf .= '&nbsp;Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
 
-                // Column 1: Service Favicon
-                $buf .= '<tr>';
-                $buf .= '  <td><a href="' . $cacheUrl        . '" rel="me">' . 
-                              '<img id="' . $cacheSvcName    . '" ' .
-                              '    src="' . $cacheSvcFavicon . '" ' . 
-                              '    alt="' . $cacheSvcName    . '" /></a></td>';
-
-                // Column 2: Service Name
-                $buf .= '  <td>&nbsp;<a href="' . $cacheUrl     . '" rel="me">' .
-                                                  $cacheSvcName . '</a></td>';
-
-                $buf .= '</tr>';
-                }
-
-            // ... or only show the favicon
-            else
-                {
-                // let them wrap lines
-                $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
-                        '<img id="' . $cacheSvcName    . '" ' .
-                        '    src="' . $cacheSvcFavicon . '" ' . 
-                        '    alt="' . $cacheSvcName    . '" /></a>&nbsp;';
-                }
-            }
-
-        // Only use the </table> tag if (show_text_links == TRUE)
-        if ($dandyID_options ['show_text_links'] == TRUE)
-            {
-            $buf .= '</table>';
-
-            // Begin div tag: "dandyIDSidebarPoweredBy" -- to enable css stying
-            $buf .= '<div class="dandyIDSidebarPoweredBy">';
-
-            // Display the bottom line "Powered by DandyID"
-            $buf .= '&nbsp;Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
-
-            // End div tag: "dandyIDSidebarPoweredBy"
-            $buf .= '</div>';
-            }
-
-        fclose ($hCacheFile);
+        // End div tag: "dandyIDSidebarPoweredBy"
+        $buf .= '</div>';
         }
 
     // Force a newline after the last line
@@ -181,7 +154,7 @@ function dandyIDServices_refreshCacheFile ()
     $cDandyID = new dandyid ();
 
     // Load existing options from wp database
-    $dandyID_options = get_option (DANDYID_WP_OPTIONS);
+    $dandyID_settingsOptions = get_option (DANDYID_SETTINGS_OPTIONS);
 
     // Set class API fields
     $cDandyID->setAPIFields (DANDYID_API_KEY,
@@ -189,9 +162,9 @@ function dandyIDServices_refreshCacheFile ()
                              DANDYID_API_URL);
 
     // Set class user fields
-    $cDandyID->setUserFields ($dandyID_options ['email_address'],
-                              $dandyID_options ['email_address'],
-                              $dandyID_options ['password']);
+    $cDandyID->setUserFields ($dandyID_settingsOptions ['email_address'],
+                              $dandyID_settingsOptions ['email_address'],
+                              $dandyID_settingsOptions ['password']);
 
     // Sync_user to freshen their data into the API repository.
     $cDandyID->sync_user ();
@@ -214,41 +187,44 @@ function dandyIDServices_refreshCacheFile ()
         // Prepare to parse the XML
         $return_services_xml = new SimpleXMLElement ($return_services_response);
 
-        // Create (or overwrite existing) cache file
-        // If (file cannot be opened/created)
-        //     {
-        //     could be a permission problem on the server
-        //     this may require "chmod +777" on the folder wp-admin -- needs further testing
-        //
-        //     for now, prepending an "@" to the fopen, to suppress a PHP error message from appearing
-        //     }
-        if (($hCacheFile = @fopen (DANDYID_CACHE_FILE, 'w+')) != FALSE)
+        // Initialize row index for loading cache
+        $i = 0;
+
+        // Initialize cache options array to null
+        $cacheOptions = array (array ('url' => '', 'svcName' => '', 'svcFavicon' => ''));
+
+        // Parse values -- service by service
+        foreach ($return_services_xml->service as $service)
             {
-            // Parse values -- service by service
-            foreach ($return_services_xml->service as $service)
-                {
-                // Get the dandy service detail for the service
-                $service_details_response = $cDandyID->service_details ($service->svcId);
+            // Get the dandy service detail for the service
+            $service_details_response = $cDandyID->service_details ($service->svcId);
 
-                // Prepare XML return_services_response for parsing
-                $service_details_xml = new SimpleXMLElement ($service_details_response);
+            // Prepare XML return_services_response for parsing
+            $service_details_xml = new SimpleXMLElement ($service_details_response);
 
-                // Write each line as CSV - for easy parsing via fgetcsv()
-                fprintf ($hCacheFile, "%s, %s, %s\n",
-                         $service->url,                               // ex, http://twitter.com/neilsimon
-                         $service->svcName,                           // ex. Twitter
-                         $service_details_xml->service->svcFavicon);  // ex. http://www.dandyid.org/.../twitter.png
-                }
+            // Load next cache row (requires string cast to override storing a SimpleXMLElement object)
+            $cacheOptions [$i] ['url']        = (string) $service->url;
+            $cacheOptions [$i] ['svcName']    = (string) $service->svcName;
+            $cacheOptions [$i] ['svcFavicon'] = (string) $service_details_xml->service->svcFavicon;
 
-            fclose ($hCacheFile);
-
-            // WP creates a cached-copy of our cache file -- wtf?
-            // So... we need to delete it (upon our refresh), and WP will cache the new file
-            if (file_exists (DANDYID_WP_AUTOCOPIED_CACHE_FILE))
-                {
-                unlink (DANDYID_WP_AUTOCOPIED_CACHE_FILE);
-                }
+            // Increment cache row index for next load
+            $i++;
             }
+
+        // If at least one row was loaded...
+        if ($i > 0)
+            {
+            // Add a terminating row of null values
+            $cacheOptions [$i] ['url']        = '';
+            $cacheOptions [$i] ['svcName']    = '';
+            $cacheOptions [$i] ['svcFavicon'] = '';
+            }
+
+        // Store the cache options array to wp database
+        update_option (DANDYID_CACHE_OPTIONS, $cacheOptions);
+
+        // Reset the cache date to the current date, store to wp database
+        update_option (DANDYID_CACHE_DATE_OPTION, date ('Y-m-d'));
         }
     }
 
@@ -262,14 +238,14 @@ function dandyIDServices_initWidget ()
         function dandyIDServices_widget ($args)
             {
             // Load existing options from wp database
-            $dandyID_options = get_option (DANDYID_WP_OPTIONS);
+            $dandyID_settingsOptions = get_option (DANDYID_SETTINGS_OPTIONS);
 
             // Accept parameter array passed-in from Wordpress (e.g. $before_widget, $before_title, etc.)
             // Also, inherits theme CSS styles
             extract ($args);
 
             // Display sidebar title above the about-to-be-rendered dandy services table
-            echo $before_widget . $before_title . $dandyID_options ['sidebarTitle'] . $after_title;
+            echo $before_widget . $before_title . $dandyID_settingsOptions ['sidebarTitle'] . $after_title;
 
             // Dynamically build the table and display it
             dandyIDServices_buildTable ();
@@ -281,10 +257,10 @@ function dandyIDServices_initWidget ()
     }
 
 
-function dandyIDServices_updateOptionsPage ()
+function dandyIDServices_updateSettingsOptionsPage ()
     {
     // Load existing options from wp database
-    $dandyID_options = get_option (DANDYID_WP_OPTIONS);
+    $dandyID_settingsOptions = get_option (DANDYID_SETTINGS_OPTIONS);
 
     // If ALL data fields contain values...
     if (isset ($_POST ['email_address']) &&
@@ -293,14 +269,14 @@ function dandyIDServices_updateOptionsPage ()
         isset ($_POST ['sidebarTitle']))
         {
         //... copy the fields to the persistent wp options array
-        $dandyID_options ['email_address']   = $_POST ['email_address'];
-        $dandyID_options ['password']        = $_POST ['password'];
-        $dandyID_options ['user_id']         = $_POST ['user_id'];
-        $dandyID_options ['sidebarTitle']    = $_POST ['sidebarTitle'];
-        $dandyID_options ['show_text_links'] = $_POST ['show_text_links'] == "TRUE" ? TRUE : FALSE;
+        $dandyID_settingsOptions ['email_address']   = $_POST ['email_address'];
+        $dandyID_settingsOptions ['password']        = $_POST ['password'];
+        $dandyID_settingsOptions ['user_id']         = $_POST ['user_id'];
+        $dandyID_settingsOptions ['sidebarTitle']    = $_POST ['sidebarTitle'];
+        $dandyID_settingsOptions ['show_text_links'] = $_POST ['show_text_links'] == "TRUE" ? TRUE : FALSE;
 
         // Store changed options back to wp database
-        update_option (DANDYID_WP_OPTIONS, $dandyID_options);
+        update_option (DANDYID_SETTINGS_OPTIONS, $dandyID_settingsOptions);
 
         // Force the cache file to be created (or overwritten)
         dandyIDServices_refreshCacheFile ();
@@ -310,7 +286,7 @@ function dandyIDServices_updateOptionsPage ()
         }
 
     // Set variable for form to use to show sticky-value for radio button
-    if ($dandyID_options ['show_text_links'] == TRUE)
+    if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
         {
         $showFavsAndText = "checked";
         $showFavsOnly    = "";
@@ -334,25 +310,25 @@ function dandyIDServices_updateOptionsPage ()
 
       <tr>
       <td>Email:</td>
-      <td><input type="text"     name="email_address" value="' . $dandyID_options['email_address'] . '" size="40" /></td>
+      <td><input type="text"     name="email_address" value="' . $dandyID_settingsOptions ['email_address'] . '" size="40" /></td>
       <td>The email address you use to logon to DandyID.</td>
       </tr>
 
       <tr>
       <td>Password:</td>
-      <td><input type="password" name="password"      value="' . $dandyID_options['password']      . '" size="40" /></td>
+      <td><input type="password" name="password"      value="' . $dandyID_settingsOptions ['password']      . '" size="40" /></td>
       <td>The password you use to logon to DandyID.</td>
       </tr>
 
       <tr>
       <td>User ID#:</td>
-      <td><input type="text"  name="user_id"       value="' . $dandyID_options['user_id']       . '" size="40" /></td>
+      <td><input type="text"  name="user_id"       value="' . $dandyID_settingsOptions ['user_id']       . '" size="40" /></td>
       <td>To locate: &nbsp; 1. Logon to <a href="' . DANDYID_URL . '">DandyID</a>. &nbsp; 2. Click on your name. &nbsp; 3. Use the number at the end of the URL in the browser address bar.</td>
       </tr>
 
       <tr>
       <td>Title:</td>
-      <td><input type="text"     name="sidebarTitle"  value="' . $dandyID_options['sidebarTitle']  . '" size="40" /></td>
+      <td><input type="text"     name="sidebarTitle"  value="' . $dandyID_settingsOptions ['sidebarTitle']  . '" size="40" /></td>
       <td>The sidebar title to display.</td>
       </tr>
 
@@ -374,20 +350,31 @@ function dandyIDServices_updateOptionsPage ()
     }
 
 
-function dandyIDServices_addOptions ()
+function dandyIDServices_createOptions ()
     {
     // This is only called once, when the plugin is activated
 
-    // Create the initial array of keys/values
+    // Create the initialSettingsOptions array of keys/values
     // First time user sees form, default to "Show Favicons and Text Links"
-    $dandyID_initial_options = array ('email_address'   => '',
-                                      'password'        => '',
-                                      'user_id'         => '',
-                                      'show_text_links' => 'TRUE',
-                                      'sidebarTitle'    => '');
+    $dandyID_initialSettingsOptions = array ('email_address'   => '',
+                                             'password'        => '',
+                                             'user_id'         => '',
+                                             'show_text_links' => 'TRUE',
+                                             'sidebarTitle'    => '');
 
-    // Store the initial array to the wp database
-    add_option (DANDYID_WP_OPTIONS, $dandyID_initial_options);
+
+    // Create the initialCacheOptions 2-dimensional array of keys/values
+    $dandyID_initialCacheOptions = array (array ('url'        => '',
+                                                 'svcName'    => '',
+                                                 'svcFavicon' => ''));
+
+    // Set the initial cache date to null
+    $dandyID_initialCacheDateOption = '';
+
+    // Store the initial options to the wp database
+    add_option (DANDYID_SETTINGS_OPTIONS,  $dandyID_initialSettingsOptions);
+    add_option (DANDYID_CACHE_OPTIONS,     $dandyID_initialCacheOptions);
+    add_option (DANDYID_CACHE_DATE_OPTION, $dandyID_initialCacheDateOption);
     }
 
 
@@ -395,37 +382,31 @@ function dandyIDServices_deleteOptions ()
     {
     // This is only called once, when the plugin is deactivated
 
-    // Remove the dandyID_options array from the wp database
-    delete_option (DANDYID_WP_OPTIONS);
+    // Remove the dandyID_settingsOptions array from the wp database
+    delete_option (DANDYID_SETTINGS_OPTIONS);
 
-    // Remove the cache file
-    if (file_exists (DANDYID_CACHE_FILE))
-        {
-        unlink (DANDYID_CACHE_FILE);
-        }
+    // Remove the dandyID_cacheOptions array from the wp database
+    delete_option (DANDYID_CACHE_OPTIONS);
 
-    // Remove the WP-cached version of our cache file
-    if (file_exists (DANDYID_WP_AUTOCOPIED_CACHE_FILE))
-        {
-        unlink (DANDYID_WP_AUTOCOPIED_CACHE_FILE);
-        }
+    // Remove the dandyID_cacheDateOption from the wp database
+    delete_option (DANDYID_CACHE_DATE_OPTION);
     }
 
 
 function dandyIDServices_addSubmenu ()
     {
     // Define the options for the submenu page
-    add_submenu_page ('options-general.php',                 // Parent page
-                      'DandyID Services page',               // Page title, shown in titlebar
-                      'DandyID Services',                    // Menu title
-                      10,                                    // Access level all
-                      __FILE__,                              // This file displays the options page
-                      'dandyIDServices_updateOptionsPage');  // Function that displays the options page
+    add_submenu_page ('options-general.php',                         // Parent page
+                      'DandyID Services page',                       // Page title, shown in titlebar
+                      'DandyID Services',                            // Menu title
+                      10,                                            // Access level all
+                      __FILE__,                                      // This file displays the options page
+                      'dandyIDServices_updateSettingsOptionsPage');  // Function that displays options page
     }
 
 
 // This callback runs only once, at plugin activation time
-register_activation_hook (__FILE__, 'dandyIDServices_addOptions');
+register_activation_hook (__FILE__, 'dandyIDServices_createOptions');
 
 
 // This callback runs only once, at plugin deactivation time

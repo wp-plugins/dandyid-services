@@ -29,8 +29,10 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 * AIM
 * All Consuming
 * Amazon
+* Amie Street
 * Ask500People
 * Bebo
+* Big Contact
 * Blinklist
 * Blip.tv
 * Blippr
@@ -93,8 +95,10 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 * Intense Debate
 * iReport
 * Jaiku
+* JamBase
 * Jumpcut
 * Kiva
+* Lala
 * last.fm
 * lifestream.fm
 * Lijit
@@ -105,18 +109,23 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 * MyBlogLog
 * My Mashable
 * MySpace
+* Naymz
 * Netflix
 * Newsvine
 * Ning
+* Orkut
 * Pandora
 * Photobucket
+* Picasa
 * Plaxo
 * Plurk
 * Propeller
 * QIK
 * Reddit
+* RedWire
 * RI Nexus
 * RockBand
+* Ryze
 * Shelfari
 * Seesmic
 * Skitch
@@ -136,6 +145,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 * Tripit
 * Trulia
 * Tumblr
+* Twello
 * Twine
 * Twitpic
 * Twitter
@@ -153,6 +163,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 * Webshots
 * Wink
 * Xbox LIVE
+* Xing
 * Yahoo! 360
 * Yahoo! Answers
 * Yahoo! Live
@@ -160,6 +171,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 * YouTube
 * YowTrip
 * Zillow
+* ZoomInfo
 * Zorpia
 * more being added
 
@@ -213,6 +225,10 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 3. The DandyID Services settings page.
 
 == Change History ==
+
+**Rev 1.0.7**  2009-Jan-03
+
+* Ported from file-based cache to wp-database cache to eliminate file-permissions errors.
 
 **Rev 1.0.6**  2009-Jan-01
 
