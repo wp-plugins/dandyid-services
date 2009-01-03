@@ -183,6 +183,8 @@ For the latest news, follow [@DandyID](http://twitter.com/dandyid) on Twitter.
 
 *If you are upgrading, please **Deactivate** the previous DandyID Services plugin first.*
 
+*If you experience any errors, please visit our [Customer Service and Support Page](http://getsatisfaction.com/dandyid/products/dandyid_wordpress_plugin).
+
 1. Upload the DandyID Services plugin folder to **/wp-content/plugins/**
 
 2. Login to your WP admin web page.
