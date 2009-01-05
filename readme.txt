@@ -200,16 +200,16 @@ For the latest news, follow [@DandyID](http://twitter.com/dandyid) on Twitter.
    - Enter your DandyID Service Options -- all fields are required.
    - Press the **Save** button to save your DandyID Service Options.
 
-5a. To setup as a sidebar widget:
+5. To setup as a sidebar widget:
    - Click on the **Design** tab.
    - Click on the **Widgets** subtab.
    - On the left side, next to DandyID Services, click on **Add** to make it appear in the list of **Current Widgets**.
    - Click on **Save Changes**.
 
-5b. If your theme DOES NOT support widgets, place this line of code in your sidebar code (e.g. sidebar.php):
+6. If your theme DOES NOT support widgets, place this line of code in your sidebar code (e.g. sidebar.php):
    - <?php if (function_exists ('dandyIDServices_buildTable')) { dandyIDServices_buildTable (); } ?>
 
-6. Your DandyID online identities should appear as a list of clickable links your sidebar.
+7. Your DandyID online identities should appear as a list of clickable links your sidebar.
 
 == Frequently Asked Questions ==
 
