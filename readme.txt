@@ -207,7 +207,7 @@ For the latest news, follow [@DandyID](http://twitter.com/dandyid) on Twitter.
    - Click on **Save Changes**.
 
 6. If your theme DOES NOT support widgets, place this line of code in your sidebar code (e.g. sidebar.php):
-   - <?php if (function_exists ('dandyIDServices_buildTable')) { dandyIDServices_buildTable (); } ?>
+   - &lt;?php if (function_exists ('dandyIDServices_buildTable')) { dandyIDServices_buildTable (); } ?&gt;
 
 7. Your DandyID online identities should appear as a list of clickable links your sidebar.
 
