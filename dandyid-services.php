@@ -370,7 +370,6 @@ function dandyIDServices_createOptions ()
                                              'show_text_links' => 'TRUE',
                                              'sidebarTitle'    => '');
 
-
     // Create the initialCacheOptions 2-dimensional array of keys/values
     $dandyID_initialCacheOptions = array (array ('url'        => '',
                                                  'svcName'    => '',
