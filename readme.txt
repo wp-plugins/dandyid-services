@@ -228,6 +228,10 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 == Change History ==
 
+**Rev 1.0.8**  2009-Jan-04
+
+* Converted SimpleXMLElement() calls to xml_parse() calls for PHP4 compatibility.
+
 **Rev 1.0.7**  2009-Jan-03
 
 * Ported from file-based cache to wp-database cache to eliminate file-permissions errors.
