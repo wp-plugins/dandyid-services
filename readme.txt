@@ -231,6 +231,11 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 == Change History ==
 
+**Rev 1.0.9**  2009-Jan-06
+
+* If no setup credentials are configured, do not attempt to retrieve DandyID online identities.
+* If no user_id is configured, link the mini-chicklet to the DandyID home page.
+
 **Rev 1.0.8**  2009-Jan-04
 
 * Converted SimpleXMLElement() calls to xml_parse() calls for PHP4 compatibility.
