@@ -231,6 +231,10 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 == Change History ==
 
+**Rev 1.1.0**  2009-Jan-06
+
+* Preserve local online-identities cache if DandyID API is down, or site is not available.
+
 **Rev 1.0.9**  2009-Jan-06
 
 * If no setup credentials are configured, do not attempt to retrieve DandyID online identities.

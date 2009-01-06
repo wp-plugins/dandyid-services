@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://solidcode.com/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> to configure the required settings, and (2) Go to <a href="widgets.php">Design -&gt; Widgets</a> to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.0.9
+Version: 1.1.0
 Author: Neil Simon
 Author URI: http://solidcode.com/
 */
@@ -172,20 +172,23 @@ function dandyIDServices_buildTable ()
 
 function dandyIDServices_refreshCache ()
     {
-    global $gCacheOptions;
-
-    // Load existing options from wp database
+    // Load existing settings options from wp database
     $dandyID_settingsOptions = get_option (DANDYID_SETTINGS_OPTIONS);
-
-    // Initial cache settings to null
-    // If no credentials are set in $dandyID_settingsOptions, the cache will be reset to null
-    $gCacheOptions = array (array ('url' => '', 'svcName' => '', 'svcFavicon' => ''));
 
     if (($dandyID_settingsOptions ['email_address'] == '') ||
         ($dandyID_settingsOptions ['password']      == ''))
         {
         // Setup credentials have not been entered.
         // Do not attempt to retrieve DandyID online identities.
+
+        // Reset cache settings to null
+        $nullCacheOptions = array (array ('url' => '', 'svcName' => '', 'svcFavicon' => ''));
+
+        // Store the cache options array to wp database
+        update_option (DANDYID_CACHE_OPTIONS, $nullCacheOptions);
+
+        // Reset the cache date to the current date, store to wp database
+        update_option (DANDYID_CACHE_DATE_OPTION, date ('Y-m-d'));
         }
 
     else
@@ -223,11 +226,14 @@ function dandyIDServices_refreshCache ()
 
         else
             {
-            global $gIndex, $gInsideSERVICE;
+            global $gIndex, $gInsideSERVICE, $gCacheOptions;
 
             // Initialize XML-related globals
             $gIndex         = 0;
             $gInsideSERVICE = FALSE;
+
+            // Initialize cache settings to null -- the XML parsing will load this up
+            $gCacheOptions = array (array ('url' => '', 'svcName' => '', 'svcFavicon' => ''));
 
             // Prepare to parse
             $xmlParser = xml_parser_create ();
@@ -248,14 +254,14 @@ function dandyIDServices_refreshCache ()
 
             // Release parser resources
             xml_parser_free ($xmlParser);
+
+            // Store the cache options array to wp database
+            update_option (DANDYID_CACHE_OPTIONS, $gCacheOptions);
+
+            // Reset the cache date to the current date, store to wp database
+            update_option (DANDYID_CACHE_DATE_OPTION, date ('Y-m-d'));
             }
         }
-
-    // Store the cache options array to wp database
-    update_option (DANDYID_CACHE_OPTIONS, $gCacheOptions);
-
-    // Reset the cache date to the current date, store to wp database
-    update_option (DANDYID_CACHE_DATE_OPTION, date ('Y-m-d'));
     }
 
 
