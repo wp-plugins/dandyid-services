@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://solidcode.com/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> to configure the required settings, and (2) Go to <a href="widgets.php">Design -&gt; Widgets</a> to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.0.8
+Version: 1.0.9
 Author: Neil Simon
 Author URI: http://solidcode.com/
 */
@@ -54,7 +54,7 @@ $gSvcName       = '';
 $gSvcFavicon    = '';
 $gIndex         = 0;
 $gCacheOptions  = array (array ('url' => '', 'svcName' => '', 'svcFavicon' => ''));
-$gDandyID       = 0;
+$gDandyIDClass  = 0;
 
 
 function dandyIDServices_getTable ()
@@ -75,9 +75,19 @@ function dandyIDServices_getTable ()
     // Begin div tag: "dandyIDSidebarIdentities" -- to enable css stying
     $buf .= '<div class="dandyIDSidebarIdentities">';
 
-    // Display the DandyID-Mini chicklet, with link to the users profile
-    $buf .= '<a href="' . DANDYID_PROFILE_URL . $dandyID_settingsOptions ['user_id'] .
-            '"><img src="' . DANDYID_MINI . '" /></a>&nbsp;';
+    // If no user_id has been setup...
+    if ($dandyID_settingsOptions ['user_id'] == '')
+        {
+        // Link the mini-chicklet to the DandyID home page.
+        $buf .= '<a href="' . DANDYID_URL . '"><img src="' . DANDYID_MINI . '" /></a>&nbsp;';
+        }
+
+    else
+        {
+        // Link the mini-chicklet to the users DandyID profile page
+        $buf .= '<a href="' . DANDYID_PROFILE_URL . $dandyID_settingsOptions ['user_id'] .
+                '"><img src="' . DANDYID_MINI . '" /></a>&nbsp;';
+        }
 
     // Get the cache from the wp database
     $cacheOptions = get_option (DANDYID_CACHE_OPTIONS);
@@ -162,78 +172,90 @@ function dandyIDServices_buildTable ()
 
 function dandyIDServices_refreshCache ()
     {
-    global $gInsideSERVICE, $gIndex, $gDandyID;
-
-    // Initialize XML-handler globals
-    $gIndex         = 0;
-    $gInsideSERVICE = FALSE;
-
-    // Instantiate the dandyid class
-    $gDandyID = new dandyid ();
+    global $gCacheOptions;
 
     // Load existing options from wp database
     $dandyID_settingsOptions = get_option (DANDYID_SETTINGS_OPTIONS);
 
-    // Set class API fields
-    $gDandyID->setAPIFields (DANDYID_API_KEY,
-                             DANDYID_API_TOKEN,
-                             DANDYID_API_URL);
+    // Initial cache settings to null
+    // If no credentials are set in $dandyID_settingsOptions, the cache will be reset to null
+    $gCacheOptions = array (array ('url' => '', 'svcName' => '', 'svcFavicon' => ''));
 
-    // Set class user fields
-    $gDandyID->setUserFields ($dandyID_settingsOptions ['email_address'],
-                              $dandyID_settingsOptions ['email_address'],
-                              $dandyID_settingsOptions ['password']);
-
-    // Sync_user to freshen their data into the API repository.
-    $gDandyID->sync_user ();
-
-    // Get the dandy services for the user -- returned as XML
-    if (($return_services_response = $gDandyID->return_services ()) == FALSE)
+    if (($dandyID_settingsOptions ['email_address'] == '') ||
+        ($dandyID_settingsOptions ['password']      == ''))
         {
-        // This can happen when the site is found, but the API is down
-        // Leave the existing cache intact -- just exit
-        }
-
-    elseif (strpos ($return_services_response, "Not Found"))
-        {
-        // This can happen when the site is NOT found
-        // Leave the existing cache intact -- just exit
+        // Setup credentials have not been entered.
+        // Do not attempt to retrieve DandyID online identities.
         }
 
     else
         {
-        global $gCacheOptions;
+        global $gDandyIDClass;
 
-        // Initialize global cache options array to null
-        $gCacheOptions  = array (array ('url' => '', 'svcName' => '', 'svcFavicon' => ''));
+        // Instantiate the dandyid class
+        $gDandyIDClass = new dandyid ();
 
-        // Prepare to parse
-        $xmlParser = xml_parser_create ();
+        // Set class API fields
+        $gDandyIDClass->setAPIFields (DANDYID_API_KEY,
+                                      DANDYID_API_TOKEN,
+                                      DANDYID_API_URL);
 
-        // Define XML callback -- called via xml_parse()
-        xml_set_element_handler ($xmlParser,
-                                 'dandyIDServices_xmlStartElement',
-                                 'dandyIDServices_xmlEndElement');
+        // Set class user fields
+        $gDandyIDClass->setUserFields ($dandyID_settingsOptions ['email_address'],
+                                       $dandyID_settingsOptions ['email_address'],
+                                       $dandyID_settingsOptions ['password']);
 
+        // Sync_user to freshen their data into the API repository.
+        $gDandyIDClass->sync_user ();
 
-        // Define XML callback -- called via xml_parse()
-        xml_set_character_data_handler ($xmlParser, 'dandyIDServices_xmlData');
+        // Get the dandy services for the user -- returned as XML
+        if (($return_services_response = $gDandyIDClass->return_services ()) == FALSE)
+            {
+            // This can happen when the site is found, but the API is down
+            // Leave the existing cache intact -- just exit
+            }
 
-        // Parse the XML -- all data will be stored into gCacheOptions
-        xml_parse ($xmlParser, $return_services_response, TRUE);
+        elseif (strpos ($return_services_response, "Not Found"))
+            {
+            // This can happen when the site is NOT found
+            // Leave the existing cache intact -- just exit
+            }
 
-        // Set last item url in gCacheOptions to null
-        $gCacheOptions [$gIndex] ['url'] = '';
+        else
+            {
+            global $gIndex, $gInsideSERVICE;
 
-        // Release parser resources
-        xml_parser_free ($xmlParser);
+            // Initialize XML-related globals
+            $gIndex         = 0;
+            $gInsideSERVICE = FALSE;
 
-        // Store the cache options array to wp database
-        update_option (DANDYID_CACHE_OPTIONS, $gCacheOptions);
+            // Prepare to parse
+            $xmlParser = xml_parser_create ();
 
-        // Reset the cache date to the current date, store to wp database
-        update_option (DANDYID_CACHE_DATE_OPTION, date ('Y-m-d'));
+            // Define XML callback -- called via xml_parse()
+            xml_set_element_handler ($xmlParser,
+                                     'dandyIDServices_xmlStartElement',
+                                     'dandyIDServices_xmlEndElement');
+
+            // Define XML callback -- called via xml_parse()
+            xml_set_character_data_handler ($xmlParser, 'dandyIDServices_xmlData');
+
+            // Parse the XML -- all data will be stored into gCacheOptions
+            xml_parse ($xmlParser, $return_services_response, TRUE);
+
+            // Set last item url in gCacheOptions to null
+            $gCacheOptions [$gIndex] ['url'] = '';
+
+            // Release parser resources
+            xml_parser_free ($xmlParser);
+            }
         }
+
+    // Store the cache options array to wp database
+    update_option (DANDYID_CACHE_OPTIONS, $gCacheOptions);
+
+    // Reset the cache date to the current date, store to wp database
+    update_option (DANDYID_CACHE_DATE_OPTION, date ('Y-m-d'));
     }
 
 
