@@ -26,22 +26,29 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 * 43 Places
 * 43 Things
 * ActiveRain
+* Adocu
 * AIM
 * All Consuming
 * Amazon
 * Amie Street
 * Ask500People
+* Badoo
 * Bebo
+* Behance Network
 * Big Contact
 * Blinklist
+* Blip.fm
 * Blip.tv
 * Blippr
 * Blogger
+* Bloglines
 * Blue Dot
+* Box.net
 * Break
 * Brightkite
 * Bring Light
 * Bungie.net
+* Buzznet
 * Change.org
 * Chickipedia
 * claimID
@@ -97,6 +104,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 * Jaiku
 * JamBase
 * Jumpcut
+* Kirtsy
 * Kiva
 * Lala
 * last.fm
@@ -113,6 +121,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 * Netflix
 * Newsvine
 * Ning
+* Odeo
 * Orkut
 * Pandora
 * Photobucket
