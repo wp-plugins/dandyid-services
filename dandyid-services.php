@@ -2,11 +2,11 @@
 
 /*
 Plugin Name: DandyID Services
-Plugin URI: http://solidcode.com/
+Plugin URI: http://dandyid.org/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to <a href="options-general.php?page=dandyid-services/dandyid-services.php">Settings -&gt; DandyID Services</a> to configure the required settings, and (2) Go to <a href="widgets.php">Design -&gt; Widgets</a> to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.1.0
-Author: Neil Simon
-Author URI: http://solidcode.com/
+Version: 1.1.1
+Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
+Author URI: http://dandyid.org/
 */
 
 
@@ -35,8 +35,6 @@ require_once 'class.dandyid.php';
 
 // Constants
 define ('DANDYID_URL',               'http://www.dandyid.org/');
-define ('DANDYID_PROFILE_URL',       'http://www.dandyid.org/beta/users/user_id/');
-define ('DANDYID_MINI',              'http://www.dandyid.org/code/images/miscellaneous/favicons/dandyidmini.png');
 define ('DANDYID_API_KEY',           '17ps6defe5fnem02czzsv95771wu4qe5w5x3');
 define ('DANDYID_API_TOKEN',         'hbhvfwjuitwvsvoo5suatq6xgj2cnye6av1p');
 define ('DANDYID_SETTINGS_OPTIONS',  'dandyID_settingsOptions');
@@ -74,20 +72,6 @@ function dandyIDServices_getTable ()
 
     // Begin div tag: "dandyIDSidebarIdentities" -- to enable css stying
     $buf .= '<div class="dandyIDSidebarIdentities">';
-
-    // If no user_id has been setup...
-    if ($dandyID_settingsOptions ['user_id'] == '')
-        {
-        // Link the mini-chicklet to the DandyID home page.
-        $buf .= '<a href="' . DANDYID_URL . '"><img src="' . DANDYID_MINI . '" /></a>&nbsp;';
-        }
-
-    else
-        {
-        // Link the mini-chicklet to the users DandyID profile page
-        $buf .= '<a href="' . DANDYID_PROFILE_URL . $dandyID_settingsOptions ['user_id'] .
-                '"><img src="' . DANDYID_MINI . '" /></a>&nbsp;';
-        }
 
     // Get the cache from the wp database
     $cacheOptions = get_option (DANDYID_CACHE_OPTIONS);
@@ -175,10 +159,9 @@ function dandyIDServices_refreshCache ()
     // Load existing settings options from wp database
     $dandyID_settingsOptions = get_option (DANDYID_SETTINGS_OPTIONS);
 
-    if (($dandyID_settingsOptions ['email_address'] == '') ||
-        ($dandyID_settingsOptions ['password']      == ''))
+    if ($dandyID_settingsOptions ['email_address'] == '')
         {
-        // Setup credentials have not been entered.
+        // Email has not been entered.
         // Do not attempt to retrieve DandyID online identities.
 
         // Reset cache settings to null
@@ -205,11 +188,7 @@ function dandyIDServices_refreshCache ()
 
         // Set class user fields
         $gDandyIDClass->setUserFields ($dandyID_settingsOptions ['email_address'],
-                                       $dandyID_settingsOptions ['email_address'],
-                                       $dandyID_settingsOptions ['password']);
-
-        // Sync_user to freshen their data into the API repository.
-        $gDandyIDClass->sync_user ();
+                                       $dandyID_settingsOptions ['email_address']);
 
         // Get the dandy services for the user -- returned as XML
         if (($return_services_response = $gDandyIDClass->return_services ()) == FALSE)
@@ -300,14 +279,10 @@ function dandyIDServices_updateSettingsOptionsPage ()
 
     // If ALL data fields contain values...
     if (isset ($_POST ['email_address']) &&
-        isset ($_POST ['password'])      &&
-        isset ($_POST ['user_id'])       &&
         isset ($_POST ['sidebarTitle']))
         {
         //... copy the fields to the persistent wp options array
         $dandyID_settingsOptions ['email_address']   = $_POST ['email_address'];
-        $dandyID_settingsOptions ['password']        = $_POST ['password'];
-        $dandyID_settingsOptions ['user_id']         = $_POST ['user_id'];
         $dandyID_settingsOptions ['sidebarTitle']    = $_POST ['sidebarTitle'];
         $dandyID_settingsOptions ['show_text_links'] = $_POST ['show_text_links'] == "TRUE" ? TRUE : FALSE;
 
@@ -351,18 +326,6 @@ function dandyIDServices_updateSettingsOptionsPage ()
       </tr>
 
       <tr>
-      <td>Password:</td>
-      <td><input type="password" name="password"      value="' . $dandyID_settingsOptions ['password']      . '" size="40" /></td>
-      <td>The password you use to logon to DandyID.</td>
-      </tr>
-
-      <tr>
-      <td>User ID#:</td>
-      <td><input type="text"  name="user_id"       value="' . $dandyID_settingsOptions ['user_id']       . '" size="40" /></td>
-      <td>To locate: &nbsp; 1. Logon to <a href="' . DANDYID_URL . '">DandyID</a>. &nbsp; 2. Click on your name. &nbsp; 3. Use the number at the end of the URL in the browser address bar.</td>
-      </tr>
-
-      <tr>
       <td>Title:</td>
       <td><input type="text"     name="sidebarTitle"  value="' . $dandyID_settingsOptions ['sidebarTitle']  . '" size="40" /></td>
       <td>The sidebar title to display.</td>
@@ -390,11 +353,13 @@ function dandyIDServices_createOptions ()
     {
     // This is only called once, when the plugin is activated
 
+    // Get the wp logged-in user's email address to use as default in options page
+    global $current_user;
+    get_currentuserinfo ();
+
     // Create the initialSettingsOptions array of keys/values
     // First time user sees form, default to "Show Favicons and Text Links"
-    $dandyID_initialSettingsOptions = array ('email_address'   => '',
-                                             'password'        => '',
-                                             'user_id'         => '',
+    $dandyID_initialSettingsOptions = array ('email_address'   => $current_user->user_email,
                                              'show_text_links' => 'TRUE',
                                              'sidebarTitle'    => '');
 

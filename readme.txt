@@ -1,5 +1,5 @@
 === DandyID Services ===
-Contributors: Neil Simon, Sara Czyzewicz, Arron Kallenberg
+Contributors: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Tags: admin, bookmark, bookmarking, bookmarks, community, Dandy, DandyID, Delicious, email, e-mail, favicon, favicons, Facebook, Flickr, identity, Google, LinkedIn, manage, myspace, OAuth, OpenID, profile, services, sidebar, social, social bookmarking, social bookmarks, Twitter, widget, Yahoo, YouTube
 Requires at least: 2.0
 Tested up to: 2.7
@@ -239,6 +239,14 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 3. The DandyID Services settings page.
 
 == Change History ==
+
+**Rev 1.1.1**  2009-Jan-09
+
+* Options page: removed password requirement to simplify setup.
+* Options page: removed user_id requirement to simplify setup.
+* User's public identities profile is now retrieved from DandyID.
+* User's DandyID Service now returned as one of the services.
+* Larger DandyID-mini icon replaced with 15x15 favicon -- for continuity with other service icons.
 
 **Rev 1.1.0**  2009-Jan-06
 
