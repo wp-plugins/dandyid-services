@@ -10,7 +10,6 @@ class dandyid
     var $urlAppend       = "";
     var $user_identifier = "";
     var $email_address   = "";
-    var $password        = "";
 
 
     function __construct ()
@@ -26,11 +25,10 @@ class dandyid
         }
 
 
-    function setUserFields ($user_identifier, $email_address, $password)
+    function setUserFields ($user_identifier, $email_address)
         {
-        $this->user_identifier = $user_identifier;
+        $this->user_identifier = md5 ($user_identifier);
         $this->email_address   = $email_address;
-        $this->password        = $password;
         }
 
 
@@ -41,7 +39,7 @@ class dandyid
 
         $this->urlAppend = "return_services"                   . "/" .
                             urlencode ($this->api_key)         . "/" .
-                            urlencode ($this->user_identifier);
+                            urlencode ($this->user_identifier) . "/public";
 
         $this->postFields = "api_token=" . urlencode ($this->api_token);
 
@@ -61,23 +59,6 @@ class dandyid
         $this->postFields = "api_token=" . urlencode ($this->api_token);
 
         return ($this->process ());
-        }
-
-
-    function sync_user ()
-        {
-        // The URL being requested
-        // http://www.dandyId.org/api/sync_user/{api_key}/{user_identifier}
-
-        $this->urlAppend   = "sync_user"                         . "/" .
-                              urlencode ($this->api_key)         . "/" .
-                              urlencode ($this->user_identifier);
-
-        $this->postFields  = "email_address=" . urlencode ($this->email_address) .
-                             "&password="     . urlencode ($this->password)      .
-                             "&api_token="    . urlencode ($this->api_token);
-
-        $this->process ();
         }
 
 
