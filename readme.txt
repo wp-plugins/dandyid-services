@@ -240,6 +240,10 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 == Change History ==
 
+**Rev 1.1.2**  2009-Jan-10
+
+* Reduced font size of "Powered by DandyID" line to be 75% of inherited font size.
+
 **Rev 1.1.1**  2009-Jan-09
 
 * Options page: removed password requirement to simplify setup.

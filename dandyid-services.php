@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://dandyid.org/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.1.1
+Version: 1.1.2
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -127,7 +127,7 @@ function dandyIDServices_getTable ()
         $buf .= '</table>';
 
         // Begin div tag: "dandyIDSidebarPoweredBy" -- to enable css stying
-        $buf .= '<div class="dandyIDSidebarPoweredBy">';
+        $buf .= '<div class="dandyIDSidebarPoweredBy" style="font-size:.75em">';
 
         // Display the bottom line "Powered by DandyID"
         $buf .= '&nbsp;Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
