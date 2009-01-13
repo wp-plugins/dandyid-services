@@ -13,13 +13,13 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 **The DandyID Services Plugin:**
 
- * Retrieves your online identities from DandyID.
- * Displays them in your sidebar as convenient **clickable links**.
- * *Please see the [Screenshots](http://wordpress.org/extend/Plugins/dandyid-services/screenshots/) for examples.*
+* Retrieves your online identities from DandyID.
+* Displays them in your sidebar as convenient **clickable links**.
+* *Please see the [Screenshots](http://wordpress.org/extend/Plugins/dandyid-services/screenshots/) for examples.*
 
 **When you update your online identities on DandyID, they are automatically updated in your sidebar.**
 
-**DandyID currently supports:**
+**DandyID currently supports over 180 services, including:**
 
 * 30 Boxes
 * 43 People
@@ -190,9 +190,21 @@ For the latest news, please follow [@DandyID](http://twitter.com/dandyid) on Twi
 
 == Installation ==
 
-*If you are upgrading, please **Deactivate** the previous DandyID Services Plugin first.*
+**Upgrading?**
 
-*If you experience any errors, please visit our [Customer Service and Support Page](http://getsatisfaction.com/dandyid/products/dandyid_wordpress_Plugin).*
+* Please **Deactivate** the previous DandyID Services Plugin first.
+
+**Experiencing errors?**
+
+* Please visit our [Customer Service and Support Page](http://getsatisfaction.com/dandyid/products/dandyid_wordpress_Plugin). We welcome your questions, comments and suggestions.
+
+**Pre-Installation: Setup Your Free Account on DandyID**
+
+1. Signup at [DandyID](http://dandyid.org/).
+
+2. Setup all of your online identities. (Twitter, Facebook, Flickr, over 180 more services).
+
+**Installation**
 
 1. Upload the DandyID Services Plugin folder to **/wp-content/Plugins/**
 
