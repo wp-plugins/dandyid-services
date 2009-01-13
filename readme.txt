@@ -184,7 +184,7 @@ When you update your online identities on DandyID, they are automatically update
 * Zorpia
 * more being added
 
-To learn more, please visit [DandyID](http://www.dandyid.org/).
+To learn more, please visit [DandyID](http://dandyid.org/).
 
 For the latest news, please follow [@DandyID](http://twitter.com/dandyid) on Twitter. 
 
@@ -203,7 +203,7 @@ For the latest news, please follow [@DandyID](http://twitter.com/dandyid) on Twi
 
 1. Signup at [DandyID](http://dandyid.org/).
 
-2. Setup all of your online identities. (Twitter, Facebook, Flickr, ...).
+2. Setup all of your online identities: Twitter, Facebook, Flickr, ...
 
 **Installation**
 
@@ -228,8 +228,8 @@ For the latest news, please follow [@DandyID](http://twitter.com/dandyid) on Twi
    - On the left side, next to DandyID Services, click on **Add** to make it appear in the list of **Current Widgets**.
    - Click on **Save Changes**.
 
-6. If your theme DOES NOT support widgets, place this piece of code in your sidebar code (e.g. sidebar.php):
-   - &lt;?php if (function\_exists ('dandyIDServices\_buildTable')) { dandyIDServices_buildTable (); } ?&gt;
+6. If your theme DOES NOT support widgets, place this line of code in your sidebar code (e.g. sidebar.php):
+   - &lt;?php dandyIDServices_buildTable (); ?&gt;
 
 7. Your DandyID online identities will appear as clickable links in your sidebar.
 
@@ -237,17 +237,17 @@ For the latest news, please follow [@DandyID](http://twitter.com/dandyid) on Twi
 
 **How often does the Plugin retrieve my list of DandyID services ?**
 
-Your DandyID services are retrieved only once every 2 hours. This is for performance and helps blog pages load **much** faster.
+Your DandyID services are retrieved once every 2 hours. This aids performance to help blog pages load faster.
 
 **If I update my services on DandyID, does the Plugin wait until the next 2-hour interval to retrieve them ?**
 
-Yes. But you can always **force** a refresh, by going to **Settings->DandyID Services** (in your WordPress admin), and pressing the **Save** button.
+Yes. But you can initiate a refresh at any time by going to **Settings->DandyID Services**, and pressing the **Save** button.
 
 **Known Issues and Workarounds**
 
 1. Fatal error: Call to undefined function: curl_init()
    - The CURL PHP library needs to be installed.
-   - [Please see here for setup instructions](http://php.net/manual/en/curl.setup.php).
+   - [Please see these setup instructions](http://php.net/manual/en/curl.setup.php) for more info.
 
 == Screenshots ==
 
@@ -261,12 +261,12 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 **Rev 1.1.3**  2009-Jan-12
 
-* Change cache refresh interval from once every 24 hours to once every 2 hours.
-* During a refresh, the plugin retrieves the list of DandyID services, and stores them to the WordPress database.
+* Change the cache refresh interval from every 24 hours to every 2 hours.
+* During a refresh, the plugin retrieves the list of DandyID services, and stores them in the WordPress database.
 
 **Rev 1.1.2**  2009-Jan-10
 
-* Reduced font size of "Powered by DandyID" line to be 75% of inherited font size.
+* Reduced the font size of "Powered by DandyID" line.
 
 **Rev 1.1.1**  2009-Jan-09
 
@@ -295,7 +295,7 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 **Rev 1.0.6**  2009-Jan-01
 
-* Added "dandyIDSidebarIdentities" and "dandyIDSidebarPoweredBy" to enable external css styling. Thanks [@dtownsend](http://twitter.com/dtownsend). 
+* Added 2 div classes "dandyIDSidebarIdentities" and "dandyIDSidebarPoweredBy" to enable external css styling. Thanks [@dtownsend](http://twitter.com/dtownsend). 
 
 **Rev 1.0.5**  2009-Jan-01
 
