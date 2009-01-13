@@ -11,11 +11,11 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 **[DandyID](http://dandyid.org/) is a free service that enables you to easily connect all of your online identities.**
 
-**The DandyID Services plugin:**
+**The DandyID Services Plugin:**
 
  * Retrieves your online identities from DandyID.
  * Displays them in your sidebar as convenient **clickable links**.
- * *Please see the [Screenshots](http://wordpress.org/extend/plugins/dandyid-services/screenshots/) for examples.*
+ * *Please see the [Screenshots](http://wordpress.org/extend/Plugins/dandyid-services/screenshots/) for examples.*
 
 **When you update your online identities on DandyID, they are automatically updated in your sidebar.**
 
@@ -186,30 +186,30 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 To learn more, please visit [DandyID](http://www.dandyid.org/).
 
-For the latest news, follow [@DandyID](http://twitter.com/dandyid) on Twitter. 
+For the latest news, please follow [@DandyID](http://twitter.com/dandyid) on Twitter. 
 
 == Installation ==
 
-*If you are upgrading, please **Deactivate** the previous DandyID Services plugin first.*
+*If you are upgrading, please **Deactivate** the previous DandyID Services Plugin first.*
 
-*If you experience any errors, please visit our [Customer Service and Support Page](http://getsatisfaction.com/dandyid/products/dandyid_wordpress_plugin).*
+*If you experience any errors, please visit our [Customer Service and Support Page](http://getsatisfaction.com/dandyid/products/dandyid_wordpress_Plugin).*
 
-1. Upload the DandyID Services plugin folder to **/wp-content/plugins/**
+1. Upload the DandyID Services Plugin folder to **/wp-content/Plugins/**
 
 2. Login to your WP admin web page.
 
-3. Activate the DandyID Services plugin:
+3. Activate the Plugin:
    - Click on the **Plugins** tab.
    - Find DandyID Services in the list of Inactive Plugins (or Recently Active Plugins).
-   - Click on **Activate** to activate the DandyID Services plugin.
+   - Click on **Activate** to activate the DandyID Services Plugin.
 
-4. Configure the DandyID Services plugin:
+4. Configure the Plugin:
    - Click on the **Settings** tab.
    - Click on the **DandyID Services** subtab.
    - Enter your DandyID Service Options -- all fields are required.
    - Press the **Save** button to save your DandyID Service Options.
 
-5. To setup as a sidebar widget:
+5. Setup as a sidebar widget:
    - Click on the **Design** tab.
    - Click on the **Widgets** subtab.
    - On the left side, next to DandyID Services, click on **Add** to make it appear in the list of **Current Widgets**.
@@ -222,13 +222,18 @@ For the latest news, follow [@DandyID](http://twitter.com/dandyid) on Twitter.
 
 == Frequently Asked Questions ==
 
-**How often does the plugin retrieve my list of DandyID services ?**
+**How often does the Plugin retrieve my list of DandyID services ?**
 
-Only once per day. This is for performance and helps blog pages load **much** faster.
+Your DandyID services are retrieved only once every 2 hours. This is for performance and helps blog pages load **much** faster.
 
-**If I update my services on DandyID, does the plugin wait until the next day to retrieve them ?**
+**If I update my services on DandyID, does the Plugin wait until the next 2-hour interval to retrieve them ?**
 
 Yes. But you can always **force** a refresh, by going to **Settings->DandyID Services** (in your WordPress admin), and pressing the **Save** button.
+
+**Known issues and workarounds**
+
+* Fatal error: Call to undefined function: curl_init()
+  -  You need to have the CURL PHP library installed. [See here for setup instructions](http://php.net/manual/en/curl.setup.php).
 
 == Screenshots ==
 
@@ -239,6 +244,11 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 3. The DandyID Services settings page.
 
 == Change History ==
+
+**Rev 1.1.3**  2009-Jan-12
+
+* Change cache refresh interval from once every 24 hours to once every 2 hours.
+* During a refresh, the plugin retrieves the list of DandyID services, and stores them to the WordPress database.
 
 **Rev 1.1.2**  2009-Jan-10
 
@@ -283,8 +293,8 @@ Yes. But you can always **force** a refresh, by going to **Settings->DandyID Ser
 
 **Rev 1.0.3**  2008-Dec-30
 
-* Added ability for plugin to gracefully handle DandyID host server down.
-* Added ability for plugin to gracefully handle DandyID API url unavailable.
+* Added ability for Plugin to gracefully handle DandyID host server down.
+* Added ability for Plugin to gracefully handle DandyID API url unavailable.
 
 **Rev 1.0.2**  2008-Dec-28
 
