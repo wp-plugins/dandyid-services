@@ -15,7 +15,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 * Retrieves your online identities from DandyID.
 * Displays them in your sidebar as convenient **clickable links**.
-* *Please see the [Screenshots](http://wordpress.org/extend/Plugins/dandyid-services/screenshots/) for examples.*
+* Please see the [Screenshots](http://wordpress.org/extend/Plugins/dandyid-services/screenshots/) for examples.
 
 **When you update your online identities on DandyID, they are automatically updated in your sidebar.**
 
