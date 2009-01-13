@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://dandyid.org/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.1.2
+Version: 1.1.3
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -34,13 +34,15 @@ require_once 'class.dandyid.php';
 
 
 // Constants
-define ('DANDYID_URL',               'http://www.dandyid.org/');
-define ('DANDYID_API_KEY',           '17ps6defe5fnem02czzsv95771wu4qe5w5x3');
-define ('DANDYID_API_TOKEN',         'hbhvfwjuitwvsvoo5suatq6xgj2cnye6av1p');
-define ('DANDYID_SETTINGS_OPTIONS',  'dandyID_settingsOptions');
-define ('DANDYID_CACHE_OPTIONS',     'dandyID_cacheOptions');
-define ('DANDYID_CACHE_DATE_OPTION', 'dandyID_cacheDateOption');
-define ('DANDYID_API_URL',           'http://www.dandyid.org/api/');
+define ('DANDYID_URL',                    'http://www.dandyid.org/');
+define ('DANDYID_API_KEY',                '17ps6defe5fnem02czzsv95771wu4qe5w5x3');
+define ('DANDYID_API_TOKEN',              'hbhvfwjuitwvsvoo5suatq6xgj2cnye6av1p');
+define ('DANDYID_SETTINGS_OPTIONS',       'dandyID_settingsOptions');
+define ('DANDYID_CACHE_OPTIONS',          'dandyID_cacheOptions');
+define ('DANDYID_NEXT_CACHE_TIME_OPTION', 'dandyID_nextCacheTimeOption');
+define ('DANDYID_API_URL',                'http://www.dandyid.org/api/');
+define ('DANDYID_CACHE_TIME_STRING',      'Y-m-d-H-i');
+define ('DANDYID_CACHE_REFRESH_INTERVAL', '+2 hours');
 
 
 // Global data -- used exclusively by dandyIDServices_xml*(), and dandyIDServices_refreshCache().
@@ -57,10 +59,10 @@ $gDandyIDClass  = 0;
 
 function dandyIDServices_getTable ()
     {
-    // If the cacheDate doesn't match the current date...
-    if (get_option (DANDYID_CACHE_DATE_OPTION) != date ('Y-m-d'))
+    // If the current time exceeds the stored refresh-interval time...
+    if (date (DANDYID_CACHE_TIME_STRING) > get_option (DANDYID_NEXT_CACHE_TIME_OPTION))
         {
-        // Overwrite the existing cache, reset the cacheDate to current date)
+        // Overwrite the existing cache, reset the cache time to current time + defined interval
         dandyIDServices_refreshCache ();
         }
 
@@ -170,8 +172,9 @@ function dandyIDServices_refreshCache ()
         // Store the cache options array to wp database
         update_option (DANDYID_CACHE_OPTIONS, $nullCacheOptions);
 
-        // Reset the cache date to the current date, store to wp database
-        update_option (DANDYID_CACHE_DATE_OPTION, date ('Y-m-d'));
+        // Reset the next cache time to the (current time + defined interval), store to wp database
+        update_option (DANDYID_NEXT_CACHE_TIME_OPTION,
+                       date (DANDYID_CACHE_TIME_STRING, strtotime (DANDYID_CACHE_REFRESH_INTERVAL)));
         }
 
     else
@@ -237,8 +240,9 @@ function dandyIDServices_refreshCache ()
             // Store the cache options array to wp database
             update_option (DANDYID_CACHE_OPTIONS, $gCacheOptions);
 
-            // Reset the cache date to the current date, store to wp database
-            update_option (DANDYID_CACHE_DATE_OPTION, date ('Y-m-d'));
+            // Reset the next cache time to the (current time + defined interval), store to wp database
+            update_option (DANDYID_NEXT_CACHE_TIME_OPTION,
+                           date (DANDYID_CACHE_TIME_STRING, strtotime (DANDYID_CACHE_REFRESH_INTERVAL)));
             }
         }
     }
@@ -368,13 +372,13 @@ function dandyIDServices_createOptions ()
                                                  'svcName'    => '',
                                                  'svcFavicon' => ''));
 
-    // Set the initial cache date to null
+    // Set the initial cache time to null
     $dandyID_initialCacheDateOption = '';
 
     // Store the initial options to the wp database
     add_option (DANDYID_SETTINGS_OPTIONS,  $dandyID_initialSettingsOptions);
     add_option (DANDYID_CACHE_OPTIONS,     $dandyID_initialCacheOptions);
-    add_option (DANDYID_CACHE_DATE_OPTION, $dandyID_initialCacheDateOption);
+    add_option (DANDYID_NEXT_CACHE_TIME_OPTION, $dandyID_initialCacheDateOption);
     }
 
 
@@ -385,11 +389,11 @@ function dandyIDServices_deleteOptions ()
     // Remove the dandyID_settingsOptions array from the wp database
     delete_option (DANDYID_SETTINGS_OPTIONS);
 
-    // Remove the dandyID_cacheOptions array from the wp database
+    // Remove from the wp database
     delete_option (DANDYID_CACHE_OPTIONS);
 
-    // Remove the dandyID_cacheDateOption from the wp database
-    delete_option (DANDYID_CACHE_DATE_OPTION);
+    // Remove from the wp database
+    delete_option (DANDYID_NEXT_CACHE_TIME_OPTION);
     }
 
 
@@ -479,19 +483,19 @@ function dandyIDServices_xmlData ($parser, $data)
     }
 
 
-// This callback runs only once, at plugin activation time
+// dandyIDServices_createOptions() ... runs only once, at activation time
 register_activation_hook (__FILE__, 'dandyIDServices_createOptions');
 
 
-// This callback runs only once, at plugin deactivation time
+// dandyIDServices_deleteOptions() ... runs only once, at deactivation time
 register_deactivation_hook (__FILE__, 'dandyIDServices_deleteOptions');
 
 
-// This callback runs when adding the widget
+// dandyIDServices_initWidget() ...... load the widget, show it in the widget control in the admin section
 add_action ('plugins_loaded', 'dandyIDServices_initWidget');
 
 
-// This callback runs when adding the submenu
+// dandyIDServices_addSubmenu() ...... add the "DandyID Services" submenu to the "Setting" admin page
 add_action ('admin_menu', 'dandyIDServices_addSubmenu');
 
 ?>
