@@ -230,10 +230,11 @@ Your DandyID services are retrieved only once every 2 hours. This is for perform
 
 Yes. But you can always **force** a refresh, by going to **Settings->DandyID Services** (in your WordPress admin), and pressing the **Save** button.
 
-**Known issues and workarounds**
+**Known Issues and Workarounds**
 
-* Fatal error: Call to undefined function: curl_init()
-  -  You need to have the CURL PHP library installed. [See here for setup instructions](http://php.net/manual/en/curl.setup.php).
+1. Fatal error: Call to undefined function: curl_init()
+   - The CURL PHP library needs to be installed.
+   - [Please see here for setup instructions](http://php.net/manual/en/curl.setup.php).
 
 == Screenshots ==
 
