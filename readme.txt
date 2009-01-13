@@ -13,13 +13,13 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 **The DandyID Services Plugin:**
 
-* Retrieves your online identities from DandyID.
+* Retrieves all of your online identities from DandyID.
 * Displays them in your sidebar as convenient **clickable links**.
 * Please see the [Screenshots](http://wordpress.org/extend/Plugins/dandyid-services/screenshots/) for examples.
 
-**When you update your online identities on DandyID, they are automatically updated in your sidebar.**
+When you update your online identities on DandyID, they are automatically updated in your sidebar.
 
-**DandyID currently supports over 180 services, including:**
+**DandyID currently supports over 180 services including:**
 
 * 30 Boxes
 * 43 People
@@ -196,13 +196,14 @@ For the latest news, please follow [@DandyID](http://twitter.com/dandyid) on Twi
 
 **Experiencing errors?**
 
-* Please visit our [Customer Service and Support Page](http://getsatisfaction.com/dandyid/products/dandyid_wordpress_Plugin). We welcome your questions, comments and suggestions.
+* Please visit our [Customer Service and Support Page](http://getsatisfaction.com/dandyid/products/dandyid_wordpress_Plugin).
+* We welcome your questions, comments and suggestions.
 
 **Pre-Installation: Setup Your Free Account on DandyID**
 
 1. Signup at [DandyID](http://dandyid.org/).
 
-2. Setup all of your online identities. (Twitter, Facebook, Flickr, over 180 more services).
+2. Setup all of your online identities. (Twitter, Facebook, Flickr, ...).
 
 **Installation**
 
@@ -230,7 +231,7 @@ For the latest news, please follow [@DandyID](http://twitter.com/dandyid) on Twi
 6. If your theme DOES NOT support widgets, place this piece of code in your sidebar code (e.g. sidebar.php):
    - &lt;?php if (function\_exists ('dandyIDServices\_buildTable')) { dandyIDServices_buildTable (); } ?&gt;
 
-7. Your DandyID online identities should appear as a list of clickable links your sidebar.
+7. Your DandyID online identities will appear as clickable links in your sidebar.
 
 == Frequently Asked Questions ==
 
