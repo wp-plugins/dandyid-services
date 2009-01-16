@@ -262,6 +262,7 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 **Rev 1.1.4**  2009-Jan-15
 
 * Make the "Powered by DandyID" line a configurable option.
+* Written and tested at [@TechStars](http://twitter.com/techstars) #hacknight
 
 **Rev 1.1.3**  2009-Jan-12
 
