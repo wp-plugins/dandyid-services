@@ -259,6 +259,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
+**Rev 1.1.4**  2009-Jan-15
+
+* Make the "Powered by DandyID" line a configurable option.
+
 **Rev 1.1.3**  2009-Jan-12
 
 * Change the cache refresh interval from every 24 hours to every 2 hours.

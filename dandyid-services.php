@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://dandyid.org/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.1.3
+Version: 1.1.4
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -78,7 +78,7 @@ function dandyIDServices_getTable ()
     // Get the cache from the wp database
     $cacheOptions = get_option (DANDYID_CACHE_OPTIONS);
 
-    // Only use the <table> tag if (show_text_links == TRUE)
+    // If (show_text_links == TRUE), open a table tag for the Favicon/Text rows
     if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
         {
         // BEGIN table: one line for EACH service, containing chicklet and text link to service
@@ -123,11 +123,15 @@ function dandyIDServices_getTable ()
             }
         }
 
-    // Only use the </table> tag if (show_text_links == TRUE)
+    // If (show_text_links == TRUE), close the table tag (re: Favicon/Text rows)
     if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
         {
         $buf .= '</table>';
+        }
 
+    // If (show_powered_by == TRUE), display the "Powered by DandyID" line
+    if ($dandyID_settingsOptions ['show_powered_by'] == TRUE)
+        {
         // Begin div tag: "dandyIDSidebarPoweredBy" -- to enable css stying
         $buf .= '<div class="dandyIDSidebarPoweredBy" style="font-size:.75em">';
 
@@ -289,6 +293,7 @@ function dandyIDServices_updateSettingsOptionsPage ()
         $dandyID_settingsOptions ['email_address']   = $_POST ['email_address'];
         $dandyID_settingsOptions ['sidebarTitle']    = $_POST ['sidebarTitle'];
         $dandyID_settingsOptions ['show_text_links'] = $_POST ['show_text_links'] == "TRUE" ? TRUE : FALSE;
+        $dandyID_settingsOptions ['show_powered_by'] = $_POST ['show_powered_by'] == "TRUE" ? TRUE : FALSE;
 
         // Store changed options back to wp database
         update_option (DANDYID_SETTINGS_OPTIONS, $dandyID_settingsOptions);
@@ -300,7 +305,7 @@ function dandyIDServices_updateSettingsOptionsPage ()
         echo '<div id="message" class="updated fade"><p>' . "DandyID Service options saved successfully." . '</p></div>';
         }
 
-    // Set variable for form to use to show sticky-value for radio button
+    // Set variable for form to use for "show_text_links" to show sticky-value for radio button
     if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
         {
         $showFavsAndText = "checked";
@@ -310,6 +315,18 @@ function dandyIDServices_updateSettingsOptionsPage ()
         {
         $showFavsAndText = "";
         $showFavsOnly    = "checked";
+        }
+
+    // Set variable for form to use for "show_powered_by" to show sticky-value for radio button
+    if ($dandyID_settingsOptions ['show_powered_by'] == TRUE)
+        {
+        $showPoweredBy = "checked";
+        $hidePoweredBy = "";
+        }
+    else
+        {
+        $showPoweredBy = "";
+        $hidePoweredBy = "checked";
         }
 
     // Display the DandyID Service Options form to the user
@@ -338,12 +355,18 @@ function dandyIDServices_updateSettingsOptionsPage ()
       </table>
 
       &nbsp; &nbsp;
-
       <input type="radio" name="show_text_links" value="TRUE"  ' . $showFavsAndText . ' />
-      Show Favicons and Text Links &nbsp; &nbsp; &nbsp;
+      Show Favicons and Text Links &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
       <input type="radio" name="show_text_links" value="FALSE" ' . $showFavsOnly    . ' />
-      Show Favicons only
+      Show Favicons only<br /><br />
+
+      &nbsp; &nbsp;
+      <input type="radio" name="show_powered_by" value="TRUE"  ' . $showPoweredBy   . ' />
+      Show "Powered by DandyID" Line &nbsp; &nbsp;
+
+      <input type="radio" name="show_powered_by" value="FALSE" ' . $hidePoweredBy   . ' />
+      Hide "Powered by DandyID" Line
 
       <p>&nbsp;&nbsp;<input type="submit" value="Save" /></p>
 
@@ -365,6 +388,7 @@ function dandyIDServices_createOptions ()
     // First time user sees form, default to "Show Favicons and Text Links"
     $dandyID_initialSettingsOptions = array ('email_address'   => $current_user->user_email,
                                              'show_text_links' => 'TRUE',
+                                             'show_powered_by' => 'TRUE',
                                              'sidebarTitle'    => '');
 
     // Create the initialCacheOptions 2-dimensional array of keys/values
@@ -376,8 +400,8 @@ function dandyIDServices_createOptions ()
     $dandyID_initialCacheDateOption = '';
 
     // Store the initial options to the wp database
-    add_option (DANDYID_SETTINGS_OPTIONS,  $dandyID_initialSettingsOptions);
-    add_option (DANDYID_CACHE_OPTIONS,     $dandyID_initialCacheOptions);
+    add_option (DANDYID_SETTINGS_OPTIONS,       $dandyID_initialSettingsOptions);
+    add_option (DANDYID_CACHE_OPTIONS,          $dandyID_initialCacheOptions);
     add_option (DANDYID_NEXT_CACHE_TIME_OPTION, $dandyID_initialCacheDateOption);
     }
 
