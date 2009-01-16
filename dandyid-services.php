@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://dandyid.org/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.1.4
+Version: 1.1.5
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -334,7 +334,7 @@ function dandyIDServices_updateSettingsOptionsPage ()
     echo
      '<div class="wrap">
 
-      <h3>&nbsp; Please enter your DandyID Service Plugin options: &nbsp; (all fields are required)</h3>
+      <h3>&nbsp; Please enter your DandyID Service Plugin options:</h3>
 
       <form action="" method="post">
 
@@ -342,31 +342,35 @@ function dandyIDServices_updateSettingsOptionsPage ()
 
       <tr>
       <td>Email:</td>
-      <td><input type="text"     name="email_address" value="' . $dandyID_settingsOptions ['email_address'] . '" size="40" /></td>
+      <td><input type="text" name="email_address" value="' . $dandyID_settingsOptions ['email_address'] . '" size="40" /></td>
       <td>The email address you use to logon to DandyID.</td>
       </tr>
 
       <tr>
       <td>Title:</td>
-      <td><input type="text"     name="sidebarTitle"  value="' . $dandyID_settingsOptions ['sidebarTitle']  . '" size="40" /></td>
+      <td><input type="text" name="sidebarTitle"  value="' . $dandyID_settingsOptions ['sidebarTitle']  . '" size="40" /></td>
       <td>The sidebar title to display.</td>
       </tr>
 
       </table>
 
-      &nbsp; &nbsp;
-      <input type="radio" name="show_text_links" value="TRUE"  ' . $showFavsAndText . ' />
-      Show Favicons and Text Links &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <table border="0" cellpadding="10">
 
+      <tr>
+      <td><input type="radio" name="show_text_links" value="TRUE"  ' . $showFavsAndText . ' />
+      Show Favicons and Text Links<br />
       <input type="radio" name="show_text_links" value="FALSE" ' . $showFavsOnly    . ' />
-      Show Favicons only<br /><br />
+      Show Favicons only</td>
 
-      &nbsp; &nbsp;
-      <input type="radio" name="show_powered_by" value="TRUE"  ' . $showPoweredBy   . ' />
-      Show "Powered by DandyID" Line &nbsp; &nbsp;
+      <td>&nbsp; &nbsp; &nbsp;</td>
 
+      <td><input type="radio" name="show_powered_by" value="TRUE"  ' . $showPoweredBy   . ' />
+      Show "Powered by DandyID"<br />
       <input type="radio" name="show_powered_by" value="FALSE" ' . $hidePoweredBy   . ' />
-      Hide "Powered by DandyID" Line
+      Hide "Powered by DandyID"</td>
+      </tr>
+
+      </table>
 
       <p>&nbsp;&nbsp;<input type="submit" value="Save" /></p>
 
