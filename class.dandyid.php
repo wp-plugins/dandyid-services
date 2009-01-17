@@ -74,8 +74,14 @@ class dandyid
         curl_setopt ($ch, CURLOPT_POST,           1);
         curl_setopt ($ch, CURLOPT_POSTFIELDS,     $this->postFields);
         curl_setopt ($ch, CURLOPT_URL,            $curlUrl);
-        curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, TRUE);
         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+        // Prepend @ to this call to suppress (in some environments):
+        // "Warning curl_setopt(): CURLOPT_FOLLOWLOCATION cannot be activated
+        //  when in safe_mode or an open_basedir is set in"
+        // This was reported by one user in WordPress forum, topic: 235020
+        // User mentioned that the code works fine -- even though this warning is displayed
+        @curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, TRUE);
 
         // Exec the URL
         $response = curl_exec ($ch);
