@@ -261,7 +261,7 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 **Rev 1.1.6**  2009-Jan-16
 
-* Suppress activation warning on curl_setopt() CURLOPT_FOLLOWLOCATION.
+* Suppress activation warning on curl\_setopt() CURLOPT\_FOLLOWLOCATION.
 
 **Rev 1.1.5**  2009-Jan-16
 
