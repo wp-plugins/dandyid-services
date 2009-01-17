@@ -228,8 +228,7 @@ For the latest news, please follow [@DandyID](http://twitter.com/dandyid) on Twi
    - On the left side, next to DandyID Services, click on **Add** to make it appear in the list of **Current Widgets**.
    - Click on **Save Changes**.
 
-6. If your theme DOES NOT support widgets, place this line of code in your sidebar code (e.g. sidebar.php):
-   `<?php dandyIDServices_buildTable (); ?>`
+6. If your theme DOES NOT support widgets, place this line of code in your sidebar code (e.g. sidebar.php): `<?php dandyIDServices_buildTable (); ?>`
 
 7. Your DandyID online identities will appear as clickable links in your sidebar.
 
