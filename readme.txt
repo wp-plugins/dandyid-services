@@ -259,6 +259,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
+**Rev 1.1.7**  2009-Jan-17
+
+* New setup option: Text-links only. Ability to now choose from 3 display options: Show Favicons and Text-links, Show Favicons only, and Show Text-links only.
+
 **Rev 1.1.6**  2009-Jan-16
 
 * Suppress activation warning on curl\_setopt() CURLOPT\_FOLLOWLOCATION.

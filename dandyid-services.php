@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://dandyid.org/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.1.6
+Version: 1.1.7
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -45,6 +45,12 @@ define ('DANDYID_CACHE_TIME_STRING',      'Y-m-d-H-i');
 define ('DANDYID_CACHE_REFRESH_INTERVAL', '+2 hours');
 
 
+// Sidebar content to show
+define ('DANDYID_SHOW_FAVICONS_AND_TEXTLINKS', 0);
+define ('DANDYID_SHOW_FAVICONS',               1);
+define ('DANDYID_SHOW_TEXTLINKS',              2);
+
+
 // Global data -- used exclusively by dandyIDServices_xml*(), and dandyIDServices_refreshCache().
 // These globals are required, due to the way xml_*() callbacks are implemented by PHP.
 $gInsideSERVICE = FALSE;
@@ -78,8 +84,8 @@ function dandyIDServices_getTable ()
     // Get the cache from the wp database
     $cacheOptions = get_option (DANDYID_CACHE_OPTIONS);
 
-    // If (show_text_links == TRUE), open a table tag for the Favicon/Text rows
-    if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
+    // Only use the <table> tag if showing FAVICONS and TEXTLINKS
+    if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
         {
         // BEGIN table: one line for EACH service, containing chicklet and text link to service
         $buf .= '<table border="0" cellspacing="4">';
@@ -94,26 +100,26 @@ function dandyIDServices_getTable ()
         $cacheSvcFavicon = $cacheOptions [$i] ['svcFavicon'];
 
         // Either show favicon AND text link...
-        if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
+        if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
             {
-            // Each table row will have 2 columns: svcFavicon, svcName (each links to user service url)
+            // Each line will have 2 columns: svcFavicon, svcName (each links to user service url)
 
             // Column 1: Service Favicon
             $buf .= '<tr>';
-            $buf .= '  <td><a href="' . $cacheUrl        . '" rel="me">' . 
-                          '<img id="' . $cacheSvcName    . '" ' .
-                          '    src="' . $cacheSvcFavicon . '" ' . 
-                          '    alt="' . $cacheSvcName    . '" /></a></td>';
+            $buf .= '<td><a href="' . $cacheUrl        . '" rel="me">' . 
+                      '  <img id="' . $cacheSvcName    . '" ' .
+                      '      src="' . $cacheSvcFavicon . '" ' . 
+                      '      alt="' . $cacheSvcName    . '" /></a></td>';
 
             // Column 2: Service Name
-            $buf .= '  <td>&nbsp;<a href="' . $cacheUrl     . '" rel="me">' .
-                                              $cacheSvcName . '</a></td>';
+            $buf .= '<td>&nbsp;<a href="' . $cacheUrl     . '" rel="me">' .
+                                            $cacheSvcName . '</a></td>';
 
             $buf .= '</tr>';
             }
 
         // ... or only show the favicon
-        else
+        else if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS)
             {
             // let them wrap lines
             $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
@@ -121,10 +127,18 @@ function dandyIDServices_getTable ()
                     '    src="' . $cacheSvcFavicon . '" ' . 
                     '    alt="' . $cacheSvcName    . '" /></a>&nbsp;';
             }
+
+        // ... or only show the text links
+        else   // must be DANDYID_SHOW_TEXTLINKS
+            {
+            // each on a separate line
+            $buf .= '<a href="' . $cacheUrl     . '" rel="me">' .
+                                  $cacheSvcName . '</a><br />';
+            }
         }
 
-    // If (show_text_links == TRUE), close the table tag (re: Favicon/Text rows)
-    if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
+    // Only use the </table> tag if showing FAVICONS and TEXTLINKS
+    if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
         {
         $buf .= '</table>';
         }
@@ -136,7 +150,7 @@ function dandyIDServices_getTable ()
         $buf .= '<div class="dandyIDSidebarPoweredBy" style="font-size:.75em">';
 
         // Display the bottom line "Powered by DandyID"
-        $buf .= '&nbsp;Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
+        $buf .= 'Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
 
         // End div tag: "dandyIDSidebarPoweredBy"
         $buf .= '</div>';
@@ -292,8 +306,22 @@ function dandyIDServices_updateSettingsOptionsPage ()
         //... copy the fields to the persistent wp options array
         $dandyID_settingsOptions ['email_address']   = $_POST ['email_address'];
         $dandyID_settingsOptions ['sidebarTitle']    = $_POST ['sidebarTitle'];
-        $dandyID_settingsOptions ['show_text_links'] = $_POST ['show_text_links'] == "TRUE" ? TRUE : FALSE;
         $dandyID_settingsOptions ['show_powered_by'] = $_POST ['show_powered_by'] == "TRUE" ? TRUE : FALSE;
+
+        if ($_POST ['show_style'] == "BOTH")
+            {
+            $dandyID_settingsOptions ['show_style'] = DANDYID_SHOW_FAVICONS_AND_TEXTLINKS;
+            }
+
+        else if ($_POST ['show_style'] == "FAVICONS")
+            {
+            $dandyID_settingsOptions ['show_style'] = DANDYID_SHOW_FAVICONS;
+            }
+
+        else   // must be TEXTLINKS
+            {
+            $dandyID_settingsOptions ['show_style'] = DANDYID_SHOW_TEXTLINKS;
+            }
 
         // Store changed options back to wp database
         update_option (DANDYID_SETTINGS_OPTIONS, $dandyID_settingsOptions);
@@ -305,16 +333,26 @@ function dandyIDServices_updateSettingsOptionsPage ()
         echo '<div id="message" class="updated fade"><p>' . "DandyID Service options saved successfully." . '</p></div>';
         }
 
-    // Set variable for form to use for "show_text_links" to show sticky-value for radio button
-    if ($dandyID_settingsOptions ['show_text_links'] == TRUE)
+    // Set variable for form to use for "show_style" to show sticky-value for radio button
+    if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
         {
-        $showFavsAndText = "checked";
-        $showFavsOnly    = "";
+        $showFaviconsAndTextlinks = "checked";
+        $showFavicons             = "";
+        $showTextlinks            = "";
         }
-    else
+
+    else if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS)
         {
-        $showFavsAndText = "";
-        $showFavsOnly    = "checked";
+        $showFaviconsAndTextlinks = "";
+        $showFavicons             = "checked";
+        $showTextlinks            = "";
+        }
+
+    else // must be DANDYID_SHOW_TEXTLINKS
+        {
+        $showFaviconsAndTextlinks = "";
+        $showFavicons             = "";
+        $showTextlinks            = "checked";
         }
 
     // Set variable for form to use for "show_powered_by" to show sticky-value for radio button
@@ -357,16 +395,16 @@ function dandyIDServices_updateSettingsOptionsPage ()
       <table border="0" cellpadding="10">
 
       <tr>
-      <td><input type="radio" name="show_text_links" value="TRUE"  ' . $showFavsAndText . ' />
-      Show Favicons and Text Links<br />
-      <input type="radio" name="show_text_links" value="FALSE" ' . $showFavsOnly    . ' />
-      Show Favicons only</td>
+      <td width="300"><input type="radio" name="show_style" value="BOTH"      ' . $showFaviconsAndTextlinks . ' />
+      Show Favicons and Text-links<br />
+                      <input type="radio" name="show_style" value="FAVICONS"  ' . $showFavicons             . ' />
+      Show Favicons only<br />
+                      <input type="radio" name="show_style" value="TEXTLINKS" ' . $showTextlinks            . ' />
+      Show Text-links only</td>
 
-      <td>&nbsp; &nbsp; &nbsp;</td>
-
-      <td><input type="radio" name="show_powered_by" value="TRUE"  ' . $showPoweredBy   . ' />
+      <td width="300" valign="top"><input type="radio" name="show_powered_by" value="TRUE"  ' . $showPoweredBy   . ' />
       Show "Powered by DandyID"<br />
-      <input type="radio" name="show_powered_by" value="FALSE" ' . $hidePoweredBy   . ' />
+                      <input type="radio" name="show_powered_by" value="FALSE" ' . $hidePoweredBy   . ' />
       Hide "Powered by DandyID"</td>
       </tr>
 
@@ -390,8 +428,9 @@ function dandyIDServices_createOptions ()
 
     // Create the initialSettingsOptions array of keys/values
     // First time user sees form, default to "Show Favicons and Text Links"
+    // Set 'show_style' default to DANDYID_SHOW_FAVICONS_AND_TEXTLINKS (i.e. 0)
     $dandyID_initialSettingsOptions = array ('email_address'   => $current_user->user_email,
-                                             'show_text_links' => 'TRUE',
+                                             'show_style'      => 0,
                                              'show_powered_by' => 'TRUE',
                                              'sidebarTitle'    => '');
 
