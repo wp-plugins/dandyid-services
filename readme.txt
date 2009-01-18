@@ -1,5 +1,5 @@
 === DandyID Services ===
-Contributors: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
+Contributors: [Neil Simon](http://wordpress.org/extend/plugins/profile/nsimon), Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Tags: admin, bookmark, bookmarking, bookmarks, community, Dandy, DandyID, Delicious, email, e-mail, favicon, favicons, Facebook, Flickr, identity, Google, LinkedIn, manage, myspace, OAuth, OpenID, profile, services, sidebar, social, social bookmarking, social bookmarks, Twitter, widget, Yahoo, YouTube
 Requires at least: 2.0
 Tested up to: 2.7
