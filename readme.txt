@@ -261,6 +261,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
+**Rev 1.1.8**  2009-Jan-18
+
+* Added ability to View Change Log from settings page. Thanks [@zerojay](http://twitter.com/zerojay). 
+
 **Rev 1.1.7**  2009-Jan-17
 
 * New setup option: Text-links only. Ability to now choose from 3 display options:
