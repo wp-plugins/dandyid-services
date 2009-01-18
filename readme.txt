@@ -251,17 +251,22 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Screenshots ==
 
-1. Favicons with text links shown in the sidebar.
+1. Favicons and text-links.
 
-2. Favicons-only shown in the sidebar.
+2. Favicons only.
 
-3. The DandyID Services settings page.
+3. Text-links only.
+
+4. The DandyID Services settings page.
 
 == Change History ==
 
 **Rev 1.1.7**  2009-Jan-17
 
-* New setup option: Text-links only. Ability to now choose from 3 display options: Show Favicons and Text-links, Show Favicons only, and Show Text-links only.
+* New setup option: Text-links only. Ability to now choose from 3 display options:
+  - Show Favicons and Text-links
+  - Show Favicons only
+  - Show Text-links only
 
 **Rev 1.1.6**  2009-Jan-16
 
