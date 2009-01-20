@@ -261,6 +261,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
+**Rev 1.2.0**  2009-Jan-19
+
+* Removed all html table elements to eliminate rendering issues with some themes.
+
 **Rev 1.1.9**  2009-Jan-18
 
 * Updated <div> tags for dandyIDSidebarIdentities, and dandyIDSidebarPoweredBy. 
