@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.2.0
+Version: 1.2.1
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -222,6 +222,26 @@ function dandyIDServices_refreshCache ()
 
             // Initialize cache settings to null -- the XML parsing will load this up
             $gCacheOptions = array (array ('url' => '', 'svcName' => '', 'svcFavicon' => ''));
+
+            // Example xml returned by return_services():
+            //
+            // <xml version="1.0" encoding="iso-8859-1">
+            // <services>
+            //   <service>
+            //     <svcId>delicious</svcId>
+            //     <svcName>Delicious</svcName>
+            //     <usrSvcId>nsimon</usrSvcId>
+            //     <url>http://delicious.com/nsimon</url>
+            //     <svcFavicon>http://www.dandyid.org/code/images/miscellaneous/favicons/delicious.png</svcFavicon>
+            //   </service>
+            //   <service>
+            //     <svcId>twitter</svcId>
+            //     <svcName>Twitter</svcName>
+            //     <usrSvcId>neilsimon</usrSvcId>
+            //     <url>http://twitter.com/neilsimon</url>
+            //     <svcFavicon>http://www.dandyid.org/code/images/miscellaneous/favicons/twitter.png</svcFavicon>
+            //   </service>
+            // </services>
 
             // Prepare to parse
             $xmlParser = xml_parser_create ();
