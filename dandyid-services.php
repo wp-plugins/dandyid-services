@@ -2,9 +2,9 @@
 
 /*
 Plugin Name: DandyID Services
-Plugin URI: http://dandyid.org/
+Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.1.9
+Version: 1.2.0
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -84,13 +84,6 @@ function dandyIDServices_getTable ()
     // Get the cache from the wp database
     $cacheOptions = get_option (DANDYID_CACHE_OPTIONS);
 
-    // Only use the <table> tag if showing FAVICONS and TEXTLINKS
-    if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
-        {
-        // BEGIN table: one line for EACH service, containing chicklet and text link to service
-        $buf .= '<table border="0" cellspacing="4">';
-        }
-
     // Add services
     for ($i = 0; $cacheOptions [$i] ['url'] != ''; $i++)
         {
@@ -102,29 +95,30 @@ function dandyIDServices_getTable ()
         // Either show favicon AND text link...
         if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
             {
-            // Each line will have 2 columns: svcFavicon, svcName (each links to user service url)
+            // Column 1: Favicon (force 2 trailing spaces)
+            $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
+                    '<img id="' . $cacheSvcName    . '" ' .
+                    '    src="' . $cacheSvcFavicon . '" ' . 
+                    '    width="16"  '             . 
+                    '    height="16" '             . 
+                    '    alt="' . $cacheSvcName    . '" /></a> &nbsp;';
 
-            // Column 1: Service Favicon
-            $buf .= '<tr>';
-            $buf .= '<td><a href="' . $cacheUrl        . '" rel="me">' . 
-                      '  <img id="' . $cacheSvcName    . '" ' .
-                      '      src="' . $cacheSvcFavicon . '" ' . 
-                      '      alt="' . $cacheSvcName    . '" /></a></td>';
-
-            // Column 2: Service Name
-            $buf .= '<td>&nbsp;<a href="' . $cacheUrl     . '" rel="me">' .
-                                            $cacheSvcName . '</a></td>';
-
-            $buf .= '</tr>';
+            // Column 2: Text-link (position text to top, to align better with the favicon)
+            $buf .= '<span style="vertical-align: top;">';
+            $buf .= '<a href="' . $cacheUrl     . '" rel="me">' .
+                                  $cacheSvcName . '</a>';
+            $buf .= '</span><br />';
             }
 
         // ... or only show the favicon
         else if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS)
             {
-            // let them wrap lines
+            // let them wrap lines (force 1 trailing space after each favicon)
             $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
                     '<img id="' . $cacheSvcName    . '" ' .
                     '    src="' . $cacheSvcFavicon . '" ' . 
+                    '    width="16"  '                    . 
+                    '    height="16" '                    . 
                     '    alt="' . $cacheSvcName    . '" /></a>&nbsp;';
             }
 
@@ -135,12 +129,6 @@ function dandyIDServices_getTable ()
             $buf .= '<a href="' . $cacheUrl     . '" rel="me">' .
                                   $cacheSvcName . '</a><br />';
             }
-        }
-
-    // Only use the </table> tag if showing FAVICONS and TEXTLINKS
-    if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
-        {
-        $buf .= '</table>';
         }
 
     // If (show_powered_by == TRUE), display the "Powered by DandyID" line
