@@ -261,6 +261,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
+**Rev 1.2.1**  2009-Jan-20
+
+* Added an example of xml returned from return_services() - as comments in the php code - to help clarify API usage to DandyID API developers.
+
 **Rev 1.2.0**  2009-Jan-19
 
 * Removed all html table elements to eliminate rendering issues with some themes.
