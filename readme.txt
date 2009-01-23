@@ -21,12 +21,14 @@ When you update your online identities on DandyID, they are automatically update
 
 **DandyID currently supports over 180 services including:**
 
+* 12seconds
 * 30 Boxes
 * 43 People
 * 43 Places
 * 43 Things
 * ActiveRain
 * Adocu
+* AgencyScoop
 * AIM
 * All Consuming
 * Amazon
@@ -44,36 +46,48 @@ When you update your online identities on DandyID, they are automatically update
 * Blogger
 * Bloglines
 * Blue Dot
+* Bonnaroo
 * Box.net
 * Break
 * Brightkite
 * Bring Light
 * Bungie.net
 * Buzznet
+* CafePress
+* carbonmade
 * Change.org
 * Chickipedia
 * claimID
 * Clipmarks
 * Cluztr
 * coComment
-* Corkd
+* COLOURlovers
+* Cork'd
+* CouchSurfing
 * Crackle
+* crunchyroll
 * Crusher
 * Curse
+* Dailymile
 * Dailymotion
+* Daily Mugshot
+* Deezer
 * Delicious
 * deviantART
 * digFoot
 * Digg
 * Diigo
+* Dipity
 * Discogs
 * Disqus
 * Dodgeball
 * Dopplr
 * Dotspotter
 * Ebay
+* Ecademy
 * esnips
 * Facebook
+* Ffffound
 * Finetune
 * Flickr
 * Flixster
@@ -91,11 +105,12 @@ When you update your online identities on DandyID, they are automatically update
 * Groovr
 * Guitar Hero
 * Gyminee
-* hi5
 * HelloTxt
+* hi5
 * Howcast
 * Hulu
 * Hype Machine
+* Hyves
 * identi.ca
 * identoo
 * iJigg
@@ -104,6 +119,7 @@ When you update your online identities on DandyID, they are automatically update
 * Intense Debate
 * iReport
 * Issuu
+* iTunes PodCast
 * Jaiku
 * JamBase
 * Jumpcut
@@ -117,9 +133,11 @@ When you update your online identities on DandyID, they are automatically update
 * LinkedIn
 * LiveJournal
 * Ma.gnolia
+* Mixx
 * Multiply
 * MyBlogLog
 * My Mashable
+* myOpenID
 * MySpace
 * Naymz
 * Netflix
@@ -127,26 +145,34 @@ When you update your online identities on DandyID, they are automatically update
 * Newsvine
 * Ning
 * Odeo
+* Odeo Channel
 * Orkut
 * Pandora
 * Photobucket
 * Picasa
+* Pikchur
 * Plaxo
 * Plurk
+* Pownce
 * Propeller
 * QIK
+* Qype
+* RedBubble
 * Reddit
 * RedWire
 * RI Nexus
 * RockBand
 * Ryze
-* Shelfari
 * Seesmic
+* Shelfari
+* Simpy
 * Skitch
 * SlideShare
 * Socialthing
+* SocialURL
 * soup.io
 * Squidoo
+* Stack Overflow
 * Streem
 * Stumbleupon
 * Swurl
@@ -155,10 +181,14 @@ When you update your online identities on DandyID, they are automatically update
 * Thesixtyone
 * ThisNext
 * Threadless
+* Tioti
+* Traackr
+* Trendrr
 * TripAdvisor
 * Tripit
 * Trulia
 * Tumblr
+* TV.com
 * Twello
 * Twine
 * Twitpic
@@ -168,15 +198,21 @@ When you update your online identities on DandyID, they are automatically update
 * Upcoming
 * Veoh
 * Viddler
+* Vidoop
 * Vimeo
 * Virb
 * Vi.sualize.us
+* Viviti
+* Vodpod
 * Vox
 * Wakoopa
 * We Heart It
 * Webshots
 * Wink
+* Wishlistr
+* WordPress.com
 * Xbox LIVE
+* Xfire
 * Xing
 * Yahoo! 360
 * Yahoo! Answers
@@ -184,10 +220,13 @@ When you update your online identities on DandyID, they are automatically update
 * Yelp
 * YouTube
 * YowTrip
-* Zedge.net
+* Zedge
+* Ziki
 * Zillow
 * ZoomInfo
+* Zoomr
 * Zorpia
+* Zune Social
 * more being added
 
 To learn more, please visit [DandyID](http://dandyid.org/).
