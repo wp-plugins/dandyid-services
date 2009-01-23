@@ -33,6 +33,7 @@ When you update your online identities on DandyID, they are automatically update
 * Amie Street
 * Ask500People
 * Badoo
+* Bambuser
 * Bebo
 * Behance Network
 * Big Contact
@@ -65,6 +66,7 @@ When you update your online identities on DandyID, they are automatically update
 * digFoot
 * Digg
 * Diigo
+* Discogs
 * Disqus
 * Dodgeball
 * Dopplr
@@ -101,6 +103,7 @@ When you update your online identities on DandyID, they are automatically update
 * Instructables
 * Intense Debate
 * iReport
+* Issuu
 * Jaiku
 * JamBase
 * Jumpcut
@@ -108,6 +111,7 @@ When you update your online identities on DandyID, they are automatically update
 * Kiva
 * Lala
 * last.fm
+* LetsMakeRobots
 * lifestream.fm
 * Lijit
 * LinkedIn
@@ -119,6 +123,7 @@ When you update your online identities on DandyID, they are automatically update
 * MySpace
 * Naymz
 * Netflix
+* NetVibes
 * Newsvine
 * Ning
 * Odeo
@@ -179,6 +184,7 @@ When you update your online identities on DandyID, they are automatically update
 * Yelp
 * YouTube
 * YowTrip
+* Zedge.net
 * Zillow
 * ZoomInfo
 * Zorpia
