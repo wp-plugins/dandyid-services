@@ -96,12 +96,12 @@ function dandyIDServices_getTable ()
         if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
             {
             // Column 1: Favicon (force 2 trailing spaces)
-            $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
-                    '<img id="' . $cacheSvcName    . '" ' .
-                    '    src="' . $cacheSvcFavicon . '" ' . 
-                    '    width="16"  '             . 
-                    '    height="16" '             . 
-                    '    alt="' . $cacheSvcName    . '" /></a> &nbsp;';
+            $buf .= '&nbsp;<a href="' . $cacheUrl        . '" rel="me">' . 
+                          '<img id="' . $cacheSvcName    . '" ' .
+                          '    src="' . $cacheSvcFavicon . '" ' . 
+                          '    width="16"  '             . 
+                          '    height="16" '             . 
+                          '    alt="' . $cacheSvcName    . '" /></a> &nbsp;';
 
             // Column 2: Text-link (position text to top, to align better with the favicon)
             $buf .= '<span style="vertical-align: top;">';
@@ -138,7 +138,7 @@ function dandyIDServices_getTable ()
         $buf .= '<div id="dandyIDSidebarPoweredBy" style="font-size:.75em">';
 
         // Display the bottom line "Powered by DandyID"
-        $buf .= 'Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
+        $buf .= '&nbsp;Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
 
         // End div tag: "dandyIDSidebarPoweredBy"
         $buf .= '</div>';
