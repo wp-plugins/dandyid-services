@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.2.2
+Version: 1.2.3
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -138,7 +138,7 @@ function dandyIDServices_getTable ()
         $buf .= '<div id="dandyIDSidebarPoweredBy" style="font-size:.75em">';
 
         // Display the bottom line "Powered by DandyID"
-        $buf .= '&nbsp;Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
+        $buf .= 'Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
 
         // End div tag: "dandyIDSidebarPoweredBy"
         $buf .= '</div>';
@@ -341,37 +341,38 @@ function dandyIDServices_updateSettingsOptionsPage ()
         echo '<div id="message" class="updated fade"><p>' . "DandyID Service options saved successfully." . '</p></div>';
         }
 
+    // Initialize data fields for "show_style" radio button
+    $showFaviconsAndTextlinks = "";
+    $showFavicons             = "";
+    $showTextlinks            = "";
+
     // Set variable for form to use for "show_style" to show sticky-value for radio button
     if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
         {
         $showFaviconsAndTextlinks = "checked";
-        $showFavicons             = "";
-        $showTextlinks            = "";
         }
 
     else if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS)
         {
-        $showFaviconsAndTextlinks = "";
-        $showFavicons             = "checked";
-        $showTextlinks            = "";
+        $showFavicons = "checked";
         }
 
     else // must be DANDYID_SHOW_TEXTLINKS
         {
-        $showFaviconsAndTextlinks = "";
-        $showFavicons             = "";
-        $showTextlinks            = "checked";
+        $showTextlinks = "checked";
         }
+
+    // Initialize data fields for "show_powered_by" radio button
+    $showPoweredBy = "";
+    $hidePoweredBy = "";
 
     // Set variable for form to use for "show_powered_by" to show sticky-value for radio button
     if ($dandyID_settingsOptions ['show_powered_by'] == TRUE)
         {
         $showPoweredBy = "checked";
-        $hidePoweredBy = "";
         }
     else
         {
-        $showPoweredBy = "";
         $hidePoweredBy = "checked";
         }
 
