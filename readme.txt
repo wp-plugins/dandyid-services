@@ -306,6 +306,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
+**Rev 1.2.3**  2009-Jan-25
+
+* Performance enhancements. Thanks [@stepan](http://twitter.com/stepan) for the recommendations. 
+
 **Rev 1.2.2**  2009-Jan-23
 
 * Increased left margin for Favicon+TextLink.
