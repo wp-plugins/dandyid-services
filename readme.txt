@@ -39,6 +39,7 @@ When you update your online identities on DandyID, they are automatically update
 * Bebo
 * Behance Network
 * Big Contact
+* Blackplanet
 * Blinklist
 * Blip.fm
 * Blip.tv
@@ -114,6 +115,8 @@ When you update your online identities on DandyID, they are automatically update
 * identi.ca
 * identoo
 * iJigg
+* Imdb
+* Imeem
 * iminta
 * Instructables
 * Intense Debate
@@ -128,11 +131,13 @@ When you update your online identities on DandyID, they are automatically update
 * Lala
 * last.fm
 * LetsMakeRobots
+* LibraryThing
 * lifestream.fm
 * Lijit
 * LinkedIn
 * LiveJournal
 * Ma.gnolia
+* Meetup
 * Mixx
 * Multiply
 * MyBlogLog
@@ -153,6 +158,7 @@ When you update your online identities on DandyID, they are automatically update
 * Pikchur
 * Plaxo
 * Plurk
+* PostCrossing
 * Pownce
 * Propeller
 * QIK
@@ -163,6 +169,7 @@ When you update your online identities on DandyID, they are automatically update
 * RI Nexus
 * RockBand
 * Ryze
+* Scribd
 * Seesmic
 * Shelfari
 * Simpy
@@ -176,6 +183,7 @@ When you update your online identities on DandyID, they are automatically update
 * Streem
 * Stumbleupon
 * Swurl
+* Tagged
 * Technorati
 * The DJ List
 * Thesixtyone
@@ -211,6 +219,7 @@ When you update your online identities on DandyID, they are automatically update
 * Wink
 * Wishlistr
 * WordPress.com
+* Xanga
 * Xbox LIVE
 * Xfire
 * Xing
@@ -305,6 +314,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 4. The DandyID Services settings page.
 
 == Change History ==
+
+**Rev 1.2.4**  2009-Jan-26
+
+* Added support for new DandyID services. 
 
 **Rev 1.2.3**  2009-Jan-25
 
