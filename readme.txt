@@ -315,109 +315,113 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
-**Rev 1.2.4**  2009-Jan-26
+= Rev 1.2.5  2009-Jan-27 =
 
-* Added support for new DandyID services. 
+- readme.txt updates.
 
-**Rev 1.2.3**  2009-Jan-25
+= Rev 1.2.4  2009-Jan-26 =
 
-* Performance enhancements. Thanks [@stepan](http://twitter.com/stepan) for the recommendations. 
+- Added support for new DandyID services.
 
-**Rev 1.2.2**  2009-Jan-23
+= Rev 1.2.3  2009-Jan-25 =
 
-* Increased left margin for Favicon+TextLink.
+- Performance enhancements. Thanks [@stepan](http://twitter.com/stepan) for the recommendations. 
 
-**Rev 1.2.1**  2009-Jan-20
+= Rev 1.2.2  2009-Jan-23 =
 
-* Added an example of xml returned from return_services() - as comments in the php code - to help clarify API usage to DandyID API developers.
+- Increased left margin for Favicon+TextLink.
 
-**Rev 1.2.0**  2009-Jan-19
+= Rev 1.2.1  2009-Jan-20 =
 
-* Removed all html table elements to eliminate rendering issues with some themes.
+- Added an example of xml returned from return_services() - as comments in the php code - to help clarify API usage to DandyID API developers.
 
-**Rev 1.1.9**  2009-Jan-18
+= Rev 1.2.0  2009-Jan-19 =
 
-* Updated <div> tags for dandyIDSidebarIdentities, and dandyIDSidebarPoweredBy. 
+- Removed all html table elements to eliminate rendering issues with some themes.
 
-**Rev 1.1.8**  2009-Jan-18
+= Rev 1.1.9  2009-Jan-18 =
 
-* Added ability to View Change Log from settings page. Thanks [@zerojay](http://twitter.com/zerojay). 
+- Updated <div> tags for dandyIDSidebarIdentities, and dandyIDSidebarPoweredBy. 
 
-**Rev 1.1.7**  2009-Jan-17
+= Rev 1.1.8  2009-Jan-18 =
 
-* New setup option: Text-links only. Ability to now choose from 3 display options:
+- Added ability to View Change Log from settings page. Thanks [@zerojay](http://twitter.com/zerojay). 
+
+= Rev 1.1.7  2009-Jan-17 =
+
+- New setup option: Text-links only. Ability to now choose from 3 display options:
   - Show Favicons and Text-links
   - Show Favicons only
   - Show Text-links only
 
-**Rev 1.1.6**  2009-Jan-16
+= Rev 1.1.6  2009-Jan-16 =
 
-* Suppress activation warning on curl\_setopt() CURLOPT\_FOLLOWLOCATION.
+- Suppress activation warning on curl\_setopt() CURLOPT\_FOLLOWLOCATION.
 
-**Rev 1.1.5**  2009-Jan-16
+= Rev 1.1.5  2009-Jan-16 =
 
-* Group options on settings page for improved usability.
+- Group options on settings page for improved usability.
 
-**Rev 1.1.4**  2009-Jan-15
+= Rev 1.1.4  2009-Jan-15 =
 
-* Make the "Powered by DandyID" line a configurable option.
-* Written and tested [@TechStars](http://twitter.com/techstars) [#hackspace](http://search.twitter.com/search?q=%23hackspace), Boulder, Colorado.
+- Make the "Powered by DandyID" line a configurable option.
+- Written and tested [@TechStars](http://twitter.com/techstars) [#hackspace](http://search.twitter.com/search?q=%23hackspace), Boulder, Colorado.
 
-**Rev 1.1.3**  2009-Jan-12
+= Rev 1.1.3  2009-Jan-12 =
 
-* Change the cache refresh interval from every 24 hours to every 2 hours.
-* During a refresh, the plugin retrieves the list of DandyID services, and stores them in the WordPress database.
+- Change the cache refresh interval from every 24 hours to every 2 hours.
+- During a refresh, the plugin retrieves the list of DandyID services, and stores them in the WordPress database.
 
-**Rev 1.1.2**  2009-Jan-10
+= Rev 1.1.2  2009-Jan-10 =
 
-* Reduced the font size of "Powered by DandyID" line.
+- Reduced the font size of "Powered by DandyID" line.
 
-**Rev 1.1.1**  2009-Jan-09
+= Rev 1.1.1  2009-Jan-09 =
 
-* Options page: removed password requirement to simplify setup.
-* Options page: removed user_id requirement to simplify setup.
-* User's public identities profile is now retrieved from DandyID.
-* User's DandyID Service now returned as one of the services.
-* Larger DandyID-mini icon replaced with 15x15 favicon -- for continuity with other service icons.
+- Options page: removed password requirement to simplify setup.
+- Options page: removed user_id requirement to simplify setup.
+- User's public identities profile is now retrieved from DandyID.
+- User's DandyID Service now returned as one of the services.
+- Larger DandyID-mini icon replaced with 15x15 favicon -- for continuity with other service icons.
 
-**Rev 1.1.0**  2009-Jan-06
+= Rev 1.1.0  2009-Jan-06 =
 
-* Preserve local online-identities cache if DandyID API is down, or site is not available.
+- Preserve local online-identities cache if DandyID API is down, or site is not available.
 
-**Rev 1.0.9**  2009-Jan-06
+= Rev 1.0.9  2009-Jan-06 =
 
-* If no setup credentials are configured, do not attempt to retrieve DandyID online identities.
-* If no user_id is configured, link the mini-chicklet to the DandyID home page.
+- If no setup credentials are configured, do not attempt to retrieve DandyID online identities.
+- If no user_id is configured, link the mini-chicklet to the DandyID home page.
 
-**Rev 1.0.8**  2009-Jan-04
+= Rev 1.0.8  2009-Jan-04 =
 
-* Converted SimpleXMLElement() calls to xml_parse() calls for PHP4 compatibility.
+- Converted SimpleXMLElement() calls to xml_parse() calls for PHP4 compatibility.
 
-**Rev 1.0.7**  2009-Jan-03
+= Rev 1.0.7  2009-Jan-03 =
 
-* Ported from file-based cache to wp-database cache to eliminate file-permissions errors.
+- Ported from file-based cache to wp-database cache to eliminate file-permissions errors.
 
-**Rev 1.0.6**  2009-Jan-01
+= Rev 1.0.6  2009-Jan-01 =
 
-* Added 2 div classes "dandyIDSidebarIdentities" and "dandyIDSidebarPoweredBy" to enable external css styling. Thanks [@dtownsend](http://twitter.com/dtownsend). 
+- Added 2 div classes "dandyIDSidebarIdentities" and "dandyIDSidebarPoweredBy" to enable external css styling. Thanks [@dtownsend](http://twitter.com/dtownsend). 
 
-**Rev 1.0.5**  2009-Jan-01
+= Rev 1.0.5  2009-Jan-01 =
 
-* Suppress PHP error "failed to open stream: Permission denied" when creation of cache file fails.
+- Suppress PHP error "failed to open stream: Permission denied" when creation of cache file fails.
 
-**Rev 1.0.4**  2008-Dec-31
+= Rev 1.0.4  2008-Dec-31 =
 
-* Updated class.dandyid.php to increase PHP cross-platform compatibility.
+- Updated class.dandyid.php to increase PHP cross-platform compatibility.
 
-**Rev 1.0.3**  2008-Dec-30
+= Rev 1.0.3  2008-Dec-30 =
 
-* Added ability for Plugin to gracefully handle DandyID host server down.
-* Added ability for Plugin to gracefully handle DandyID API url unavailable.
+- Added ability for Plugin to gracefully handle DandyID host server down.
+- Added ability for Plugin to gracefully handle DandyID API url unavailable.
 
-**Rev 1.0.2**  2008-Dec-28
+= Rev 1.0.2  2008-Dec-28 =
 
-* Added ability to Show-Favicons-and-Text-Links or Show-Favicons-only.
+- Added ability to Show-Favicons-and-Text-Links or Show-Favicons-only.
 
-**Rev 1.0.1**  2008-Dec-22
+= Rev 1.0.1  2008-Dec-22 =
 
-* Initial revision.
+- Initial revision.
