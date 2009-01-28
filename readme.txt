@@ -39,11 +39,11 @@ When you update your online identities on DandyID, they are automatically update
 * Bebo
 * Behance Network
 * Big Contact
-* Blackplanet
+* BlackPlanet
 * Blinklist
 * Blip.fm
-* Blip.tv
 * Blippr
+* Blip.tv
 * Blogger
 * Bloglines
 * Blue Dot
@@ -87,6 +87,7 @@ When you update your online identities on DandyID, they are automatically update
 * Ebay
 * Ecademy
 * esnips
+* Extratasty
 * Facebook
 * Ffffound
 * Finetune
@@ -102,6 +103,7 @@ When you update your online identities on DandyID, they are automatically update
 * Get Satisfaction
 * Glogster
 * Goodreads
+* Goodreads Author
 * Google Reader
 * Groovr
 * Guitar Hero
@@ -139,6 +141,7 @@ When you update your online identities on DandyID, they are automatically update
 * Ma.gnolia
 * Meetup
 * Mixx
+* Mufin
 * Multiply
 * MyBlogLog
 * My Mashable
@@ -151,7 +154,7 @@ When you update your online identities on DandyID, they are automatically update
 * Ning
 * Odeo
 * Odeo Channel
-* Orkut
+* orkut
 * Pandora
 * Photobucket
 * Picasa
@@ -163,6 +166,7 @@ When you update your online identities on DandyID, they are automatically update
 * Propeller
 * QIK
 * Qype
+* Rate Your Music
 * RedBubble
 * Reddit
 * RedWire
@@ -175,6 +179,7 @@ When you update your online identities on DandyID, they are automatically update
 * Simpy
 * Skitch
 * SlideShare
+* Snooth
 * Socialthing
 * SocialURL
 * soup.io
@@ -184,6 +189,7 @@ When you update your online identities on DandyID, they are automatically update
 * Stumbleupon
 * Swurl
 * Tagged
+* Taringa!
 * Technorati
 * The DJ List
 * Thesixtyone
@@ -192,15 +198,18 @@ When you update your online identities on DandyID, they are automatically update
 * Tioti
 * Traackr
 * Trendrr
+* Tribe Hollywood Project
 * TripAdvisor
 * Tripit
 * Trulia
+* TubeMogul
 * Tumblr
 * TV.com
 * Twello
 * Twine
 * Twitpic
 * Twitter
+* TwitterMoms
 * Twitxr
 * TypeKey
 * Upcoming
@@ -214,8 +223,11 @@ When you update your online identities on DandyID, they are automatically update
 * Vodpod
 * Vox
 * Wakoopa
-* We Heart It
 * Webshots
+* We Heart It
+* Where's George?
+* Wikipedia English
+* Wikipedia Spanish
 * Wink
 * Wishlistr
 * WordPress.com
@@ -315,13 +327,17 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
+= Rev 1.2.6  2009-Jan-27 =
+
+- Added new DandyID services.
+
 = Rev 1.2.5  2009-Jan-27 =
 
 - readme.txt updates.
 
 = Rev 1.2.4  2009-Jan-26 =
 
-- Added support for new DandyID services.
+- Added new DandyID services.
 
 = Rev 1.2.3  2009-Jan-25 =
 
