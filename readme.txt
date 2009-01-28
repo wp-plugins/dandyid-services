@@ -117,6 +117,7 @@ When you update your online identities on DandyID, they are automatically update
 * identi.ca
 * identoo
 * iJigg
+* iLike
 * Imdb
 * Imeem
 * iminta
