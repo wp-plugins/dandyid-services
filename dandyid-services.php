@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.2.6
+Version: 1.2.7
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -43,6 +43,7 @@ define ('DANDYID_NEXT_CACHE_TIME_OPTION', 'dandyID_nextCacheTimeOption');
 define ('DANDYID_API_URL',                'http://www.dandyid.org/api/');
 define ('DANDYID_CACHE_TIME_STRING',      'Y-m-d-H-i');
 define ('DANDYID_CACHE_REFRESH_INTERVAL', '+2 hours');
+define ('DANDYID_OPTIONS_SAVED_MSG',      'DandyID Service options saved successfully.');
 
 
 // Sidebar content to show
@@ -191,9 +192,7 @@ function dandyIDServices_refreshCache ()
         $gDandyIDClass = new dandyid ();
 
         // Set class API fields
-        $gDandyIDClass->setAPIFields (DANDYID_API_KEY,
-                                      DANDYID_API_TOKEN,
-                                      DANDYID_API_URL);
+        $gDandyIDClass->setAPIFields (DANDYID_API_KEY, DANDYID_API_TOKEN, DANDYID_API_URL);
 
         // Set class user fields
         $gDandyIDClass->setUserFields ($dandyID_settingsOptions ['email_address'],
@@ -308,8 +307,7 @@ function dandyIDServices_updateSettingsOptionsPage ()
     $dandyID_settingsOptions = get_option (DANDYID_SETTINGS_OPTIONS);
 
     // If ALL data fields contain values...
-    if (isset ($_POST ['email_address']) &&
-        isset ($_POST ['sidebarTitle']))
+    if (isset ($_POST ['email_address']) && isset ($_POST ['sidebarTitle']))
         {
         //... copy the fields to the persistent wp options array
         $dandyID_settingsOptions ['email_address']   = $_POST ['email_address'];
@@ -338,7 +336,7 @@ function dandyIDServices_updateSettingsOptionsPage ()
         dandyIDServices_refreshCache ();
 
         // Display update message to user
-        echo '<div id="message" class="updated fade"><p>' . "DandyID Service options saved successfully." . '</p></div>';
+        echo '<div id="message" class="updated fade"><p>' . DANDYID_OPTIONS_SAVED_MSG . '</p></div>';
         }
 
     // Initialize data fields for "show_style" radio button

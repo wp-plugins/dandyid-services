@@ -328,6 +328,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
+= Rev 1.2.7  2009-Jan-28 =
+
+- Performance enhancements, code optimizations.
+
 = Rev 1.2.6  2009-Jan-27 =
 
 - Added new DandyID services.
