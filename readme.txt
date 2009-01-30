@@ -9,7 +9,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 == Description ==
 
-**[DandyID](http://dandyid.org/) is a free service that enables you to easily connect all of your online identities.**
+**[DandyID](http://dandyid.org/) is a free service that enables you to connect, manage, and share all of your social identifiers from a single location. Let friends on one service find you quickly and easily on another!**
 
 **The DandyID Services Plugin:**
 
@@ -17,9 +17,9 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 * Displays them in your sidebar as convenient **clickable links**.
 * Please see the [Screenshots](http://wordpress.org/extend/plugins/dandyid-services/screenshots/) for examples.
 
-When you update your online identities on DandyID, they are automatically updated in your sidebar.
+When you update your social identifiers on DandyID, they are automatically updated in your sidebar.
 
-**DandyID currently supports over 180 services including:**
+**DandyID currently supports the over 200 services including:**
 
 * 12seconds
 * 30 Boxes
@@ -46,7 +46,7 @@ When you update your online identities on DandyID, they are automatically update
 * Blip.tv
 * Blogger
 * Bloglines
-* Blue Dot
+* Blue Dot (Faves)
 * Bonnaroo
 * Box.net
 * Break
@@ -63,6 +63,7 @@ When you update your online identities on DandyID, they are automatically update
 * Cluztr
 * coComment
 * COLOURlovers
+* Concrete Hermit
 * Cork'd
 * CouchSurfing
 * Crackle
@@ -112,6 +113,7 @@ When you update your online identities on DandyID, they are automatically update
 * hi5
 * Howcast
 * Hulu
+* Humble Voice
 * Hype Machine
 * Hyves
 * identi.ca
@@ -124,6 +126,7 @@ When you update your online identities on DandyID, they are automatically update
 * Instructables
 * Intense Debate
 * iReport
+* iseecolor
 * Issuu
 * iTunes PodCast
 * Jaiku
@@ -140,17 +143,17 @@ When you update your online identities on DandyID, they are automatically update
 * LinkedIn
 * LiveJournal
 * Ma.gnolia
+* My Mashable
 * Meetup
 * Mixx
 * Mufin
 * Multiply
 * MyBlogLog
-* My Mashable
 * myOpenID
 * MySpace
 * Naymz
 * Netflix
-* NetVibes
+* Netvibes
 * Newsvine
 * Ning
 * Odeo
@@ -176,6 +179,7 @@ When you update your online identities on DandyID, they are automatically update
 * Ryze
 * Scribd
 * Seesmic
+* ShareThis
 * Shelfari
 * Simpy
 * Skitch
@@ -189,6 +193,7 @@ When you update your online identities on DandyID, they are automatically update
 * Streem
 * Stumbleupon
 * Swurl
+* Tag Foot
 * Tagged
 * Taringa!
 * Technorati
@@ -199,6 +204,7 @@ When you update your online identities on DandyID, they are automatically update
 * Tioti
 * Traackr
 * Trendrr
+* Tribe Hollywood Profile
 * Tribe Hollywood Project
 * TripAdvisor
 * Tripit
@@ -214,8 +220,10 @@ When you update your online identities on DandyID, they are automatically update
 * Twitxr
 * TypeKey
 * Upcoming
+* Ustream.tv
 * Veoh
 * Viddler
+* Videojug
 * Vidoop
 * Vimeo
 * Virb
@@ -240,6 +248,7 @@ When you update your online identities on DandyID, they are automatically update
 * Yahoo! Answers
 * Yahoo! Live
 * Yelp
+* YouNoodle
 * YouTube
 * YowTrip
 * Zedge
@@ -249,7 +258,6 @@ When you update your online identities on DandyID, they are automatically update
 * Zoomr
 * Zorpia
 * Zune Social
-* more being added
 
 To learn more, please visit [DandyID](http://dandyid.org/).
 
@@ -327,6 +335,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 4. The DandyID Services settings page.
 
 == Change History ==
+
+= Rev 1.2.8  2009-Jan-30 =
+
+- Added new DandyID services.
 
 = Rev 1.2.7  2009-Jan-28 =
 
