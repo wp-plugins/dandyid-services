@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.2.8
+Version: 1.2.9
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -85,6 +85,13 @@ function dandyIDServices_getTable ()
     // Get the cache from the wp database
     $cacheOptions = get_option (DANDYID_CACHE_OPTIONS);
 
+    if (($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS) ||
+        ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_TEXTLINKS))
+        {
+        // Open list
+        $buf .= '<ul>';
+        }
+
     // Add services
     for ($i = 0; $cacheOptions [$i] ['url'] != ''; $i++)
         {
@@ -96,25 +103,21 @@ function dandyIDServices_getTable ()
         // Either show favicon AND text link...
         if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
             {
-            // Column 1: Favicon (force 2 trailing spaces)
-            $buf .= '&nbsp;<a href="' . $cacheUrl        . '" rel="me">' . 
-                          '<img id="' . $cacheSvcName    . '" ' .
-                          '    src="' . $cacheSvcFavicon . '" ' . 
-                          '    width="16"  '             . 
-                          '    height="16" '             . 
-                          '    alt="' . $cacheSvcName    . '" /></a> &nbsp;';
+            $buf .= '<li>';
 
-            // Column 2: Text-link (position text to top, to align better with the favicon)
-            $buf .= '<span style="vertical-align: top;">';
-            $buf .= '<a href="' . $cacheUrl     . '" rel="me">' .
-                                  $cacheSvcName . '</a>';
-            $buf .= '</span><br />';
+            // Show Favicon and Textlink
+            $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
+                    '<img id="' . $cacheSvcName    . '" ' .
+                    '    src="' . $cacheSvcFavicon . '" ' . 
+                    '    width="16"  '             . 
+                    '    height="16" '             . 
+                    '    alt="' . $cacheSvcName    . '" /> ' . $cacheSvcName . '</a>';
             }
 
         // ... or only show the favicon
         else if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS)
             {
-            // let them wrap lines (force 1 trailing space after each favicon)
+            // Let them wrap lines (force 1 trailing space after each favicon)
             $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
                     '<img id="' . $cacheSvcName    . '" ' .
                     '    src="' . $cacheSvcFavicon . '" ' . 
@@ -126,23 +129,32 @@ function dandyIDServices_getTable ()
         // ... or only show the text links
         else   // must be DANDYID_SHOW_TEXTLINKS
             {
-            // each on a separate line
-            $buf .= '<a href="' . $cacheUrl     . '" rel="me">' .
-                                  $cacheSvcName . '</a><br />';
+            $buf .= '<li>';
+
+            // Display each on a separate line
+            $buf .= '<a href="' . $cacheUrl . '" rel="me">' . $cacheSvcName . '</a>';
             }
         }
 
     // If (show_powered_by == TRUE), display the "Powered by DandyID" line
     if ($dandyID_settingsOptions ['show_powered_by'] == TRUE)
         {
-        // Begin div tag: "dandyIDSidebarPoweredBy" -- to enable css stying
-        $buf .= '<div id="dandyIDSidebarPoweredBy" style="font-size:.75em">';
+        if (($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS) ||
+            ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_TEXTLINKS))
+            {
+            // Display as a list-item
+            $buf .= '<li>';
+            }
 
         // Display the bottom line "Powered by DandyID"
-        $buf .= 'Powered by <a href="' . DANDYID_URL . '">DandyID</a>';
+        $buf .= '<span style="font-size:.75em;"><a href="' . DANDYID_URL . '">Powered by DandyID</a></span>';
+        }
 
-        // End div tag: "dandyIDSidebarPoweredBy"
-        $buf .= '</div>';
+    if (($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS) ||
+        ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_TEXTLINKS))
+        {
+        // Close list
+        $buf .= '</ul>';
         }
 
     // Force a newline after the last line
