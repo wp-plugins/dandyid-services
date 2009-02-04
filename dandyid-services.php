@@ -3,8 +3,8 @@
 /*
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
-Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, and (2) Go to Design -&gt; Widgets to add the DandyID Services sidebar widget to your sidebar.
-Version: 1.2.9
+Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, then (2) Go to Design -&gt; Widgets to add DandyID Services to your sidebar.
+Version: 1.3.0
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -112,6 +112,8 @@ function dandyIDServices_getTable ()
                     '    width="16"  '             . 
                     '    height="16" '             . 
                     '    alt="' . $cacheSvcName    . '" /> ' . $cacheSvcName . '</a>';
+
+            $buf .= '</li>';
             }
 
         // ... or only show the favicon
@@ -133,6 +135,8 @@ function dandyIDServices_getTable ()
 
             // Display each on a separate line
             $buf .= '<a href="' . $cacheUrl . '" rel="me">' . $cacheSvcName . '</a>';
+
+            $buf .= '<li>';
             }
         }
 
@@ -142,12 +146,14 @@ function dandyIDServices_getTable ()
         if (($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS) ||
             ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_TEXTLINKS))
             {
-            // Display as a list-item
-            $buf .= '<li>';
+            // Display as list item
+            $buf .= '<li><span style="font-size:.75em;"><a href="' . DANDYID_URL . '">Powered by DandyID</a></span></li>';
             }
-
-        // Display the bottom line "Powered by DandyID"
-        $buf .= '<span style="font-size:.75em;"><a href="' . DANDYID_URL . '">Powered by DandyID</a></span>';
+        else
+            {
+            // Display as plain text item
+            $buf .= '<span style="font-size:.75em;"><a href="' . DANDYID_URL . '">Powered by DandyID</a></span>';
+            }
         }
 
     if (($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS) ||
