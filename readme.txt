@@ -262,6 +262,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Yelp
 * YouNoodle
 * YouTube
+* YouVersion
 * YowTrip
 * Zedge
 * Ziki
