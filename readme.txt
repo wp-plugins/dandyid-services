@@ -33,6 +33,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * All Consuming
 * Amazon
 * Amie Street
+* ArtWanted
 * Ask500People
 * Badoo
 * Bambuser
@@ -88,8 +89,10 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Ebay
 * Ecademy
 * esnips
+* Etsy
 * Extratasty
 * Facebook
+* Favtape
 * Ffffound
 * Finetune
 * Flickr
@@ -116,6 +119,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Humble Voice
 * Hype Machine
 * Hyves
+* ICQ
 * identi.ca
 * identoo
 * iJigg
@@ -145,12 +149,14 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Ma.gnolia
 * My Mashable
 * Meetup
+* Mister Wong
 * Mixx
 * Mufin
 * Multiply
 * MyBlogLog
 * myOpenID
 * MySpace
+* NaNoWriMo
 * Naymz
 * Netflix
 * Netvibes
@@ -161,16 +167,20 @@ When you update your social identifiers on DandyID, they are automatically updat
 * orkut
 * Pandora
 * Photobucket
+* PhotoShelter
 * Picasa
 * Pikchur
 * Plaxo
+* Plinky
 * Plurk
 * PostCrossing
 * Pownce
 * Propeller
+* Publr
 * QIK
 * Qype
 * Rate Your Music
+* Reader2
 * RedBubble
 * Reddit
 * RedWire
@@ -182,12 +192,14 @@ When you update your social identifiers on DandyID, they are automatically updat
 * ShareThis
 * Shelfari
 * Simpy
+* Six Groups
 * Skitch
 * SlideShare
 * Snooth
 * Socialthing
 * SocialURL
 * soup.io
+* SparkPeople
 * Squidoo
 * Stack Overflow
 * Streem
@@ -335,6 +347,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 4. The DandyID Services settings page.
 
 == Change History ==
+
+= Rev 1.3.1  2009-Feb-06 =
+
+- Added new DandyID services.
 
 = Rev 1.3.0  2009-Feb-03 =
 
