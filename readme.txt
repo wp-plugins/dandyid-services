@@ -349,6 +349,11 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
+= Rev 1.3.2  2009-Feb-08 =
+
+- Internationalized the plugin to enable localized language translations for all WordPress supported languages.
+- Thank you 谢谢 [@anson_ho](http://twitter.com/anson_ho) for help translating to Chinese. 
+
 = Rev 1.3.1  2009-Feb-06 =
 
 - Added new DandyID services.

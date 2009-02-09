@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, then (2) Go to Design -&gt; Widgets to add DandyID Services to your sidebar.
-Version: 1.3.1
+Version: 1.3.2
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -43,7 +43,6 @@ define ('DANDYID_NEXT_CACHE_TIME_OPTION', 'dandyID_nextCacheTimeOption');
 define ('DANDYID_API_URL',                'http://www.dandyid.org/api/');
 define ('DANDYID_CACHE_TIME_STRING',      'Y-m-d-H-i');
 define ('DANDYID_CACHE_REFRESH_INTERVAL', '+2 hours');
-define ('DANDYID_OPTIONS_SAVED_MSG',      'DandyID Service options saved successfully.');
 
 
 // Sidebar content to show
@@ -324,6 +323,22 @@ function dandyIDServices_updateSettingsOptionsPage ()
     // Load existing options from wp database
     $dandyID_settingsOptions = get_option (DANDYID_SETTINGS_OPTIONS);
 
+    // Localize all displayed strings
+    $dandyIDServices_enterOptionsStr    = __('Please enter your DandyID Service Plugin options:', 'dandyid-services');
+    $dandyIDServices_emailStr           = __('Email:',                                            'dandyid-services');
+    $dandyIDServices_emailAddrYouUseStr = __('The mail address you use to logon to DandyID.',     'dandyid-services');
+    $dandyIDServices_titleStr           = __('Title:',                                            'dandyid-services');
+    $dandyIDServices_titleToDisplayStr  = __('The sidebar title to display.',                     'dandyid-services');
+    $dandyIDServices_showBothStr        = __('Show Favicons and Text-links',                      'dandyid-services');
+    $dandyIDServices_showFaviconsStr    = __('Show Favicons only',                                'dandyid-services');
+    $dandyIDServices_showTextlinksStr   = __('Show Text-links only',                              'dandyid-services');
+    $dandyIDServices_showPoweredByStr   = __('Show Powered by DandyID',                           'dandyid-services');
+    $dandyIDServices_hidePoweredByStr   = __('Hide Powered by DandyID',                           'dandyid-services');
+    $dandyIDServices_saveStr            = __('Save',                                              'dandyid-services');
+    $dandyIDServices_viewChangeLogStr   = __('View Change Log',                                   'dandyid-services');
+    $dandyIDServices_ofPastUpdatesStr   = __('of past updates to the DandyID Services Plugin.',   'dandyid-services');
+    $dandyIDServices_optionsSavedStr    = __('DandyID Service options saved successfully.',       'dandyid-services');
+
     // If ALL data fields contain values...
     if (isset ($_POST ['email_address']) && isset ($_POST ['sidebarTitle']))
         {
@@ -354,7 +369,7 @@ function dandyIDServices_updateSettingsOptionsPage ()
         dandyIDServices_refreshCache ();
 
         // Display update message to user
-        echo '<div id="message" class="updated fade"><p>' . DANDYID_OPTIONS_SAVED_MSG . '</p></div>';
+        echo '<div id="message" class="updated fade"><p>' . $dandyIDServices_optionsSavedStr . '</p></div>';
         }
 
     // Initialize data fields for "show_style" radio button
@@ -397,49 +412,51 @@ function dandyIDServices_updateSettingsOptionsPage ()
     echo
      '<div class="wrap">
 
-      <h3>&nbsp; Please enter your DandyID Service Plugin options:</h3>
+      <h3>&nbsp;' . $dandyIDServices_enterOptionsStr . '</h3>
 
       <form action="" method="post">
 
       <table border="0" cellpadding="10">
 
       <tr>
-      <td>Email:</td>
+      <td>' . $dandyIDServices_emailStr . ' &nbsp;</td>
       <td><input type="text" name="email_address" value="' . $dandyID_settingsOptions ['email_address'] . '" size="40" /></td>
-      <td>The email address you use to logon to DandyID.</td>
+      <td>&nbsp; ' . $dandyIDServices_emailAddrYouUseStr . '</td>
       </tr>
 
       <tr>
-      <td>Title:</td>
+      <td>' . $dandyIDServices_titleStr . ' &nbsp;</td>
       <td><input type="text" name="sidebarTitle"  value="' . $dandyID_settingsOptions ['sidebarTitle']  . '" size="40" /></td>
-      <td>The sidebar title to display.</td>
+      <td>&nbsp; ' . $dandyIDServices_titleToDisplayStr . '</td>
       </tr>
 
       </table>
+
+      <br />
 
       <table border="0" cellpadding="10">
 
       <tr>
       <td width="300"><input type="radio" name="show_style" value="BOTH"      ' . $showFaviconsAndTextlinks . ' />
-      Show Favicons and Text-links<br />
+      ' . $dandyIDServices_showBothStr . '<br />
                       <input type="radio" name="show_style" value="FAVICONS"  ' . $showFavicons             . ' />
-      Show Favicons only<br />
+      ' . $dandyIDServices_showFaviconsStr . '<br />
                       <input type="radio" name="show_style" value="TEXTLINKS" ' . $showTextlinks            . ' />
-      Show Text-links only</td>
+      ' . $dandyIDServices_showTextlinksStr . '</td>
 
       <td width="300" valign="top"><input type="radio" name="show_powered_by" value="TRUE"  ' . $showPoweredBy   . ' />
-      Show "Powered by DandyID"<br />
-                      <input type="radio" name="show_powered_by" value="FALSE" ' . $hidePoweredBy   . ' />
-      Hide "Powered by DandyID"</td>
+      ' . $dandyIDServices_showPoweredByStr . '<br />
+                                   <input type="radio" name="show_powered_by" value="FALSE" ' . $hidePoweredBy   . ' />
+      ' . $dandyIDServices_hidePoweredByStr . '</td>
       </tr>
 
       </table>
 
-      <p>&nbsp;&nbsp;<input type="submit" value="Save" /></p>
+      <p>&nbsp;<input type="submit" value="' . $dandyIDServices_saveStr . '" /></p>
 
       </form>
 
-      <h5>&nbsp; &nbsp; ( <a href="http://wordpress.org/extend/plugins/dandyid-services/other_notes/">View Change Log</a> of past updates to the DandyID Services Plugin. )</h5>
+      <h5>&nbsp; ( <a href="http://wordpress.org/extend/plugins/dandyid-services/other_notes/">' . $dandyIDServices_viewChangeLogStr .'</a> ' . $dandyIDServices_ofPastUpdatesStr . ' )</h5>
 
       </div>';
     }
@@ -575,6 +592,16 @@ function dandyIDServices_xmlData ($parser, $data)
             }
         }
     }
+
+
+// Initialize for localized strings
+//
+// If (the WordPress config file "wp-config.php" has a language defined, e.g. ('WPLANG', 'it_IT'))
+//     {
+//     WordPress will look in the plugin directory for a corresponding localized strings file and load it
+//     (e.g. "dandyid-services-it_IT.mo")
+//     }
+load_plugin_textdomain ('dandyid-services', 'wp-content/plugins/dandyid-services');
 
 
 // dandyIDServices_createOptions() ... runs only once, at activation time
