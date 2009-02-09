@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, then (2) Go to Design -&gt; Widgets to add DandyID Services to your sidebar.
-Version: 1.3.4
+Version: 1.3.5
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -326,7 +326,7 @@ function dandyIDServices_updateSettingsOptionsPage ()
     // Localize all displayed strings
     $dandyIDServices_enterOptionsStr    = __('Please enter your DandyID Service Plugin options:', 'dandyid-services');
     $dandyIDServices_emailStr           = __('Email:',                                            'dandyid-services');
-    $dandyIDServices_emailAddrYouUseStr = __('The mail address you use to logon to DandyID.',     'dandyid-services');
+    $dandyIDServices_emailAddrYouUseStr = __('The email address you use to logon to DandyID.',    'dandyid-services');
     $dandyIDServices_titleStr           = __('Title:',                                            'dandyid-services');
     $dandyIDServices_titleToDisplayStr  = __('The sidebar title to display.',                     'dandyid-services');
     $dandyIDServices_showBothStr        = __('Show Favicons and Text-links',                      'dandyid-services');

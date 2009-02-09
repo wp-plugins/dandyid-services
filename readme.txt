@@ -351,6 +351,10 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 == Change History ==
 
+= Rev 1.3.5  2009-Feb-09 =
+
+- Added languages: Spanish (mx), Spanish (sp), German, French, Italian, Hebrew.
+
 = Rev 1.3.4  2009-Feb-08 =
 
 - Added screenshot of settings page in Chinese language.
