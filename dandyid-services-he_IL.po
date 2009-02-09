@@ -2,72 +2,72 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dandyid-services\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 13:39-0700\n"
-"PO-Revision-Date: 2009-02-09 14:52-0700\n"
+"POT-Creation-Date: 2009-02-09 14:19-0700\n"
+"PO-Revision-Date: 2009-02-09 14:25-0700\n"
 "Last-Translator: Neil Simon <nsimon@solidcode.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: CHINA\n"
+"X-Poedit-Language: Hebrew\n"
+"X-Poedit-Country: ISRAEL\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: dandyid-services.php:327
 msgid "Please enter your DandyID Service Plugin options:"
-msgstr "请输入您的 DandyID Service 插件选项:"
+msgstr "אנא הכנס את DandyID שירות Plugin אפשרויות:"
 
 #: dandyid-services.php:328
 msgid "Email:"
-msgstr "Email:"
+msgstr "דואר אלקטרוני:"
 
 #: dandyid-services.php:329
 msgid "The email address you use to logon to DandyID."
-msgstr "请输入您的 DandyID Service 插件选项:"
+msgstr "כתובת הדוא\"ל בה אתה משתמש כדי להיכנס למערכת DandyID."
 
 #: dandyid-services.php:330
 msgid "Title:"
-msgstr "标题:"
+msgstr "כותרת:"
 
 #: dandyid-services.php:331
 msgid "The sidebar title to display."
-msgstr "侧边栏显示的标题。"
+msgstr "הכותרת של הסרגל הצדדי להצגה."
 
 #: dandyid-services.php:332
 msgid "Show Favicons and Text-links"
-msgstr "显示图标和文字链"
+msgstr "הצג Favicons וטקסט-Links"
 
 #: dandyid-services.php:333
 msgid "Show Favicons only"
-msgstr "只显示图标"
+msgstr "הצג רק Favicons"
 
 #: dandyid-services.php:334
 msgid "Show Text-links only"
-msgstr "只显示文字链"
+msgstr "הצג קישורי טקסט בלבד"
 
 #: dandyid-services.php:335
 msgid "Show Powered by DandyID"
-msgstr "显示版权 Powered by DandyID"
+msgstr "הצג מנוהל ע\"י מערכת DandyID"
 
 #: dandyid-services.php:336
 msgid "Hide Powered by DandyID"
-msgstr "隐藏版权 Powered by DandyID"
+msgstr "הסתר מנוהל ע\"י מערכת DandyID"
 
 #: dandyid-services.php:337
 msgid "Save"
-msgstr "保存"
+msgstr "לשמור"
 
 #: dandyid-services.php:338
 msgid "View Change Log"
-msgstr "查看 DandyID Services Plugin 更新日志"
+msgstr "הצג שנה התחבר"
 
 #: dandyid-services.php:339
 msgid "of past updates to the DandyID Services Plugin."
-msgstr "DandyID Services Plugin 最新更新"
+msgstr "בעבר את עדכוני DandyID שירותי Plugin."
 
 #: dandyid-services.php:340
 msgid "DandyID Service options saved successfully."
-msgstr "DandyID Service 保存成功。"
+msgstr "שירות DandyID אפשרויות נשמר בהצלחה."
 
