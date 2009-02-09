@@ -347,7 +347,13 @@ Yes. But you can initiate a refresh at any time by going to **Settings->DandyID 
 
 4. The DandyID Services settings page.
 
+5. The DandyID Services settings page in Chinese language.
+
 == Change History ==
+
+= Rev 1.3.4  2009-Feb-08 =
+
+- Added screenshot of settings page in Chinese language.
 
 = Rev 1.3.3  2009-Feb-08 =
 
