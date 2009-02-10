@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: dandyid-services\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-09 21:07-0700\n"
+"PO-Revision-Date: 2009-02-09 21:11-0700\n"
+"Last-Translator: Neil Simon <nsimon@solidcode.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: POLAND\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: dandyid-services.php:327
+msgid "Please enter your DandyID Service Plugin options:"
+msgstr "Podaj swój DandyID Service Plugin opcje:"
+
+#: dandyid-services.php:328
+msgid "Email:"
+msgstr "E-mail:"
+
+#: dandyid-services.php:329
+msgid "The email address you use to logon to DandyID."
+msgstr "Adres e-mail, którego używasz do logowania do DandyID."
+
+#: dandyid-services.php:330
+msgid "Title:"
+msgstr "Tytuł:"
+
+#: dandyid-services.php:331
+msgid "The sidebar title to display."
+msgstr "W bocznym tytuł wyświetlacza."
+
+#: dandyid-services.php:332
+msgid "Show Favicons and Text-links"
+msgstr "Pokaż Favicons tekstu i linków"
+
+#: dandyid-services.php:333
+msgid "Show Favicons only"
+msgstr "Pokaż tylko Favicons"
+
+#: dandyid-services.php:334
+msgid "Show Text-links only"
+msgstr "Pokaż tylko linki tekstowe"
+
+#: dandyid-services.php:335
+msgid "Show Powered by DandyID"
+msgstr "Pokazać Powered by DandyID"
+
+#: dandyid-services.php:336
+msgid "Hide Powered by DandyID"
+msgstr "Ukryć Powered by DandyID"
+
+#: dandyid-services.php:337
+msgid "Save"
+msgstr "Zapisać"
+
+#: dandyid-services.php:338
+msgid "View Change Log"
+msgstr "Wyświetl Change Log"
+
+#: dandyid-services.php:339
+msgid "of past updates to the DandyID Services Plugin."
+msgstr "z ostatnich aktualizacji do DandyID Usługi Plugin."
+
+#: dandyid-services.php:340
+msgid "DandyID Service options saved successfully."
+msgstr "DandyID Service opcji zapisane pomyślnie."
+
