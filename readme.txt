@@ -331,6 +331,19 @@ Your DandyID services are retrieved once every 2 hours. This aids performance to
 
 Yes. But you can initiate a refresh at any time by going to **Settings->DandyID Services**, and pressing the **Save** button.
 
+**What languages are currently supported on the settings page ?**
+
+Chinese
+French
+German
+Hebrew
+Italian
+Polish
+Russian
+Slovak
+Spanish (sp)
+Spanish (mx)
+
 **Known Issues and Workarounds**
 
 1. Fatal error: Call to undefined function: curl_init()
