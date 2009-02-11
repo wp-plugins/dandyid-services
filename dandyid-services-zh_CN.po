@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dandyid-services\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 13:39-0700\n"
-"PO-Revision-Date: 2009-02-09 14:52-0700\n"
+"POT-Creation-Date: 2009-02-11 14:39-0700\n"
+"PO-Revision-Date: 2009-02-11 14:41-0700\n"
 "Last-Translator: Neil Simon <nsimon@solidcode.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,59 +15,67 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: dandyid-services.php:327
+#: dandyid-services.php:315
 msgid "Please enter your DandyID Service Plugin options:"
 msgstr "请输入您的 DandyID Service 插件选项:"
 
-#: dandyid-services.php:328
+#: dandyid-services.php:316
 msgid "Email:"
 msgstr "Email:"
 
-#: dandyid-services.php:329
+#: dandyid-services.php:317
 msgid "The email address you use to logon to DandyID."
 msgstr "请输入您的 DandyID Service 插件选项:"
 
-#: dandyid-services.php:330
+#: dandyid-services.php:318
 msgid "Title:"
 msgstr "标题:"
 
-#: dandyid-services.php:331
+#: dandyid-services.php:319
 msgid "The sidebar title to display."
 msgstr "侧边栏显示的标题。"
 
-#: dandyid-services.php:332
+#: dandyid-services.php:320
 msgid "Show Favicons and Text-links"
 msgstr "显示图标和文字链"
 
-#: dandyid-services.php:333
+#: dandyid-services.php:321
 msgid "Show Favicons only"
 msgstr "只显示图标"
 
-#: dandyid-services.php:334
+#: dandyid-services.php:322
 msgid "Show Text-links only"
 msgstr "只显示文字链"
 
-#: dandyid-services.php:335
+#: dandyid-services.php:323
 msgid "Show Powered by DandyID"
 msgstr "显示版权 Powered by DandyID"
 
-#: dandyid-services.php:336
+#: dandyid-services.php:324
 msgid "Hide Powered by DandyID"
 msgstr "隐藏版权 Powered by DandyID"
 
-#: dandyid-services.php:337
+#: dandyid-services.php:325
+msgid "Theme-alignment OK"
+msgstr "主題路線確定"
+
+#: dandyid-services.php:326
+msgid "Theme-alignment NEEDS FIX (Choose this setting ONLY if you observe alignment problems after activation)"
+msgstr "主題對準需要解決（選擇此設置僅當您看到對齊問題後激活）"
+
+#: dandyid-services.php:327
 msgid "Save"
 msgstr "保存"
 
-#: dandyid-services.php:338
+#: dandyid-services.php:328
 msgid "View Change Log"
 msgstr "查看 DandyID Services Plugin 更新日志"
 
-#: dandyid-services.php:339
+#: dandyid-services.php:329
 msgid "of past updates to the DandyID Services Plugin."
 msgstr "DandyID Services Plugin 最新更新"
 
-#: dandyid-services.php:340
+#: dandyid-services.php:330
 msgid "DandyID Service options saved successfully."
 msgstr "DandyID Service 保存成功。"
 

@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, then (2) Go to Design -&gt; Widgets to add DandyID Services to your sidebar.
-Version: 1.3.7
+Version: 1.3.8
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -123,7 +123,6 @@ function dandyIDServices_getTable ()
             }
         }
 
-    // If (show_powered_by == TRUE), display the "Powered by DandyID" line
     if ($dandyID_settingsOptions ['show_powered_by'] == TRUE)
         {
         if (($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS) ||
@@ -146,8 +145,16 @@ function dandyIDServices_getTable ()
         $buf .= '</ul>';
         }
 
-    // Force a newline after the last line
-    $buf .= '<br />';
+    if ($dandyID_settingsOptions ['theme_alignment_ok'] == TRUE)
+        {
+        // Alignment ok -- do nothing
+        }
+    else
+        {
+        // Add closing </div> to account for some themes that
+        // do not properly close their div tag for our widget
+        $buf .= '</div>';
+        }
 
     // $buf will be displayed in the sidebar
     return ($buf);
@@ -305,28 +312,31 @@ function dandyIDServices_updateSettingsOptionsPage ()
     $dandyID_settingsOptions = get_option (DANDYID_SETTINGS_OPTIONS);
 
     // Localize all displayed strings
-    $dandyIDServices_enterOptionsStr    = __('Please enter your DandyID Service Plugin options:', 'dandyid-services');
-    $dandyIDServices_emailStr           = __('Email:',                                            'dandyid-services');
-    $dandyIDServices_emailAddrYouUseStr = __('The email address you use to logon to DandyID.',    'dandyid-services');
-    $dandyIDServices_titleStr           = __('Title:',                                            'dandyid-services');
-    $dandyIDServices_titleToDisplayStr  = __('The sidebar title to display.',                     'dandyid-services');
-    $dandyIDServices_showBothStr        = __('Show Favicons and Text-links',                      'dandyid-services');
-    $dandyIDServices_showFaviconsStr    = __('Show Favicons only',                                'dandyid-services');
-    $dandyIDServices_showTextlinksStr   = __('Show Text-links only',                              'dandyid-services');
-    $dandyIDServices_showPoweredByStr   = __('Show Powered by DandyID',                           'dandyid-services');
-    $dandyIDServices_hidePoweredByStr   = __('Hide Powered by DandyID',                           'dandyid-services');
-    $dandyIDServices_saveStr            = __('Save',                                              'dandyid-services');
-    $dandyIDServices_viewChangeLogStr   = __('View Change Log',                                   'dandyid-services');
-    $dandyIDServices_ofPastUpdatesStr   = __('of past updates to the DandyID Services Plugin.',   'dandyid-services');
-    $dandyIDServices_optionsSavedStr    = __('DandyID Service options saved successfully.',       'dandyid-services');
+    $dandyIDServices_enterOptionsStr      = __('Please enter your DandyID Service Plugin options:', 'dandyid-services');
+    $dandyIDServices_emailStr             = __('Email:',                                            'dandyid-services');
+    $dandyIDServices_emailAddrYouUseStr   = __('The email address you use to logon to DandyID.',    'dandyid-services');
+    $dandyIDServices_titleStr             = __('Title:',                                            'dandyid-services');
+    $dandyIDServices_titleToDisplayStr    = __('The sidebar title to display.',                     'dandyid-services');
+    $dandyIDServices_showBothStr          = __('Show Favicons and Text-links',                      'dandyid-services');
+    $dandyIDServices_showFaviconsStr      = __('Show Favicons only',                                'dandyid-services');
+    $dandyIDServices_showTextlinksStr     = __('Show Text-links only',                              'dandyid-services');
+    $dandyIDServices_showPoweredByStr     = __('Show Powered by DandyID',                           'dandyid-services');
+    $dandyIDServices_hidePoweredByStr     = __('Hide Powered by DandyID',                           'dandyid-services');
+    $dandyIDServices_alignmentOkStr       = __('Theme-alignment OK',                                'dandyid-services');
+    $dandyIDServices_alignmentNeedsFixStr = __('Theme-alignment NEEDS FIX (Choose this setting ONLY if you observe alignment problems after activation)', 'dandyid-services');
+    $dandyIDServices_saveStr              = __('Save',                                              'dandyid-services');
+    $dandyIDServices_viewChangeLogStr     = __('View Change Log',                                   'dandyid-services');
+    $dandyIDServices_ofPastUpdatesStr     = __('of past updates to the DandyID Services Plugin.',   'dandyid-services');
+    $dandyIDServices_optionsSavedStr      = __('DandyID Service options saved successfully.',       'dandyid-services');
 
     // If ALL data fields contain values...
     if (isset ($_POST ['email_address']) && isset ($_POST ['sidebarTitle']))
         {
         //... copy the fields to the persistent wp options array
-        $dandyID_settingsOptions ['email_address']   = $_POST ['email_address'];
-        $dandyID_settingsOptions ['sidebarTitle']    = $_POST ['sidebarTitle'];
-        $dandyID_settingsOptions ['show_powered_by'] = $_POST ['show_powered_by'] == "TRUE" ? TRUE : FALSE;
+        $dandyID_settingsOptions ['email_address']      = $_POST ['email_address'];
+        $dandyID_settingsOptions ['sidebarTitle']       = $_POST ['sidebarTitle'];
+        $dandyID_settingsOptions ['show_powered_by']    = $_POST ['show_powered_by']    == "TRUE" ? TRUE : FALSE;
+        $dandyID_settingsOptions ['theme_alignment_ok'] = $_POST ['theme_alignment_ok'] == "TRUE" ? TRUE : FALSE;
 
         if ($_POST ['show_style'] == "BOTH")
             {
@@ -378,6 +388,10 @@ function dandyIDServices_updateSettingsOptionsPage ()
     $showPoweredBy = "";
     $hidePoweredBy = "";
 
+    // Initialize data fields for "Theme-alignment" radio button
+    $alignmentOk       = "";
+    $alignmentNeedsFix = "";
+
     // Set variable for form to use for "show_powered_by" to show sticky-value for radio button
     if ($dandyID_settingsOptions ['show_powered_by'] == TRUE)
         {
@@ -386,6 +400,16 @@ function dandyIDServices_updateSettingsOptionsPage ()
     else
         {
         $hidePoweredBy = "checked";
+        }
+
+    // Set variable for form to use for "Theme-alignment" to show sticky-value for radio button
+    if ($dandyID_settingsOptions ['theme_alignment_ok'] == TRUE)
+        {
+        $alignmentOk = "checked";
+        }
+    else
+        {
+        $alignmentNeedsFix = "checked";
         }
 
     // Display the DandyID Service Options form to the user
@@ -429,6 +453,12 @@ function dandyIDServices_updateSettingsOptionsPage ()
       ' . $dandyIDServices_showPoweredByStr . '<br />
                                    <input type="radio" name="show_powered_by" value="FALSE" ' . $hidePoweredBy   . ' />
       ' . $dandyIDServices_hidePoweredByStr . '</td>
+
+      <td width="300" valign="top"><input type="radio" name="theme_alignment_ok" value="TRUE"  ' . $alignmentOk   . ' />
+      ' . $dandyIDServices_alignmentOkStr . '<br />
+                                   <input type="radio" name="theme_alignment_ok" value="FALSE" ' . $alignmentNeedsFix   . ' />
+      ' . $dandyIDServices_alignmentNeedsFixStr . '</td>
+
       </tr>
 
       </table>
@@ -440,64 +470,6 @@ function dandyIDServices_updateSettingsOptionsPage ()
       <h5>&nbsp; ( <a href="http://wordpress.org/extend/plugins/dandyid-services/other_notes/">' . $dandyIDServices_viewChangeLogStr .'</a> ' . $dandyIDServices_ofPastUpdatesStr . ' )</h5>
 
       </div>';
-    }
-
-
-function dandyIDServices_createOptions ()
-    {
-    // This is only called once, when the plugin is activated
-
-    // Get the wp logged-in user's email address to use as default in options page
-    global $current_user;
-    get_currentuserinfo ();
-
-    // Create the initialSettingsOptions array of keys/values
-    // First time user sees form, default to "Show Favicons and Text Links"
-    // Set 'show_style' default to DANDYID_SHOW_FAVICONS_AND_TEXTLINKS (i.e. 0)
-    $dandyID_initialSettingsOptions = array ('email_address'   => $current_user->user_email,
-                                             'show_style'      => 0,
-                                             'show_powered_by' => 'TRUE',
-                                             'sidebarTitle'    => '');
-
-    // Create the initialCacheOptions 2-dimensional array of keys/values
-    $dandyID_initialCacheOptions = array (array ('url'        => '',
-                                                 'svcName'    => '',
-                                                 'svcFavicon' => ''));
-
-    // Set the initial cache time to null
-    $dandyID_initialCacheDateOption = '';
-
-    // Store the initial options to the wp database
-    add_option (DANDYID_SETTINGS_OPTIONS,       $dandyID_initialSettingsOptions);
-    add_option (DANDYID_CACHE_OPTIONS,          $dandyID_initialCacheOptions);
-    add_option (DANDYID_NEXT_CACHE_TIME_OPTION, $dandyID_initialCacheDateOption);
-    }
-
-
-function dandyIDServices_deleteOptions ()
-    {
-    // This is only called once, when the plugin is deactivated
-
-    // Remove the dandyID_settingsOptions array from the wp database
-    delete_option (DANDYID_SETTINGS_OPTIONS);
-
-    // Remove from the wp database
-    delete_option (DANDYID_CACHE_OPTIONS);
-
-    // Remove from the wp database
-    delete_option (DANDYID_NEXT_CACHE_TIME_OPTION);
-    }
-
-
-function dandyIDServices_addSubmenu ()
-    {
-    // Define the options for the submenu page
-    add_submenu_page ('options-general.php',                         // Parent page
-                      'DandyID Services page',                       // Page title, shown in titlebar
-                      'DandyID Services',                            // Menu title
-                      10,                                            // Access level all
-                      __FILE__,                                      // This file displays the options page
-                      'dandyIDServices_updateSettingsOptionsPage');  // Function that displays options page
     }
 
 
@@ -572,6 +544,65 @@ function dandyIDServices_xmlData ($parser, $data)
                 break;
             }
         }
+    }
+
+
+function dandyIDServices_createOptions ()
+    {
+    // This is only called once, when the plugin is activated
+
+    // Get the wp logged-in user's email address to use as default in options page
+    global $current_user;
+    get_currentuserinfo ();
+
+    // Create the initialSettingsOptions array of keys/values
+    // First time user sees form, default to "Show Favicons and Text Links"
+    // Set 'show_style' default to DANDYID_SHOW_FAVICONS_AND_TEXTLINKS (i.e. 0)
+    $dandyID_initialSettingsOptions = array ('email_address'      => $current_user->user_email,
+                                             'show_style'         => 0,
+                                             'show_powered_by'    => 'TRUE',
+                                             'theme_alignment_ok' => 'TRUE',
+                                             'sidebarTitle'       => '');
+
+    // Create the initialCacheOptions 2-dimensional array of keys/values
+    $dandyID_initialCacheOptions = array (array ('url'        => '',
+                                                 'svcName'    => '',
+                                                 'svcFavicon' => ''));
+
+    // Set the initial cache time to null
+    $dandyID_initialCacheDateOption = '';
+
+    // Store the initial options to the wp database
+    add_option (DANDYID_SETTINGS_OPTIONS,       $dandyID_initialSettingsOptions);
+    add_option (DANDYID_CACHE_OPTIONS,          $dandyID_initialCacheOptions);
+    add_option (DANDYID_NEXT_CACHE_TIME_OPTION, $dandyID_initialCacheDateOption);
+    }
+
+
+function dandyIDServices_deleteOptions ()
+    {
+    // This is only called once, when the plugin is deactivated
+
+    // Remove the dandyID_settingsOptions array from the wp database
+    delete_option (DANDYID_SETTINGS_OPTIONS);
+
+    // Remove from the wp database
+    delete_option (DANDYID_CACHE_OPTIONS);
+
+    // Remove from the wp database
+    delete_option (DANDYID_NEXT_CACHE_TIME_OPTION);
+    }
+
+
+function dandyIDServices_addSubmenu ()
+    {
+    // Define the options for the submenu page
+    add_submenu_page ('options-general.php',                         // Parent page
+                      'DandyID Services page',                       // Page title, shown in titlebar
+                      'DandyID Services',                            // Menu title
+                      10,                                            // Access level all
+                      __FILE__,                                      // This file displays the options page
+                      'dandyIDServices_updateSettingsOptionsPage');  // Function that displays options page
     }
 
 
