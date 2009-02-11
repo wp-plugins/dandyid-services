@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, then (2) Go to Design -&gt; Widgets to add DandyID Services to your sidebar.
-Version: 1.3.6
+Version: 1.3.7
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -78,9 +78,6 @@ function dandyIDServices_getTable ()
     // Initialize output buffer (returned by this function)
     $buf = '';
 
-    // Begin div tag: "dandyIDSidebarIdentities" -- to enable css stying
-    $buf .= '<div id="dandyIDSidebarIdentities">';
-
     // Get the cache from the wp database
     $cacheOptions = get_option (DANDYID_CACHE_OPTIONS);
 
@@ -95,47 +92,34 @@ function dandyIDServices_getTable ()
     for ($i = 0; $cacheOptions [$i] ['url'] != ''; $i++)
         {
         // Get next cache row
-        $cacheUrl        = $cacheOptions [$i] ['url'];
-        $cacheSvcName    = $cacheOptions [$i] ['svcName'];
-        $cacheSvcFavicon = $cacheOptions [$i] ['svcFavicon'];
+        $cacheUrl        = trim ($cacheOptions [$i] ['url']);
+        $cacheSvcName    = trim ($cacheOptions [$i] ['svcName']);
+        $cacheSvcFavicon = trim ($cacheOptions [$i] ['svcFavicon']);
 
-        // Either show favicon AND text link...
         if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS_AND_TEXTLINKS)
             {
-            $buf .= '<li>';
-
             // Show Favicon and Textlink
-            $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
-                    '<img id="' . $cacheSvcName    . '" ' .
-                    '    src="' . $cacheSvcFavicon . '" ' . 
-                    '    width="16"  '             . 
-                    '    height="16" '             . 
-                    '    alt="' . $cacheSvcName    . '" /> ' . $cacheSvcName . '</a>';
-
+            $buf .= '<li>';
+            $buf .= sprintf ("<a href=\"%s\" rel=\"me\">", $cacheUrl);
+            $buf .= sprintf ("<img id=\"%s\" src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /> %s</a>",
+                              $cacheSvcName, $cacheSvcFavicon, $cacheSvcName, $cacheSvcName);
             $buf .= '</li>';
             }
 
-        // ... or only show the favicon
         else if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS)
             {
             // Let them wrap lines (force 1 trailing space after each favicon)
-            $buf .= '<a href="' . $cacheUrl        . '" rel="me">' . 
-                    '<img id="' . $cacheSvcName    . '" ' .
-                    '    src="' . $cacheSvcFavicon . '" ' . 
-                    '    width="16"  '                    . 
-                    '    height="16" '                    . 
-                    '    alt="' . $cacheSvcName    . '" /></a>&nbsp;';
+            $buf .= sprintf ("<a href=\"%s\" rel=\"me\">", $cacheUrl);
+            $buf .= sprintf ("<img id=\"%s\" src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /></a> ",
+                              $cacheSvcName, $cacheSvcFavicon, $cacheSvcName);
             }
 
-        // ... or only show the text links
         else   // must be DANDYID_SHOW_TEXTLINKS
             {
-            $buf .= '<li>';
-
             // Display each on a separate line
-            $buf .= '<a href="' . $cacheUrl . '" rel="me">' . $cacheSvcName . '</a>';
-
             $buf .= '<li>';
+            $buf .= sprintf ("<a href=\"%s\" rel=\"me\">%s</a>", $cacheUrl, $cacheSvcName);
+            $buf .= '</li>';
             }
         }
 
@@ -164,9 +148,6 @@ function dandyIDServices_getTable ()
 
     // Force a newline after the last line
     $buf .= '<br />';
-
-    // Close div tag: "dandyIDSidebarIdentities"
-    $buf .= '</div>';
 
     // $buf will be displayed in the sidebar
     return ($buf);

@@ -364,6 +364,10 @@ Spanish (mx)
 
 == Change History ==
 
+= Rev 1.3.7  2009-Feb-11 =
+
+- Fixed spacing problems.
+
 = Rev 1.3.6  2009-Feb-09 =
 
 - Added languages: Russian, Slovak, Polish.
