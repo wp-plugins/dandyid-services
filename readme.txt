@@ -331,18 +331,31 @@ Your DandyID services are retrieved once every 2 hours. This aids performance to
 
 Yes. But you can initiate a refresh at any time by going to **Settings->DandyID Services**, and pressing the **Save** button.
 
+**What is the purpose of the "Theme-alignment NEEDS FIX" setting on the options page?**
+
+After activating the plugin, a small number of users have observed:
+
+  - Misaligned posts
+  - Missing content
+  - Plugins that have disappeared
+  - Footer either missing or misaligned
+
+This setting corrects a problem in some themes that precede the DandyID sidebar with an opening DIV tag, but fail to generate the corresponding closing DIV tag.
+
+When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closing DIV tag.
+
 **What languages are currently supported on the settings page ?**
 
-Chinese
-French
-German
-Hebrew
-Italian
-Polish
-Russian
-Slovak
-Spanish (sp)
-Spanish (mx)
+  - Chinese
+  - French
+  - German
+  - Hebrew
+  - Italian
+  - Polish
+  - Russian
+  - Slovak
+  - Spanish (sp)
+  - Spanish (mx)
 
 **Known Issues and Workarounds**
 
@@ -363,6 +376,11 @@ Spanish (mx)
 5. The DandyID Services settings page in Chinese language.
 
 == Change History ==
+
+= Rev 1.3.8  2009-Feb-11 =
+
+- Added setting option "Theme-alignment NEEDS FIX".
+- This setting causes the plugin to append a closing DIV tag, to account for some themes that omit this tag.
 
 = Rev 1.3.7  2009-Feb-11 =
 

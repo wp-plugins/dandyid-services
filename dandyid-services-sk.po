@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dandyid-services\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 21:01-0700\n"
-"PO-Revision-Date: 2009-02-09 21:05-0700\n"
+"POT-Creation-Date: 2009-02-11 14:37-0700\n"
+"PO-Revision-Date: 2009-02-11 14:38-0700\n"
 "Last-Translator: Neil Simon <nsimon@solidcode.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,59 +15,67 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: dandyid-services.php:327
+#: dandyid-services.php:315
 msgid "Please enter your DandyID Service Plugin options:"
 msgstr "Prosím, zadajte svoje DandyID Service Plugin možností:"
 
-#: dandyid-services.php:328
+#: dandyid-services.php:316
 msgid "Email:"
 msgstr "E-mailovú:"
 
-#: dandyid-services.php:329
+#: dandyid-services.php:317
 msgid "The email address you use to logon to DandyID."
 msgstr "E-mailovú adresu, ktorú používate na prihlásenie do DandyID."
 
-#: dandyid-services.php:330
+#: dandyid-services.php:318
 msgid "Title:"
 msgstr "Názov:"
 
-#: dandyid-services.php:331
+#: dandyid-services.php:319
 msgid "The sidebar title to display."
 msgstr "Postranné lišty titul na displeji."
 
-#: dandyid-services.php:332
+#: dandyid-services.php:320
 msgid "Show Favicons and Text-links"
 msgstr "Zobraziť Favicons a Text-odkazy"
 
-#: dandyid-services.php:333
+#: dandyid-services.php:321
 msgid "Show Favicons only"
 msgstr "Zobraziť iba Favicons"
 
-#: dandyid-services.php:334
+#: dandyid-services.php:322
 msgid "Show Text-links only"
 msgstr "Zobraziť Text-len odkazy"
 
-#: dandyid-services.php:335
+#: dandyid-services.php:323
 msgid "Show Powered by DandyID"
 msgstr "Zobraziť Powered by DandyID"
 
-#: dandyid-services.php:336
+#: dandyid-services.php:324
 msgid "Hide Powered by DandyID"
 msgstr "Skryť Powered by DandyID"
 
-#: dandyid-services.php:337
+#: dandyid-services.php:325
+msgid "Theme-alignment OK"
+msgstr "Téma-zarovnanie OK"
+
+#: dandyid-services.php:326
+msgid "Theme-alignment NEEDS FIX (Choose this setting ONLY if you observe alignment problems after activation)"
+msgstr "Téma zlaďovaní POTREBY-FIX (Vyberte túto voľbu iba v prípade, že dodržiava zarovnanie problémy po aktivácii)"
+
+#: dandyid-services.php:327
 msgid "Save"
 msgstr "Uložiť"
 
-#: dandyid-services.php:338
+#: dandyid-services.php:328
 msgid "View Change Log"
 msgstr "Zobraziť Zmena Prihlásenie"
 
-#: dandyid-services.php:339
+#: dandyid-services.php:329
 msgid "of past updates to the DandyID Services Plugin."
 msgstr "minulej aktualizácia sa DandyID Služby Plugin."
 
-#: dandyid-services.php:340
+#: dandyid-services.php:330
 msgid "DandyID Service options saved successfully."
 msgstr "DandyID Service možnosti úspešne uložené."
 

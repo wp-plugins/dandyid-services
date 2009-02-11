@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dandyid-services\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 14:19-0700\n"
-"PO-Revision-Date: 2009-02-09 14:25-0700\n"
+"POT-Creation-Date: 2009-02-11 14:32-0700\n"
+"PO-Revision-Date: 2009-02-11 14:33-0700\n"
 "Last-Translator: Neil Simon <nsimon@solidcode.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,59 +15,67 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: dandyid-services.php:327
+#: dandyid-services.php:315
 msgid "Please enter your DandyID Service Plugin options:"
 msgstr "אנא הכנס את DandyID שירות Plugin אפשרויות:"
 
-#: dandyid-services.php:328
+#: dandyid-services.php:316
 msgid "Email:"
 msgstr "דואר אלקטרוני:"
 
-#: dandyid-services.php:329
+#: dandyid-services.php:317
 msgid "The email address you use to logon to DandyID."
 msgstr "כתובת הדוא\"ל בה אתה משתמש כדי להיכנס למערכת DandyID."
 
-#: dandyid-services.php:330
+#: dandyid-services.php:318
 msgid "Title:"
 msgstr "כותרת:"
 
-#: dandyid-services.php:331
+#: dandyid-services.php:319
 msgid "The sidebar title to display."
 msgstr "הכותרת של הסרגל הצדדי להצגה."
 
-#: dandyid-services.php:332
+#: dandyid-services.php:320
 msgid "Show Favicons and Text-links"
 msgstr "הצג Favicons וטקסט-Links"
 
-#: dandyid-services.php:333
+#: dandyid-services.php:321
 msgid "Show Favicons only"
 msgstr "הצג רק Favicons"
 
-#: dandyid-services.php:334
+#: dandyid-services.php:322
 msgid "Show Text-links only"
 msgstr "הצג קישורי טקסט בלבד"
 
-#: dandyid-services.php:335
+#: dandyid-services.php:323
 msgid "Show Powered by DandyID"
 msgstr "הצג מנוהל ע\"י מערכת DandyID"
 
-#: dandyid-services.php:336
+#: dandyid-services.php:324
 msgid "Hide Powered by DandyID"
 msgstr "הסתר מנוהל ע\"י מערכת DandyID"
 
-#: dandyid-services.php:337
+#: dandyid-services.php:325
+msgid "Theme-alignment OK"
+msgstr "ערכת נושא-יישור אישור"
+
+#: dandyid-services.php:326
+msgid "Theme-alignment NEEDS FIX (Choose this setting ONLY if you observe alignment problems after activation)"
+msgstr "ערכת נושא-יישור צרכים תיקון (בחר בהגדרה זו רק אם אתה יישור להבחין בבעיות אחרי ההפעלה)"
+
+#: dandyid-services.php:327
 msgid "Save"
 msgstr "לשמור"
 
-#: dandyid-services.php:338
+#: dandyid-services.php:328
 msgid "View Change Log"
 msgstr "הצג שנה התחבר"
 
-#: dandyid-services.php:339
+#: dandyid-services.php:329
 msgid "of past updates to the DandyID Services Plugin."
 msgstr "בעבר את עדכוני DandyID שירותי Plugin."
 
-#: dandyid-services.php:340
+#: dandyid-services.php:330
 msgid "DandyID Service options saved successfully."
 msgstr "שירות DandyID אפשרויות נשמר בהצלחה."
 

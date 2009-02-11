@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dandyid-services\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 21:07-0700\n"
-"PO-Revision-Date: 2009-02-09 21:11-0700\n"
+"POT-Creation-Date: 2009-02-11 14:35-0700\n"
+"PO-Revision-Date: 2009-02-11 14:36-0700\n"
 "Last-Translator: Neil Simon <nsimon@solidcode.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,59 +15,67 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: dandyid-services.php:327
+#: dandyid-services.php:315
 msgid "Please enter your DandyID Service Plugin options:"
 msgstr "Podaj swój DandyID Service Plugin opcje:"
 
-#: dandyid-services.php:328
+#: dandyid-services.php:316
 msgid "Email:"
 msgstr "E-mail:"
 
-#: dandyid-services.php:329
+#: dandyid-services.php:317
 msgid "The email address you use to logon to DandyID."
 msgstr "Adres e-mail, którego używasz do logowania do DandyID."
 
-#: dandyid-services.php:330
+#: dandyid-services.php:318
 msgid "Title:"
 msgstr "Tytuł:"
 
-#: dandyid-services.php:331
+#: dandyid-services.php:319
 msgid "The sidebar title to display."
 msgstr "W bocznym tytuł wyświetlacza."
 
-#: dandyid-services.php:332
+#: dandyid-services.php:320
 msgid "Show Favicons and Text-links"
 msgstr "Pokaż Favicons tekstu i linków"
 
-#: dandyid-services.php:333
+#: dandyid-services.php:321
 msgid "Show Favicons only"
 msgstr "Pokaż tylko Favicons"
 
-#: dandyid-services.php:334
+#: dandyid-services.php:322
 msgid "Show Text-links only"
 msgstr "Pokaż tylko linki tekstowe"
 
-#: dandyid-services.php:335
+#: dandyid-services.php:323
 msgid "Show Powered by DandyID"
 msgstr "Pokazać Powered by DandyID"
 
-#: dandyid-services.php:336
+#: dandyid-services.php:324
 msgid "Hide Powered by DandyID"
 msgstr "Ukryć Powered by DandyID"
 
-#: dandyid-services.php:337
+#: dandyid-services.php:325
+msgid "Theme-alignment OK"
+msgstr "Theme dostosowania OK"
+
+#: dandyid-services.php:326
+msgid "Theme-alignment NEEDS FIX (Choose this setting ONLY if you observe alignment problems after activation)"
+msgstr "Theme dostosowania POTRZEB FIX (Wybierz to ustawienie tylko wtedy, gdy obserwuje problemy dostosowania po aktywacji)"
+
+#: dandyid-services.php:327
 msgid "Save"
 msgstr "Zapisać"
 
-#: dandyid-services.php:338
+#: dandyid-services.php:328
 msgid "View Change Log"
 msgstr "Wyświetl Change Log"
 
-#: dandyid-services.php:339
+#: dandyid-services.php:329
 msgid "of past updates to the DandyID Services Plugin."
 msgstr "z ostatnich aktualizacji do DandyID Usługi Plugin."
 
-#: dandyid-services.php:340
+#: dandyid-services.php:330
 msgid "DandyID Service options saved successfully."
 msgstr "DandyID Service opcji zapisane pomyślnie."
 
