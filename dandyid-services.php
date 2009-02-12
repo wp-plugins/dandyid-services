@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, then (2) Go to Design -&gt; Widgets to add DandyID Services to your sidebar.
-Version: 1.3.8
+Version: 1.3.9
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -101,7 +101,7 @@ function dandyIDServices_getTable ()
             // Show Favicon and Textlink
             $buf .= '<li>';
             $buf .= sprintf ("<a href=\"%s\" rel=\"me\">", $cacheUrl);
-            $buf .= sprintf ("<img id=\"%s\" src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /> %s</a>",
+            $buf .= sprintf ("<img title=\"%s\" src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /> %s</a>",
                               $cacheSvcName, $cacheSvcFavicon, $cacheSvcName, $cacheSvcName);
             $buf .= '</li>';
             }
@@ -110,7 +110,7 @@ function dandyIDServices_getTable ()
             {
             // Let them wrap lines (force 1 trailing space after each favicon)
             $buf .= sprintf ("<a href=\"%s\" rel=\"me\">", $cacheUrl);
-            $buf .= sprintf ("<img id=\"%s\" src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /></a> ",
+            $buf .= sprintf ("<img title=\"%s\" src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /></a> ",
                               $cacheSvcName, $cacheSvcFavicon, $cacheSvcName);
             }
 
