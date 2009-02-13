@@ -377,6 +377,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 
 == Change History ==
 
+= Rev 1.4.0  2009-Feb-12 =
+
+- Added $after_widget closing tag.
+
 = Rev 1.3.9  2009-Feb-12 =
 
 - Removed id attribute from img tags. Added title attribute to img tags.
