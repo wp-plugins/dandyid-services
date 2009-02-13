@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, then (2) Go to Design -&gt; Widgets to add DandyID Services to your sidebar.
-Version: 1.4.0
+Version: 1.4.1
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://dandyid.org/
 */
@@ -34,6 +34,7 @@ require_once 'class.dandyid.php';
 
 
 // Constants
+define ('DANDYID_PLUGIN_VERSION',         '1.4.1');
 define ('DANDYID_URL',                    'http://www.dandyid.org/');
 define ('DANDYID_API_KEY',                '17ps6defe5fnem02czzsv95771wu4qe5w5x3');
 define ('DANDYID_API_TOKEN',              'hbhvfwjuitwvsvoo5suatq6xgj2cnye6av1p');
@@ -100,25 +101,25 @@ function dandyIDServices_getTable ()
             {
             // Show Favicon and Textlink
             $buf .= '<li>';
-            $buf .= sprintf ("<a href=\"%s\" rel=\"me\">", $cacheUrl);
-            $buf .= sprintf ("<img title=\"%s\" src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /> %s</a>",
-                              $cacheSvcName, $cacheSvcFavicon, $cacheSvcName, $cacheSvcName);
+            $buf .= sprintf ("<a href=\"%s\" title=\"%s\" rel=\"me\">", $cacheUrl, $cacheSvcName);
+            $buf .= sprintf ("<img src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /> %s</a>",
+                              $cacheSvcFavicon, $cacheSvcName, $cacheSvcName);
             $buf .= '</li>';
             }
 
         else if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS)
             {
             // Let them wrap lines (force 1 trailing space after each favicon)
-            $buf .= sprintf ("<a href=\"%s\" rel=\"me\">", $cacheUrl);
-            $buf .= sprintf ("<img title=\"%s\" src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /></a> ",
-                              $cacheSvcName, $cacheSvcFavicon, $cacheSvcName);
+            $buf .= sprintf ("<a href=\"%s\" title=\"%s\" rel=\"me\">", $cacheUrl, $cacheSvcName);
+            $buf .= sprintf ("<img src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /></a> ",
+                              $cacheSvcFavicon, $cacheSvcName);
             }
 
         else   // must be DANDYID_SHOW_TEXTLINKS
             {
             // Display each on a separate line
             $buf .= '<li>';
-            $buf .= sprintf ("<a href=\"%s\" rel=\"me\">%s</a>", $cacheUrl, $cacheSvcName);
+            $buf .= sprintf ("<a href=\"%s\" title=\"%s\" rel=\"me\">%s</a>", $cacheUrl, $cacheSvcName, $cacheSvcName);
             $buf .= '</li>';
             }
         }
@@ -296,8 +297,12 @@ function dandyIDServices_initWidget ()
             // Display sidebar title above the about-to-be-rendered dandy services table
             echo $before_widget . $before_title . $dandyID_settingsOptions ['sidebarTitle'] . $after_title;
 
+            printf ("<div id=\"%s\">", DANDYID_PLUGIN_VERSION);
+
             // Dynamically build the table and display it
             dandyIDServices_buildTable ();
+
+            printf ("</div>");
 
             // Added in 1.4.0 -- this omission was causing some themes to fail with our plugin
             echo $after_widget;
