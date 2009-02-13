@@ -9,7 +9,7 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 == Description ==
 
-**[DandyID](http://dandyid.org/) is a free service that enables you to connect, manage, and share all of your social identifiers from a single location. Let friends on one service find you quickly and easily on another!**
+**[DandyID](http://dandyid.org/) is a free service that enables you to connect, manage, and share all of your social identifiers from a single location.**
 
 **The DandyID Services Plugin:**
 
@@ -376,6 +376,11 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 5. The DandyID Services settings page in Chinese language.
 
 == Change History ==
+
+= Rev 1.4.1  2009-Feb-13 =
+
+- Embed version number into div tag for version tracking.
+- Added title attribute to href element to display service name as tooltip.
 
 = Rev 1.4.0  2009-Feb-12 =
 
