@@ -377,6 +377,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 
 == Change History ==
 
+= Rev 1.4.2  2009-Feb-15 =
+
+- Remove "Theme-alignment NEEDS FIX" setting option. No longer needed after fix in v1.4.0.
+
 = Rev 1.4.1  2009-Feb-13 =
 
 - Embed version number into div tag for version tracking.

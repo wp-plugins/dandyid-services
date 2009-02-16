@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dandyid-services\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-11 14:26-0700\n"
-"PO-Revision-Date: 2009-02-11 14:28-0700\n"
+"POT-Creation-Date: 2009-02-15 19:54-0700\n"
+"PO-Revision-Date: 2009-02-15 19:55-0700\n"
 "Last-Translator: Neil Simon <nsimon@solidcode.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,67 +15,68 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: dandyid-services.php:315
+#: dandyid-services.php:312
 msgid "Please enter your DandyID Service Plugin options:"
 msgstr "Bitte geben Sie Ihre DandyID Service Plugin Optionen:"
 
-#: dandyid-services.php:316
+#: dandyid-services.php:313
 msgid "Email:"
 msgstr "E-Mail:"
 
-#: dandyid-services.php:317
+#: dandyid-services.php:314
 msgid "The email address you use to logon to DandyID."
 msgstr "Die E-Mail-Adresse, die Sie verwenden, um die Anmeldung DandyID."
 
-#: dandyid-services.php:318
+#: dandyid-services.php:315
 msgid "Title:"
 msgstr "Titel:"
 
-#: dandyid-services.php:319
+#: dandyid-services.php:316
 msgid "The sidebar title to display."
 msgstr "Die Sidebar-Titel angezeigt werden sollen."
 
-#: dandyid-services.php:320
+#: dandyid-services.php:317
 msgid "Show Favicons and Text-links"
 msgstr "Show Favicons und Text-Links"
 
-#: dandyid-services.php:321
+#: dandyid-services.php:318
 msgid "Show Favicons only"
 msgstr "Zeige nur Favicons"
 
-#: dandyid-services.php:322
+#: dandyid-services.php:319
 msgid "Show Text-links only"
 msgstr "Text-Links nur"
 
-#: dandyid-services.php:323
+#: dandyid-services.php:320
 msgid "Show Powered by DandyID"
 msgstr "Zeigen Powered by DandyID"
 
-#: dandyid-services.php:324
+#: dandyid-services.php:321
 msgid "Hide Powered by DandyID"
 msgstr "Verstecken Powered by DandyID"
 
-#: dandyid-services.php:325
-msgid "Theme-alignment OK"
-msgstr "Thema-Ausrichtung OK"
-
-#: dandyid-services.php:326
-msgid "Theme-alignment NEEDS FIX (Choose this setting ONLY if you observe alignment problems after activation)"
-msgstr "Thema-Ausrichtung FIX BEDÜRFNISSE (Wählen Sie diese Einstellung nur, wenn Sie beobachten Angleichung Probleme nach der Aktivierung)"
-
-#: dandyid-services.php:327
+#: dandyid-services.php:322
 msgid "Save"
 msgstr "Speichern"
 
-#: dandyid-services.php:328
+#: dandyid-services.php:323
 msgid "View Change Log"
 msgstr "Änderung der Registrierung anzeigen"
 
-#: dandyid-services.php:329
+#: dandyid-services.php:324
 msgid "of past updates to the DandyID Services Plugin."
 msgstr "der letzten Updates für die DandyID Services Plugin."
 
-#: dandyid-services.php:330
+#: dandyid-services.php:325
 msgid "DandyID Service options saved successfully."
 msgstr "DandyID Service-Optionen wurden erfolgreich gespeichert."
+
+#~ msgid "Theme-alignment OK"
+#~ msgstr "Thema-Ausrichtung OK"
+#~ msgid ""
+#~ "Theme-alignment NEEDS FIX (Choose this setting ONLY if you observe "
+#~ "alignment problems after activation)"
+#~ msgstr ""
+#~ "Thema-Ausrichtung FIX BEDÜRFNISSE (Wählen Sie diese Einstellung nur, wenn "
+#~ "Sie beobachten Angleichung Probleme nach der Aktivierung)"
 
