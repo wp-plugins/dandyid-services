@@ -32,6 +32,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * AIM
 * All Consuming
 * Amazon
+* Amazon Wish List
 * Amie Street
 * ArtWanted
 * Ask500People
@@ -71,11 +72,13 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Crackle
 * crunchyroll
 * Crusher
+* Current
 * Curse
 * Dailymile
 * Dailymotion
 * Daily Mugshot
 * Dancejam
+* DAYTUM
 * Deezer
 * Delicious
 * deviantART
@@ -93,6 +96,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Ebay
 * Ecademy
 * eMusic
+* Energize and Engage
 * esnips
 * Etsy
 * Extratasty
@@ -103,11 +107,13 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Flickr
 * Flixster
 * Fotolog
+* Fotonauts
 * FriendFeed
 * Friendster
 * Funny or Die
 * Furl
 * Fuzz
+* gamerDNA
 * GameSpot
 * Gcast
 * Get Satisfaction
@@ -116,11 +122,13 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Goodreads Author
 * Goodrec
 * Google Reader
+* Grabb.it
 * Groovr
 * Guitar Hero
 * Gyminee
 * HelloTxt
 * hi5
+* Houndbite
 * Howcast
 * Hulu
 * Humble Voice
@@ -131,6 +139,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * identoo
 * iJigg
 * iLike
+* iLike Artist
 * Imdb
 * Imeem
 * iminta
@@ -164,6 +173,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Mufin
 * Multiply
 * MyBlogLog
+* MyFolio
 * myOpenID
 * MySpace
 * NaNoWriMo
@@ -178,12 +188,14 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Odeo Channel
 * orkut
 * Pandora
+* PeoplePond
 * Photobucket
 * Photophlow
 * PhotoShelter
 * Picasa
 * Pikchur
 * Plaxo
+* Playfire
 * Plinky
 * Plurk
 * PostCrossing
@@ -199,6 +211,8 @@ When you update your social identifiers on DandyID, they are automatically updat
 * RedBubble
 * Reddit
 * RedWire
+* ReverbNation Artist
+* ReverbNation Fan
 * RI Nexus
 * RockBand
 * Ryze
@@ -263,11 +277,13 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Wakoopa
 * Webshots
 * We Heart It
+* WhatPulse
 * Where's George?
 * Wikipedia English
 * Wikipedia Spanish
 * Wink
 * Wishlistr
+* Wordie
 * WordPress.com
 * Xanga
 * Xbox LIVE
@@ -282,6 +298,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * YouTube
 * YouVersion
 * YowTrip
+* Zazzle
 * Zedge
 * Ziki
 * Zillow
@@ -394,6 +411,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 5. The DandyID Services settings page in Chinese language.
 
 == Change History ==
+
+= Rev 1.4.4  2009-Mar-03 =
+
+- Added new DandyID services.
 
 = Rev 1.4.3  2009-Feb-20 =
 
