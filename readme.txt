@@ -19,13 +19,14 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 When you update your social identifiers on DandyID, they are automatically updated in your sidebar.
 
-**DandyID currently supports over 250 services including:**
+**DandyID currently supports over 300 services including:**
 
 * 12seconds
 * 30 Boxes
 * 43 People
 * 43 Places
 * 43 Things
+* 97 Bottles
 * ActiveRain
 * Adocu
 * AgencyScoop
@@ -101,6 +102,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Etsy
 * Extratasty
 * Facebook
+* FanFiction
 * Favtape
 * Ffffound
 * Finetune
@@ -117,7 +119,9 @@ When you update your social identifiers on DandyID, they are automatically updat
 * GameSpot
 * Gcast
 * Get Satisfaction
+* GitHub
 * Glogster
+* GoneTooSoon
 * Goodreads
 * Goodreads Author
 * Goodrec
@@ -145,6 +149,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * iminta
 * Instructables
 * Intense Debate
+* Inuyasha FanFiction
 * iReport
 * iseecolor
 * Issuu
@@ -169,6 +174,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Mister Wong
 * Mixx
 * Modelmayhem
+* MoFuse
 * momentile
 * Mufin
 * Multiply
@@ -199,6 +205,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Plinky
 * Plurk
 * PostCrossing
+* Posterous
 * Pownce
 * Propeller
 * Publr
@@ -232,6 +239,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * SparkPeople
 * Squidoo
 * Stack Overflow
+* Steam
 * Streem
 * Stumbleupon
 * Swurl
@@ -411,6 +419,11 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 5. The DandyID Services settings page in Chinese language.
 
 == Change History ==
+
+= Rev 1.4.5  2009-Mar-07 =
+
+- Updated Italian language files. Thank you [Gianni Diurno](http://gidibao.net).
+- Added new DandyID services.
 
 = Rev 1.4.4  2009-Mar-03 =
 
