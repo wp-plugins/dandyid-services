@@ -37,6 +37,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Amie Street
 * ArtWanted
 * Ask500People
+* BackType
 * Badoo
 * Bambuser
 * Bebo
@@ -47,6 +48,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Blip.fm
 * Blippr
 * Blip.tv
+* BlogCatalog
 * Blogger
 * Bloglines
 * Blue Dot (Faves)
@@ -182,6 +184,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * MyFolio
 * myOpenID
 * MySpace
+* MySXSW
 * NaNoWriMo
 * Naymz
 * Neopets
@@ -193,6 +196,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Odeo
 * Odeo Channel
 * orkut
+* outside.in
 * Pandora
 * PeoplePond
 * Photobucket
@@ -207,6 +211,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * PostCrossing
 * Posterous
 * Pownce
+* Project Playlist
 * Propeller
 * Publr
 * QIK
@@ -217,6 +222,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Reader2
 * RedBubble
 * Reddit
+* Red Room
 * RedWire
 * ReverbNation Artist
 * ReverbNation Fan
@@ -419,6 +425,11 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 5. The DandyID Services settings page in Chinese language.
 
 == Change History ==
+
+= Rev 1.4.6  2009-Mar-14 =
+
+- Preceed plugin-version-number div tag with "DandyID-Services WordPress Plugin".
+- Added new DandyID services.
 
 = Rev 1.4.5  2009-Mar-07 =
 
