@@ -414,17 +414,21 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 
 == Screenshots ==
 
-1. Favicons and text-links.
+1. Favicons and text-links shown in the blog sidebar.
 
-2. Favicons only.
+2. Favicons shown in the blog sidebar.
 
-3. Text-links only.
+3. Text-links shown in the blog sidebar.
 
 4. The DandyID Services settings page.
 
-5. The DandyID Services settings page in Chinese language.
+5. The DandyID Services settings page, Chinese.
 
 == Change History ==
+
+= Rev 1.4.7  2009-Mar-18 =
+
+- Updated descriptions on screenshots.
 
 = Rev 1.4.6  2009-Mar-14 =
 
