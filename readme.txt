@@ -426,6 +426,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 
 == Change History ==
 
+= Rev 1.4.8  2009-Mar-22 =
+
+- Updated plugin-version-number div tag (for validation compliance) to "DandyID-Services-vX.X.X".
+
 = Rev 1.4.7  2009-Mar-18 =
 
 - Updated descriptions on screenshots.
