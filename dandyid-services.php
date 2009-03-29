@@ -4,7 +4,7 @@
 Plugin Name: DandyID Services
 Plugin URI: http://wordpress.org/extend/plugins/dandyid-services/
 Description: Retrieves your <a href="http://dandyid.org">DandyID</a> online identities and displays them as clickable links in your sidebar. After activating this Plugin: (1) Go to Settings -&gt; DandyID Services to configure the required settings, then (2) Go to Design -&gt; Widgets to add DandyID Services to your sidebar.
-Version: 1.4.8
+Version: 1.4.9
 Author: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Author URI: http://solidcode.com/
 */
@@ -34,7 +34,7 @@ require_once 'class.dandyid.php';
 
 
 // Constants
-define ('DANDYID_PLUGIN_VERSION',         'DandyID-Services-v1.4.8');
+define ('DANDYID_PLUGIN_VERSION',         'DandyID-Services-v1.4.9');
 define ('DANDYID_URL',                    'http://www.dandyid.org/');
 define ('DANDYID_API_KEY',                '17ps6defe5fnem02czzsv95771wu4qe5w5x3');
 define ('DANDYID_API_TOKEN',              'hbhvfwjuitwvsvoo5suatq6xgj2cnye6av1p');
@@ -101,7 +101,7 @@ function dandyIDServices_getTable ()
             {
             // Show Favicon and Textlink
             $buf .= '<li>';
-            $buf .= sprintf ("<a href=\"%s\" title=\"%s\" rel=\"me\">", $cacheUrl, $cacheSvcName);
+            $buf .= sprintf ("<a href=\"%s\" title=\"%s\" rel=\"me\" target=\"_blank\">", $cacheUrl, $cacheSvcName);
             $buf .= sprintf ("<img src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /> %s</a>",
                               $cacheSvcFavicon, $cacheSvcName, $cacheSvcName);
             $buf .= '</li>';
@@ -110,7 +110,7 @@ function dandyIDServices_getTable ()
         else if ($dandyID_settingsOptions ['show_style'] == DANDYID_SHOW_FAVICONS)
             {
             // Let them wrap lines (force 1 trailing space after each favicon)
-            $buf .= sprintf ("<a href=\"%s\" title=\"%s\" rel=\"me\">", $cacheUrl, $cacheSvcName);
+            $buf .= sprintf ("<a href=\"%s\" title=\"%s\" rel=\"me\" target=\"_blank\">", $cacheUrl, $cacheSvcName);
             $buf .= sprintf ("<img src=\"%s\" width=\"16\" height=\"16\" alt=\"%s\" /></a> ",
                               $cacheSvcFavicon, $cacheSvcName);
             }
@@ -119,7 +119,7 @@ function dandyIDServices_getTable ()
             {
             // Display each on a separate line
             $buf .= '<li>';
-            $buf .= sprintf ("<a href=\"%s\" title=\"%s\" rel=\"me\">%s</a>", $cacheUrl, $cacheSvcName, $cacheSvcName);
+            $buf .= sprintf ("<a href=\"%s\" title=\"%s\" rel=\"me\" target=\"_blank\">%s</a>", $cacheUrl, $cacheSvcName, $cacheSvcName);
             $buf .= '</li>';
             }
         }

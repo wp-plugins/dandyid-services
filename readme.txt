@@ -422,9 +422,13 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 
 4. The DandyID Services settings page.
 
-5. The DandyID Services settings page, Chinese.
+5. The DandyID Services settings page in Chinese.
 
 == Change History ==
+
+= Rev 1.4.9  2009-Mar-28 =
+
+- Opens clicked-links in new browser window.
 
 = Rev 1.4.8  2009-Mar-22 =
 
