@@ -23,6 +23,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 
 * 12seconds
 * 30 Boxes
+* 43marks
 * 43 People
 * 43 Places
 * 43 Things
@@ -37,12 +38,15 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Amie Street
 * ArtWanted
 * Ask500People
+* Associated Content
 * BackType
 * Badoo
 * Bambuser
 * Bebo
 * Behance Network
 * Big Contact
+* Bikejournal
+* Biznik
 * BlackPlanet
 * Blinklist
 * Blip.fm
@@ -90,6 +94,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Diigo
 * Dipity
 * Discogs
+* Discogs Label
 * Disqus
 * Dodgeball
 * Dopplr
@@ -140,6 +145,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Humble Voice
 * Hype Machine
 * Hyves
+* I Can Has Cheezburger?
 * ICQ
 * identi.ca
 * identoo
@@ -164,6 +170,8 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Kiva
 * Lala
 * last.fm
+* Last.fm Label
+* Last.fm Music
 * LetsMakeRobots
 * LibraryThing
 * lifestream.fm
@@ -171,6 +179,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * LinkedIn
 * LiveJournal
 * Ma.gnolia
+* MapMyRide
 * My Mashable
 * Meetup
 * Mister Wong
@@ -181,6 +190,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Mufin
 * Multiply
 * MyBlogLog
+* My Cycling Log
 * MyFolio
 * myOpenID
 * MySpace
@@ -312,6 +322,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * YouTube
 * YouVersion
 * YowTrip
+* Zannel
 * Zazzle
 * Zedge
 * Ziki
@@ -425,6 +436,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 5. The DandyID Services settings page in Chinese.
 
 == Change History ==
+
+= Rev 1.5.0  2009-Apr-02 =
+
+- Added new DandyID services.
 
 = Rev 1.4.9  2009-Mar-28 =
 
