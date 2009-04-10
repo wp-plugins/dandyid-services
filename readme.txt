@@ -437,6 +437,11 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 
 == Change History ==
 
+= Rev 1.5.1  2009-Apr-10 =
+
+- Updated title tag to display detailed link url.
+- "Show Favicons only" option now places the "Powered by DandyID" text on separate line.
+
 = Rev 1.5.0  2009-Apr-02 =
 
 - Added new DandyID services.
