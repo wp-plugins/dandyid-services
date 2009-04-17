@@ -9,15 +9,15 @@ Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, You
 
 == Description ==
 
-**[DandyID](http://dandyid.org/) is a free service that enables you to connect, manage, and share all of your social identifiers from a single location.**
+**[DandyID](http://dandyid.org/) is a free service that enables you to connect, manage, and share all of your online identities from a single location.**
 
 **The DandyID Services Plugin:**
 
-* Retrieves all of your online identities from DandyID.
-* Displays them in your sidebar as convenient **clickable links**.
+* Retrieves all of your DandyID online identities.
+* Displays them as **clickable links** in your blog sidebar.
 * Please see the [Screenshots](http://wordpress.org/extend/plugins/dandyid-services/screenshots/) for examples.
 
-When you update your social identifiers on DandyID, they are automatically updated in your sidebar.
+When you update your identities on DandyID, they are **automatically** updated in your sidebar.
 
 **DandyID currently supports over 300 services including:**
 
@@ -36,6 +36,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Amazon
 * Amazon Wish List
 * Amie Street
+* aNobii
 * ArtWanted
 * Ask500People
 * Associated Content
@@ -68,6 +69,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * carbonmade
 * Change.org
 * Chickipedia
+* Chi.mp
 * claimID
 * Clipmarks
 * Cluztr
@@ -122,6 +124,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Funny or Die
 * Furl
 * Fuzz
+* Gaia
 * gamerDNA
 * GameSpot
 * Gcast
@@ -164,6 +167,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * iTunes PodCast
 * Jaiku
 * JamBase
+* JamLegend
 * Jumpcut
 * Kaboodle
 * Kirtsy
@@ -189,12 +193,13 @@ When you update your social identifiers on DandyID, they are automatically updat
 * momentile
 * Mufin
 * Multiply
+* My Alltop
 * MyBlogLog
 * My Cycling Log
 * MyFolio
 * myOpenID
 * MySpace
-* MySXSW
+* My SXSW
 * NaNoWriMo
 * Naymz
 * Neopets
@@ -241,6 +246,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Ryze
 * Scribd
 * Seesmic
+* Serious Eats
 * ShareThis
 * Shelfari
 * Simpy
@@ -299,6 +305,7 @@ When you update your social identifiers on DandyID, they are automatically updat
 * Vodpod
 * Vox
 * Wakoopa
+* Weavemet
 * Webshots
 * We Heart It
 * WhatPulse
@@ -436,6 +443,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 5. The DandyID Services settings page in Chinese.
 
 == Change History ==
+
+= Rev 1.5.2  2009-Apr-17 =
+
+- Added new DandyID services.
 
 = Rev 1.5.1  2009-Apr-10 =
 
