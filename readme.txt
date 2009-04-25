@@ -1,6 +1,6 @@
 === DandyID Services ===
 Contributors: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
-Tags: admin, bookmark, bookmarking, bookmarks, community, Dandy, DandyID, Delicious, email, e-mail, favicon, favicons, Facebook, Flickr, identity, Google, LinkedIn, manage, myspace, OAuth, OpenID, profile, services, sidebar, social, social bookmarking, social bookmarks, Twitter, widget, Yahoo, YouTube
+Tags: admin, bookmark, bookmarking, bookmarks, community, Dandy, DandyID, Delicious, email, e-mail, favicon, favicons, Facebook, Flickr, identity, Google, LinkedIn, myspace, OAuth, OpenID, profile, services, sidebar, social, social bookmarking, social bookmarks, Twitter, widget, Yahoo, YouTube
 Requires at least: 2.0
 Tested up to: 2.7.1
 Stable tag: trunk
@@ -111,12 +111,14 @@ When you update your identities on DandyID, they are **automatically** updated i
 * Etsy
 * Extratasty
 * Facebook
+* Facebook Pages
 * FanFiction
 * Favtape
 * Ffffound
 * Finetune
 * Flickr
 * Flixster
+* FoodFeed
 * Fotolog
 * Fotonauts
 * FriendFeed
@@ -135,6 +137,7 @@ When you update your identities on DandyID, they are **automatically** updated i
 * Goodreads
 * Goodreads Author
 * Goodrec
+* Google Profiles
 * Google Reader
 * Grabb.it
 * Groovr
@@ -312,6 +315,8 @@ When you update your identities on DandyID, they are **automatically** updated i
 * Where's George?
 * Wikipedia English
 * Wikipedia Spanish
+* Windows Live Profiles
+* Windows Live Spaces
 * Wink
 * Wishlistr
 * Wordie
@@ -443,6 +448,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 5. The DandyID Services settings page in Chinese.
 
 == Change History ==
+
+= Rev 1.5.3  2009-Apr-25 =
+
+- Added new DandyID services.
 
 = Rev 1.5.2  2009-Apr-17 =
 
