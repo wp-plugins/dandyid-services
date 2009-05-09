@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DandyID Services 1.5.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-11 00:54+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Georg S. Adamsen <wordpress@blogos.dk>\n"
+"Language-Team: Team Blogos <wordpress@blogos.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2;plural=n != 1;\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_c;_e;__ngettext:1,2;__ngettext_noop:1,2\n"
+"X-Poedit-Basepath: d:\\wordpress\\plugins\\dandyid-services\n"
+"X-Poedit-SearchPath-0: d:\\wordpress\\plugins\\dandyid-services\n"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:315
+msgid "Please enter your DandyID Service Plugin options:"
+msgstr "Indtast venligst dine indstillinger for pluginnet DandyID Services:"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:316
+msgid "Email:"
+msgstr "E-mail:"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:317
+msgid "The email address you use to logon to DandyID."
+msgstr "E-mail-adressen, du bruger til at logge ind på DandyID."
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:318
+msgid "Title:"
+msgstr "Titel:"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:319
+msgid "The sidebar title to display."
+msgstr "Titlen, der skal vises på sidepanelet."
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:320
+msgid "Show Favicons and Text-links"
+msgstr "Vis favicons og tekst-links"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:321
+msgid "Show Favicons only"
+msgstr "Vis kun favicons"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:322
+msgid "Show Text-links only"
+msgstr "Vis kun tekst-links"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:323
+msgid "Show Powered by DandyID"
+msgstr "Vis Powered by DandyID"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:324
+msgid "Hide Powered by DandyID"
+msgstr "Skjul Powered by DandyID"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:325
+msgid "Save"
+msgstr "Gem"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:326
+msgid "View Change Log"
+msgstr "Se Ændringsloggen"
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:327
+msgid "of past updates to the DandyID Services Plugin."
+msgstr "over tidligere opdateringer til DandyID Services-pluginnet."
+
+#: d:\wordpress\plugins\dandyid-services/dandyid-services.php:328
+msgid "DandyID Service options saved successfully."
+msgstr "DandyID Services-indstillingerne gemt uden problemer."
+
