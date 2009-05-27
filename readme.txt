@@ -449,6 +449,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 
 == Change History ==
 
+= Rev 1.5.5  2009-May-26 =
+
+- Added Belorussian translation files. Thanks to [Marcis Gasuns](http://fatcow.com) for providing the translations.
+
 = Rev 1.5.4  2009-May-09 =
 
 - Added Danish translation files. Thanks [Georg S. Adamsen](http://wordpress.blogos.dk) for providing the translations.
