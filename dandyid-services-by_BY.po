@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: dandyid-services\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-15 19:57-0700\n"
+"PO-Revision-Date: 2009-05-26 23:48+0300\n"
+"Last-Translator: Илья <mrilyuha@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Belarusian\n"
+"X-Poedit-Country: BELARUS\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: dandyid-services.php:312
+msgid "Please enter your DandyID Service Plugin options:"
+msgstr "Калі ласка, увядзіце Ваш DandyID службы на гэтай старонцы:"
+
+#: dandyid-services.php:313
+msgid "Email:"
+msgstr "Электронная пошта:"
+
+#: dandyid-services.php:314
+msgid "The email address you use to logon to DandyID."
+msgstr "Адрас электроннай пошты, які вы выкарыстаеце для ўваходу ў DandyID."
+
+#: dandyid-services.php:315
+msgid "Title:"
+msgstr "тытул:"
+
+#: dandyid-services.php:316
+msgid "The sidebar title to display."
+msgstr "Бакавая панэль для адлюстравання назову."
+
+#: dandyid-services.php:317
+msgid "Show Favicons and Text-links"
+msgstr "Паказаць значкі і тэкст спасылкі"
+
+#: dandyid-services.php:318
+msgid "Show Favicons only"
+msgstr "Паказваць толькі значкі"
+
+#: dandyid-services.php:319
+msgid "Show Text-links only"
+msgstr "Паказаць Тэкст спасылкі толькі"
+
+#: dandyid-services.php:320
+msgid "Show Powered by DandyID"
+msgstr "паказваць Powered by DandyID"
+
+#: dandyid-services.php:321
+msgid "Hide Powered by DandyID"
+msgstr "хаваць Powered by DandyID"
+
+#: dandyid-services.php:322
+msgid "Save"
+msgstr "ратаваць"
+
+#: dandyid-services.php:323
+msgid "View Change Log"
+msgstr "Спіс змен"
+
+#: dandyid-services.php:324
+msgid "of past updates to the DandyID Services Plugin."
+msgstr "мінулага абнаўленні DandyID Паслугі ўбудовы."
+
+#: dandyid-services.php:325
+msgid "DandyID Service options saved successfully."
+msgstr "Служба DandyID гэтую паспяхова захаваныя."
+
+#~ msgid "Theme-alignment OK"
+#~ msgstr "Тэма ўзгаднення OK"
+#~ msgid ""
+#~ "Theme-alignment NEEDS FIX (Choose this setting ONLY if you observe "
+#~ "alignment problems after activation)"
+#~ msgstr ""
+#~ "Тэма ўзгаднення ЗАПАТРАБАВАННЯЎ FIX (Вылучыце гэты параметр, толькі калі "
+#~ "вы назіраеце выраўнаванне праблем пасля актывацыі)"
+
