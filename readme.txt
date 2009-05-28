@@ -449,6 +449,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 
 == Change History ==
 
+= Rev 1.5.6  2009-May-28 =
+
+- Removed display of title (tool tip) when cursor is hovered over social identity links.
+
 = Rev 1.5.5  2009-May-26 =
 
 - Added Belorussian translation files. Thanks to [Marcis Gasuns](http://fatcow.com) for providing the translations.
