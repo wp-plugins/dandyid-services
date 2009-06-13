@@ -72,6 +72,7 @@ When you update your identities on DandyID, they are **automatically** updated i
 * Chi.mp
 * claimID
 * Clipmarks
+* Cliqset
 * Cluztr
 * coComment
 * COLOURlovers
@@ -171,6 +172,7 @@ When you update your identities on DandyID, they are **automatically** updated i
 * Jaiku
 * JamBase
 * JamLegend
+* Joost
 * Jumpcut
 * Kaboodle
 * Kirtsy
@@ -184,13 +186,16 @@ When you update your identities on DandyID, they are **automatically** updated i
 * lifestream.fm
 * Lijit
 * LinkedIn
+* LinkedIn Company
 * LiveJournal
 * Ma.gnolia
 * MapMyRide
 * My Mashable
 * Meetup
+* Mendeley
 * Mister Wong
 * Mixx
+* Mobypicture
 * Modelmayhem
 * MoFuse
 * momentile
@@ -237,6 +242,7 @@ When you update your identities on DandyID, they are **automatically** updated i
 * Qype
 * Raptr
 * Rate Your Music
+* Ravelry
 * Reader2
 * RedBubble
 * Reddit
@@ -258,6 +264,7 @@ When you update your identities on DandyID, they are **automatically** updated i
 * Skyrock
 * SlideShare
 * Snooth
+* socialmedian
 * Socialthing
 * SocialURL
 * soup.io
@@ -267,11 +274,13 @@ When you update your identities on DandyID, they are **automatically** updated i
 * Steam
 * Streem
 * Stumbleupon
+* Stumpedia
 * Swurl
 * Tag Foot
 * Tagged
 * Taringa!
 * Technorati
+* Ted
 * The DJ List
 * Thesixtyone
 * ThisNext
@@ -448,6 +457,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 5. The DandyID Services settings page in Chinese.
 
 == Change History ==
+
+= Rev 1.5.7  2009-Jun-13 =
+
+- Added new DandyID services.
 
 = Rev 1.5.6  2009-May-28 =
 
