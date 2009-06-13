@@ -2,7 +2,7 @@
 Contributors: Neil Simon, Sara Czyzewicz, Arron Kallenberg, Dan Perron, Anthony Dimitre
 Tags: admin, bookmark, bookmarking, bookmarks, community, Dandy, DandyID, Delicious, email, e-mail, favicon, favicons, Facebook, Flickr, identity, Google, LinkedIn, myspace, OAuth, OpenID, profile, services, sidebar, social, social bookmarking, social bookmarks, Twitter, widget, Yahoo, YouTube
 Requires at least: 2.0
-Tested up to: 2.7.1
+Tested up to: 2.8
 Stable tag: trunk
 
 Displays all of your online identities (Twitter, Facebook, Flickr, LinkedIn, YouTube, more) as clickable links in your sidebar.
@@ -457,6 +457,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 5. The DandyID Services settings page in Chinese.
 
 == Change History ==
+
+= Rev 1.5.8  2009-Jun-13 =
+
+- Tested with WordPress 2.8.
 
 = Rev 1.5.7  2009-Jun-13 =
 
