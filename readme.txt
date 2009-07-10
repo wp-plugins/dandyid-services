@@ -458,6 +458,10 @@ When "Theme-alignment NEEDS FIX" is chosen, the DandyID plugin generates a closi
 
 == Change History ==
 
+= Rev 1.5.9  2009-Jul-09 =
+
+- Added service-name tooltip to each displayed favicon, when configured for "Favicons Only".
+
 = Rev 1.5.8  2009-Jun-13 =
 
 - Tested with WordPress 2.8.
